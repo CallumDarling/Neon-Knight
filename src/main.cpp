@@ -1,40 +1,11 @@
 #include <SFML/Graphics.hpp>
 #include <cstdlib>
 #include <cassert>
+#include "headers/ResourceHandler.h"
 
 namespace Textures{
-    enum ID { Landscape, Plane, Missile};
+     enum ID { Landscape, Plane, Missile};
 }
-template <typename Resource, typename Identifier>
-class ResourceHolder{
-    public:
-        void load(Identifier id, const std::string& filename);
-        sf::Resource& get(Identifier id);
-        const sf::Resource& get(Identifier id) const;
-    private:
-        std::map<Identifier,
-        std::unique_ptr<sf::Resource>> mResourceMap;
-};
-
-    void ResourceHolder::load(Identifier id, const std::string& filename){
-        std::unique_ptr<sf::Resource> Resource(new sf::Resource());
-        if(!Resource->loadFromFile(filename)){
-            throw std::runtime_error("ResourceHolder::load - Failed to load" + filename);
-        }
-        auto inserted = mResourceMap.insert(std::make_pair(id, std::move(Resource)));
-        assert(inserted.second);
-    }
-    
-
-    sf::Resource& ResourceHolder::get(Identifier id){
-        auto found = mResourceMap.find(id);
-        assert(found != mResourceMap.end());
-        return *found->second;
-    }
-    const sf::Resource& ResourceHolder::get(Identifier id) const{
-        auto found = mResourceMap.find(id);
-        return *found->second;
-    }
 
 class Game{
     public:
@@ -55,7 +26,7 @@ class Game{
         sf::RenderWindow mWindow;
         sf::Texture mTexture;
         sf::Sprite mPlayer;
-        ResourceHolder textures;
+        ResourceHandler<sf::Texture, Textures::ID> textures;
         const sf::Time TimePerFrame = sf::seconds(1.f/60.f);
 
 };
@@ -71,13 +42,11 @@ class Game{
     // }
 
 Game::Game(): 
-    mWindow(sf::VideoMode(1600,900), "SFML Application"),
-    textures(){
-        textures.load(Textures::Plane, "att2.png");
-    }
+    mWindow(sf::VideoMode(1600,900), "SFML Application"){}
 
 
 void Game::run(){
+    textures.load(Textures::Plane, "att2.png");
     mPlayer.setTexture(textures.get(Textures::Plane));
     mPlayer.scale(sf::Vector2f(3.f,3.f));
     sf::Clock clock;
