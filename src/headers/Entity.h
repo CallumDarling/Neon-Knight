@@ -1,3 +1,7 @@
+#ifndef ENTITY
+#define ENTITY
+
+
 #include <SFML/Graphics.hpp>
 
 class Entity{
@@ -9,3 +13,4 @@ class Entity{
         sf::Vector2f mVelocity;
 };
 
+#endif

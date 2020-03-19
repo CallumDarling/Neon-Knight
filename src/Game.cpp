@@ -5,6 +5,11 @@
 #include "headers/ResourceHandler.h"
 #include "headers/Game.h"
 
+Game::Game(): 
+    mWindow(sf::VideoMode(1600,900), "SFML Application"){
+        mWindow.setKeyRepeatEnabled(false);
+    }
+
 void Game::run(){
     std::cout << "bruh" << std::endl;
     textures.load(Textures::Plane, "att2.png");

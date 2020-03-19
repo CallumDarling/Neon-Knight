@@ -1,3 +1,6 @@
+#ifndef ENEMY
+#define ENEMY
+
 # include "Entity.h"
 
 class Enemy : public Entity{
@@ -11,5 +14,7 @@ class Enemy : public Entity{
         explicit Enemy(Type type);
 
     private:
-        Type mType
+        Type mType;
 };
+
+#endif

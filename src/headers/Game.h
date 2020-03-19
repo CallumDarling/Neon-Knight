@@ -1,3 +1,6 @@
+#ifndef GAME
+#define GAME
+
 #include <SFML/Graphics.hpp>
 #include <cstdlib>
 #include <cassert>
@@ -31,6 +34,7 @@ class Game{
 
 };
 
+#endif
 
     // mTexture(),
     // mPlayer(){
