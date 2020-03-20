@@ -11,9 +11,11 @@ Game::Game():
     }
 
 void Game::run(){
-    std::cout << "bruh" << std::endl;
-    textures.load(Textures::Plane, "att2.png");
-    mPlayer.setTexture(textures.get(Textures::Plane));
+    // std::cout << "Running" << std::endl;
+    textures.load(Textures::Player, "media/textures/att2.png");
+    textures.load(Textures::Henchman, "media/textures/hench1.png");
+    textures.load(Textures::Boss, "media/textures/boss1.png");
+    mPlayer.setTexture(textures.get(Textures::Boss));
     mPlayer.scale(sf::Vector2f(3.f,3.f));
     sf::Clock clock;
     sf::Time timeSinceLastUpdate = sf::Time::Zero;

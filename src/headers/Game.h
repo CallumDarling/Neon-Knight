@@ -7,7 +7,7 @@
 #include "ResourceHandler.h"
 
 namespace Textures{
-     enum ID { Landscape, Plane, Missile};
+     enum ID { Landscape, Player, Henchman, Boss};
 }
 
 class Game{
