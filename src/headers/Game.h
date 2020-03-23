@@ -29,6 +29,8 @@ class Game{
         sf::RenderWindow mWindow;
         sf::Texture mTexture;
         sf::Sprite mPlayer;
+        sf::Sprite mBoss;
+        sf::Sprite mHench;
         ResourceHandler<sf::Texture, Textures::ID> textures;
         const sf::Time TimePerFrame = sf::seconds(1.f/60.f);
 

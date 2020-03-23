@@ -4,7 +4,7 @@
 
 #include <SFML/Graphics.hpp>
 
-class Entity{
+class Entity : public sf::Drawable{
     public:
         void setVelocity(sf::Vector2f velocity);
         void setVelocity(float vx, float vy);

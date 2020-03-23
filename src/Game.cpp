@@ -15,8 +15,12 @@ void Game::run(){
     textures.load(Textures::Player, "media/textures/att2.png");
     textures.load(Textures::Henchman, "media/textures/hench1.png");
     textures.load(Textures::Boss, "media/textures/boss1.png");
-    mPlayer.setTexture(textures.get(Textures::Boss));
+    mPlayer.setTexture(textures.get(Textures::Player));
     mPlayer.scale(sf::Vector2f(3.f,3.f));
+    mHench.setTexture(textures.get(Textures::Henchman));
+    mHench.scale(sf::Vector2f(3.f,3.f));
+    mBoss.setTexture(textures.get(Textures::Boss));
+    mBoss.scale(sf::Vector2f(3.f,3.f));
     sf::Clock clock;
     sf::Time timeSinceLastUpdate = sf::Time::Zero;
     while(mWindow.isOpen()){
@@ -77,10 +81,13 @@ void Game::update(sf::Time deltaTime){
         movement.x += 350.f;
     }  
     mPlayer.move(movement * deltaTime.asSeconds());
+    mHench.move(movement);
 }
 
 void Game::render(){
     mWindow.clear();
     mWindow.draw(mPlayer);
+    mWindow.draw(mHench);
+    mWindow.draw(mBoss);
     mWindow.display();
 }
