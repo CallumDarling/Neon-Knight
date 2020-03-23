@@ -6,6 +6,7 @@
 
 class Entity : public sf::Drawable{
     public:
+        void draw(sf::RenderTarget& target, sf::RenderStates states);
         void setVelocity(sf::Vector2f velocity);
         void setVelocity(float vx, float vy);
         sf::Vector2f getVelocity() const;

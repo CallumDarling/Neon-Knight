@@ -14,3 +14,7 @@ void Entity::setVelocity(float vx, float vy){
 sf::Vector2f Entity::getVelocity() const{
     return mVelocity;
 }
+
+void draw(sf::RenderTarget& target, sf::RenderStates states){
+    int i = 0;
+}

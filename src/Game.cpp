@@ -81,8 +81,9 @@ void Game::update(sf::Time deltaTime){
         movement.x += 350.f;
     }  
     mPlayer.move(movement * deltaTime.asSeconds());
-    mHench.move(movement);
+    mHench.move(movement * deltaTime.asSeconds());
 }
+
 
 void Game::render(){
     mWindow.clear();
