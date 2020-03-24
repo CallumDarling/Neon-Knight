@@ -1,6 +1,9 @@
 #include "headers/Entity.h"
 #include <SFML/Graphics.hpp>
 
+Entity::Entity(sf::Texture& tex){
+    mSprite.setTexture(tex);
+}
 
 void Entity::setVelocity(sf::Vector2f velocity){
     mVelocity = velocity;
@@ -15,6 +18,6 @@ sf::Vector2f Entity::getVelocity() const{
     return mVelocity;
 }
 
-void draw(sf::RenderTarget& target, sf::RenderStates states){
-    int i = 0;
+void Entity::draw(sf::RenderTarget& target){
+    target.draw(mSprite);
 }

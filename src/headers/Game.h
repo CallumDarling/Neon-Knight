@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <cassert>
 #include "ResourceHandler.h"
+#include "Entity.h"
 
 namespace Textures{
      enum ID { Landscape, Player, Henchman, Boss};
@@ -21,6 +22,7 @@ class Game{
          
     private:
         void processEvents();
+        bool initTextures(std::vector<Entity>& entList);
         void update(sf::Time deltaTime);
         void render();
         void handlePlayerInput(sf::Keyboard::Key key, bool isPressed);
@@ -31,6 +33,7 @@ class Game{
         sf::Sprite mPlayer;
         sf::Sprite mBoss;
         sf::Sprite mHench;
+        std::vector<Entity> entList;
         ResourceHandler<sf::Texture, Textures::ID> textures;
         const sf::Time TimePerFrame = sf::seconds(1.f/60.f);
 

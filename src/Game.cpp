@@ -5,24 +5,46 @@
 #include "headers/ResourceHandler.h"
 #include "headers/Game.h"
 
+
+
 Game::Game(): 
     mWindow(sf::VideoMode(1600,900), "SFML Application"){
         mWindow.setKeyRepeatEnabled(false);
     }
 
+bool Game::initTextures(std::vector<Entity>& eList){
+    try{
+        textures.load(Textures::Player, "media/textures/att2.png");
+        textures.load(Textures::Henchman, "media/textures/hench1.png");
+        textures.load(Textures::Boss, "media/textures/boss1.png");
+    }catch(const std::exception& e){
+        return 0;
+    }
+    Entity e(textures.get(Textures::Player));
+    eList.push_back(e);
+    Entity ee(textures.get(Textures::Henchman));
+    eList.push_back(ee);
+    Entity eee(textures.get(Textures::Boss));
+    eList.push_back(eee);
+    return 1;
+}
+
+
 void Game::run(){
+    initTextures(entList);
     // std::cout << "Running" << std::endl;
-    textures.load(Textures::Player, "media/textures/att2.png");
-    textures.load(Textures::Henchman, "media/textures/hench1.png");
-    textures.load(Textures::Boss, "media/textures/boss1.png");
-    mPlayer.setTexture(textures.get(Textures::Player));
-    mPlayer.scale(sf::Vector2f(3.f,3.f));
-    mHench.setTexture(textures.get(Textures::Henchman));
-    mHench.scale(sf::Vector2f(3.f,3.f));
-    mBoss.setTexture(textures.get(Textures::Boss));
-    mBoss.scale(sf::Vector2f(3.f,3.f));
+    // Entity e(textures.get(Textures::Player));
+    
+    // mPlayer.setTexture(textures.get(Textures::Player));
+    // mPlayer.scale(sf::Vector2f(3.f,3.f));
+    // mHench.setTexture(textures.get(Textures::Henchman));
+    // mHench.scale(sf::Vector2f(3.f,3.f));
+    // mBoss.setTexture(textures.get(Textures::Boss));
+    // mBoss.scale(sf::Vector2f(3.f,3.f));
     sf::Clock clock;
     sf::Time timeSinceLastUpdate = sf::Time::Zero;
+
+
     while(mWindow.isOpen()){
         // sf::Time deltaTime = clock.restart();
         processEvents();
@@ -32,7 +54,14 @@ void Game::run(){
             processEvents();
             update(TimePerFrame);
         }
-        render();
+        // render();
+        mWindow.clear();
+        mWindow.draw(mPlayer);
+        for(std::size_t i=0; i<entList.size(); ++i) {
+            entList[i].draw(mWindow);
+        }
+        // e.draw(mWindow);
+        mWindow.display();
     }
 }
 
@@ -81,14 +110,15 @@ void Game::update(sf::Time deltaTime){
         movement.x += 350.f;
     }  
     mPlayer.move(movement * deltaTime.asSeconds());
-    mHench.move(movement * deltaTime.asSeconds());
+    //mHench.move(movement * deltaTime.asSeconds());
 }
 
 
-void Game::render(){
-    mWindow.clear();
-    mWindow.draw(mPlayer);
-    mWindow.draw(mHench);
-    mWindow.draw(mBoss);
-    mWindow.display();
-}
+// void Game::render(){
+//     mWindow.clear();
+//     mWindow.draw(mPlayer);
+//     // mWindow.draw(mHench);
+//     // mWindow.draw(mBoss);
+//     e.draw(mWindow);
+//     mWindow.display();
+// }

@@ -3,7 +3,7 @@
 
 # include "Entity.h"
 
-class Enemy : public Entity{
+class Enemy{
     public:
         enum Type{
             Henchman,
