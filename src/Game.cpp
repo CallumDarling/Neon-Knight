@@ -113,6 +113,7 @@ void Game::update(sf::Time deltaTime){
         bool c = true;
         entList[i].setVelocity(0.f,100.f * deltaTime.asSeconds());
         entList[0].setVelocity(movement * deltaTime.asSeconds());
+        entList[i].move();
         for(std::size_t j=0; j<entList.size(); ++j) {
             if(entList[i].getBoundingBox().intersects(entList[j].getBoundingBox()) && i!=j){
                 std::cout << "intersects:" << i << " " << j << std::endl;
@@ -121,7 +122,8 @@ void Game::update(sf::Time deltaTime){
             }
             
         }
-        if(c){
+        if(!c){
+            entList[i].setVelocity(entList[i].getVelocity()*-1.f);
             entList[i].move();
         }
         
