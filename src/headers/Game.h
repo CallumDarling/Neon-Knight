@@ -29,6 +29,7 @@ class Game{
 
     private:
         sf::RenderWindow mWindow;
+        sf::View worldView;
         sf::Texture mTexture;
         sf::Sprite mPlayer;
         sf::Sprite mBoss;
