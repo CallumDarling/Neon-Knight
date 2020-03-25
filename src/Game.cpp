@@ -32,20 +32,11 @@ bool Game::initTextures(std::vector<Entity>& eList){
 
 void Game::run(){
     initTextures(entList);
-    // std::cout << "Running" << std::endl;
-    // Entity e(textures.get(Textures::Player));
-    
-    // mPlayer.setTexture(textures.get(Textures::Player));
-    // mPlayer.scale(sf::Vector2f(3.f,3.f));
-    // mHench.setTexture(textures.get(Textures::Henchman));
-    // mHench.scale(sf::Vector2f(3.f,3.f));
-    // mBoss.setTexture(textures.get(Textures::Boss));
-    // mBoss.scale(sf::Vector2f(3.f,3.f));
     sf::Clock clock;
     sf::Time timeSinceLastUpdate = sf::Time::Zero;
 
-
     while(mWindow.isOpen()){
+
         // sf::Time deltaTime = clock.restart();
         processEvents();
         timeSinceLastUpdate += clock.restart();
@@ -54,13 +45,15 @@ void Game::run(){
             processEvents();
             update(TimePerFrame);
         }
+
+
         // render();
         mWindow.clear();
         mWindow.draw(mPlayer);
         for(std::size_t i=0; i<entList.size(); ++i) {
+            
             entList[i].draw(mWindow);
         }
-        // e.draw(mWindow);
         mWindow.display();
     }
 }
@@ -109,7 +102,14 @@ void Game::update(sf::Time deltaTime){
     }if(misMovingRight){
         movement.x += 350.f;
     }  
-    mPlayer.move(movement * deltaTime.asSeconds());
+    
+    
+    for(std::size_t i=0; i<entList.size(); ++i) {
+            entList[i].setVelocity(0.f,100.f * deltaTime.asSeconds());
+            entList[0].setVelocity(movement * deltaTime.asSeconds());
+            entList[i].move();
+        }
+    
     //mHench.move(movement * deltaTime.asSeconds());
 }
 

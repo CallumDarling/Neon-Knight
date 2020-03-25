@@ -1,8 +1,14 @@
 #include "headers/Entity.h"
 #include <SFML/Graphics.hpp>
 
+
 Entity::Entity(sf::Texture& tex){
     mSprite.setTexture(tex);
+    std::cout << tex.getSize().x+" : "+ tex.getSize().y; //<< std::endl;
+}
+
+void Entity::move(){
+    mSprite.move(mVelocity);
 }
 
 void Entity::setVelocity(sf::Vector2f velocity){

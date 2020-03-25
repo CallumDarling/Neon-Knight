@@ -4,6 +4,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "ResourceHandler.h"
+#include <iostream>
 
 class Entity{
     public:
@@ -11,6 +12,7 @@ class Entity{
         void draw(sf::RenderTarget& target);
         void setVelocity(sf::Vector2f velocity);
         void setVelocity(float vx, float vy);
+        void move();
  
         sf::Vector2f getVelocity() const;
     private:
