@@ -4,6 +4,7 @@
 #include <cassert>
 #include "headers/ResourceHandler.h"
 #include "headers/Game.h"
+#include "headers/LevelHandler.h"
 
 
 
@@ -34,6 +35,9 @@ bool Game::initTextures(std::vector<Entity>& eList){
         Entity eeee(textures.get(Textures::Block), i*20.f, 600.f, false);
         eList.push_back(eeee);
     }
+
+    LevelHandler lvlH;
+    lvlH.loadLevel("levels/lvl1")
     
     ;
     return 1;
