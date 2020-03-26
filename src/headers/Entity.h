@@ -16,6 +16,7 @@ class Entity{
         void setPostion(float vx, float vy);
         bool getGrav();
         void move();
+        void scale(float x, float y);
  
         sf::FloatRect getBoundingBox();
         sf::Vector2f getVelocity() const;

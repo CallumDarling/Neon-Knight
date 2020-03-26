@@ -22,10 +22,12 @@ class Game{
          
     private:
         void processEvents();
+        void initWindow();
         bool initTextures(std::vector<Entity>& entList);
         void update(sf::Time deltaTime);
         void render();
         void handlePlayerInput(sf::Keyboard::Key key, bool isPressed);
+
 
     private:
         sf::RenderWindow mWindow;

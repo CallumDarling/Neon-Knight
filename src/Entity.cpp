@@ -12,11 +12,15 @@ bool Entity::getGrav(){
     return hasGrav;
 }
 
-
+void Entity::scale(float x, float y){
+    mSprite.scale(x, y);
+}
 
 void Entity::move(){
     mSprite.move(mVelocity);
+    
 }
+
 
 
 

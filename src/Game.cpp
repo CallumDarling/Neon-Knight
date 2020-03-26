@@ -15,12 +15,12 @@ Game::Game():
     }
 
 bool Game::initTextures(std::vector<Entity>& eList){
-
     try{
         textures.load(Textures::Player, "media/textures/att2.png");
         textures.load(Textures::Henchman, "media/textures/hench1.png");
         textures.load(Textures::Boss, "media/textures/boss1.png");
         textures.load(Textures::Block, "media/textures/basicblock.png");
+        textures.load(Textures::Landscape, "media/textures/bg.jpg");
     }catch(const std::exception& e){
         return 0;
     }
@@ -69,16 +69,53 @@ void Game::handlePlayerInput(sf::Keyboard::Key key, bool isPressed){
     }
 }
 
+void Game::initWindow(){
+    // mWindow.setView(worldView);
+    sf::Vector2u wSize  = mWindow.getSize();
+    sf::Vector2f vSize = worldView.getSize();
+    float sizeX = 1, sizeY = 1;
+    float posX =0, posY = 0;
+    float wRat = (float) wSize.x / (float) wSize.y;
+    float vRat = vSize.x / vSize.y;
+    
+    std::cout << wSize.x << "w" << wSize.y << std::endl;
+    std::cout << vSize.x << "v" << vSize.y << std::endl;
+    // bool barsTop = true;
+    std::cout << "wRat " << wRat << std::endl;
+    std::cout << "vRat " << vRat << std::endl;
+    if(wRat==vRat){
+    }else if(wRat < vRat){
+        //bars at the top
+        std::cout << "barTop" << std::endl;
+        sizeY = wRat / vRat;
+        posY = (1-sizeY) / 2.f;
+
+    }else{
+        std::cout << "barSide" << std::endl;
+        sizeX = vRat / wRat;
+        posX = (1-sizeX) / 2.f; 
+    }
+    worldView.setViewport(sf::FloatRect(posX, posY, sizeX, sizeY));
+    // worldView.setCenter(entList[0].getPosition());
+    mWindow.setView(worldView);
+
+
+    // std::cout << "wS: "<<size.x << "x" << size.y << std::endl;
+
+}
+
 
 void Game::run(){
-    
-    mWindow.setView(worldView);
+    initWindow();
     initTextures(entList);
+
+    Entity o(textures.get(Textures::Landscape), -600.f, -200.f, false);
+    o.scale(0.5f, 0.5f);
+
+
     sf::Clock clock;
     sf::Time timeSinceLastUpdate = sf::Time::Zero;
-
     while(mWindow.isOpen()){
-
         // sf::Time deltaTime = clock.restart();
         processEvents();
         timeSinceLastUpdate += clock.restart();
@@ -90,7 +127,8 @@ void Game::run(){
 
         // render();
         mWindow.clear();
-        mWindow.draw(mPlayer);
+        o.draw(mWindow);
+        // mWindow.draw(mPlayer);
         worldView.setCenter(entList[0].getPosition());
         mWindow.setView(worldView);
 
@@ -127,7 +165,7 @@ void Game::update(sf::Time deltaTime){
         entList[i].move();
         for(std::size_t j=0; j<entList.size(); ++j) {
             if(entList[i].getBoundingBox().intersects(entList[j].getBoundingBox()) && i!=j){
-                std::cout << "intersects:" << i << " " << j << std::endl;
+                // std::cout << "intersects:" << i << " " << j << std::endl;
                 c = false;
                 
             }
