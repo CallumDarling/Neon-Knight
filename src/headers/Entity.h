@@ -8,13 +8,13 @@
 
 class Entity{
     public:
-        Entity(sf::Texture& tex, float posX, float posY);
+        Entity(sf::Texture& tex, float posX, float posY, bool grav);
         void draw(sf::RenderTarget& target);
         void setVelocity(sf::Vector2f velocity);
         void setVelocity(float vx, float vy);
         void setPostion(sf::Vector2f velocity);
         void setPostion(float vx, float vy);
-        
+        bool getGrav();
         void move();
  
         sf::FloatRect getBoundingBox();
@@ -23,6 +23,8 @@ class Entity{
     private:
         sf::Sprite mSprite;
         sf::Vector2f mVelocity;
+        bool hasGrav;
+
         
 };
 

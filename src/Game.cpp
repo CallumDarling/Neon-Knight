@@ -8,26 +8,34 @@
 
 
 Game::Game(): 
-    worldView(sf::FloatRect(32.f, 32.f, 1600.f, 900.f)),
-    mWindow(sf::VideoMode(1600,900), "SFML Application"){
+    worldView(sf::FloatRect(32.f, 32.f, 768.f, 432.f)),
+    mWindow(sf::VideoMode(1600,900), "SFML Application", sf::Style::Fullscreen){
         mWindow.setKeyRepeatEnabled(false);
-        
+        mWindow.setVerticalSyncEnabled(true);
     }
 
 bool Game::initTextures(std::vector<Entity>& eList){
+
     try{
         textures.load(Textures::Player, "media/textures/att2.png");
         textures.load(Textures::Henchman, "media/textures/hench1.png");
         textures.load(Textures::Boss, "media/textures/boss1.png");
+        textures.load(Textures::Block, "media/textures/basicblock.png");
     }catch(const std::exception& e){
         return 0;
     }
-    Entity e(textures.get(Textures::Player), 200.f, 200.f);
+    Entity e(textures.get(Textures::Player), 200.f, 200.f, true);
     eList.push_back(e);
-    Entity ee(textures.get(Textures::Henchman), 200.f, 0.f);
+    Entity ee(textures.get(Textures::Henchman), 202.f, 0.f, true);
     eList.push_back(ee);
-    Entity eee(textures.get(Textures::Boss), 200.f, 400.f);
+    Entity eee(textures.get(Textures::Boss), 200.f, 400.f, true);
     eList.push_back(eee);
+    for(int i=0; i<20; i++){
+        Entity eeee(textures.get(Textures::Block), i*20.f, 600.f, false);
+        eList.push_back(eeee);
+    }
+    
+    ;
     return 1;
 }
 
@@ -111,7 +119,10 @@ void Game::update(sf::Time deltaTime){
     
     for(std::size_t i=0; i<entList.size(); ++i) {
         bool c = true;
-        entList[i].setVelocity(0.f,100.f * deltaTime.asSeconds());
+        if(entList[i].getGrav()){
+            entList[i].setVelocity(0.f,100.f * deltaTime.asSeconds());
+        }
+        
         entList[0].setVelocity(movement * deltaTime.asSeconds());
         entList[i].move();
         for(std::size_t j=0; j<entList.size(); ++j) {

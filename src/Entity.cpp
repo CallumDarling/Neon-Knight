@@ -2,9 +2,14 @@
 #include <SFML/Graphics.hpp>
 
 
-Entity::Entity(sf::Texture& tex, float posX, float posY){
+Entity::Entity(sf::Texture& tex, float posX, float posY, bool grav){
     mSprite.setTexture(tex);
+    hasGrav = grav;
     setPostion(sf::Vector2f(posX,posY));
+}
+
+bool Entity::getGrav(){
+    return hasGrav;
 }
 
 

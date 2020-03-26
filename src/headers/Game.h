@@ -8,7 +8,7 @@
 #include "Entity.h"
 
 namespace Textures{
-     enum ID { Landscape, Player, Henchman, Boss};
+     enum ID { Landscape, Player, Henchman, Boss, Block};
 }
 
 class Game{
@@ -35,6 +35,7 @@ class Game{
         sf::Sprite mBoss;
         sf::Sprite mHench;
         std::vector<Entity> entList;
+        
         ResourceHandler<sf::Texture, Textures::ID> textures;
         const sf::Time TimePerFrame = sf::seconds(1.f/60.f);
 
