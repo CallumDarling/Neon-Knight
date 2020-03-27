@@ -5,16 +5,18 @@
 #include "ResourceHandler.h"
 #include <iostream>
 #include <fstream>
+#include "Entity.h"
+#include <sstream>
 
 
 class LevelHandler{
     public:
         LevelHandler();
-        int loadLevel(std::string fileName);
-
+        int loadLevel(std::string fileName,
+        ResourceHandler<sf::Texture, Textures::ID>& textures
+        ,std::vector<Entity>& entList);
     private:
         int i;
-
 
 };
 

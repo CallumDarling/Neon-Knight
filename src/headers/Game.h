@@ -4,12 +4,12 @@
 #include <SFML/Graphics.hpp>
 #include <cstdlib>
 #include <cassert>
+#include <iostream>
 #include "ResourceHandler.h"
+#include "LevelHandler.h"
 #include "Entity.h"
 
-namespace Textures{
-     enum ID { Landscape, Player, Henchman, Boss, Block};
-}
+
 
 class Game{
     public:
@@ -37,6 +37,8 @@ class Game{
         sf::Sprite mBoss;
         sf::Sprite mHench;
         std::vector<Entity> entList;
+        float playerJump = 0;
+        bool playerOnFloor = false;
         
         ResourceHandler<sf::Texture, Textures::ID> textures;
         const sf::Time TimePerFrame = sf::seconds(1.f/60.f);

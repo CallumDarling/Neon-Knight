@@ -1,10 +1,5 @@
-#include <SFML/Graphics.hpp>
-#include <cstdlib>
-#include <iostream>
-#include <cassert>
-#include "headers/ResourceHandler.h"
 #include "headers/Game.h"
-#include "headers/LevelHandler.h"
+
 
 
 
@@ -13,6 +8,7 @@ Game::Game():
     mWindow(sf::VideoMode(1600,900), "SFML Application", sf::Style::Fullscreen){
         mWindow.setKeyRepeatEnabled(false);
         mWindow.setVerticalSyncEnabled(true);
+        // mWindow.setFramerateLimit(60);
     }
 
 bool Game::initTextures(std::vector<Entity>& eList){
@@ -27,7 +23,7 @@ bool Game::initTextures(std::vector<Entity>& eList){
     }
     Entity e(textures.get(Textures::Player), 200.f, 200.f, true);
     eList.push_back(e);
-    Entity ee(textures.get(Textures::Henchman), 202.f, 0.f, true);
+    Entity ee(textures.get(Textures::Henchman), 250.f, 0.f, true);
     eList.push_back(ee);
     Entity eee(textures.get(Textures::Boss), 200.f, 400.f, true);
     eList.push_back(eee);
@@ -36,10 +32,6 @@ bool Game::initTextures(std::vector<Entity>& eList){
         eList.push_back(eeee);
     }
 
-    LevelHandler lvlH;
-    lvlH.loadLevel("levels/lvl1")
-    
-    ;
     return 1;
 }
 
@@ -70,7 +62,19 @@ void Game::handlePlayerInput(sf::Keyboard::Key key, bool isPressed){
         misMovingLeft = isPressed;
     }else if( key == sf::Keyboard::Right){
         misMovingRight = isPressed;
+    }else if( key == sf::Keyboard::SemiColon){
+        Entity player = entList[0];
+        entList.clear();
+        entList.push_back(player);
+        LevelHandler lvlH;
+        lvlH.loadLevel("levels/lvl1", textures , entList);
+    }else if( key == sf::Keyboard::Space){
+        if(playerOnFloor){
+            playerJump = 700;
+            playerOnFloor = false;
+        }
     }
+
 }
 
 void Game::initWindow(){
@@ -147,19 +151,25 @@ void Game::run(){
 
 void Game::update(sf::Time deltaTime){
 
-    sf::Vector2f movement(0.f, 0.f);
+    sf::Vector2f movement(0.f, (-1*playerJump)+270.f);
+    if(playerJump>-100){
+        playerJump-=20;
+    }else{
+        playerJump=0;
+    }
 
     if(misMovingUp){
-        movement.y -= 350.f;
+        // movement.y -= 470.f;
     }if(misMovingDown){
-        movement.y += 350.f;
+        // movement.y += 200.f;
     }if(misMovingLeft){
-        movement.x -= 350.f;
+        movement.x -= 300.f;
     }if(misMovingRight){
-        movement.x += 350.f;
+        movement.x += 300.f;
     }  
-    
+
     for(std::size_t i=0; i<entList.size(); ++i) {
+        std::vector<Entity> intersects;
         bool c = true;
         if(entList[i].getGrav()){
             entList[i].setVelocity(0.f,100.f * deltaTime.asSeconds());
@@ -171,13 +181,37 @@ void Game::update(sf::Time deltaTime){
             if(entList[i].getBoundingBox().intersects(entList[j].getBoundingBox()) && i!=j){
                 // std::cout << "intersects:" << i << " " << j << std::endl;
                 c = false;
-                
-            }
-            
+                intersects.push_back(entList[j]);
+            } 
         }
         if(!c){
-            entList[i].setVelocity(entList[i].getVelocity()*-1.f);
+            bool v = true;
+            sf::Vector2f vol = entList[i].getVelocity();
+            entList[i].setVelocity(vol.x*-1.f,0);
             entList[i].move();
+            for(std::size_t j=0; j<intersects.size(); ++j) {
+                if(entList[i].getBoundingBox().intersects(intersects[j].getBoundingBox())){
+                    v = false;
+                    if(i==0){
+                            playerOnFloor = true;
+                       }
+                    
+                }
+            }
+            if(!v){
+                bool b= true;
+                entList[i].setVelocity(vol.x,vol.y*-1.f);
+                entList[i].move();
+                for(std::size_t j=0; j<intersects.size(); ++j) {
+                    if(entList[i].getBoundingBox().intersects(intersects[j].getBoundingBox())){
+                       b = false;
+                    }
+                }
+                if(!b){
+                    entList[i].setVelocity(vol.x*-1.f,0);
+                    entList[i].move();
+                }
+            }
         }
         
     }
