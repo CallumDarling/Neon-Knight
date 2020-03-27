@@ -55,6 +55,5 @@ class Game{
     //     mPlayer.setTexture(mTexture);
     //     mPlayer.setPosition(100.f, 100.f); 
     //     mPlayer.scale(sf::Vector2f(3,3));
-
     // }
 
