@@ -39,6 +39,8 @@ class Game{
         std::vector<Entity> entList;
         float playerJump = 0;
         bool playerOnFloor = false;
+        bool playerOnRoof = false;
+        float overshoot = 0;
         
         ResourceHandler<sf::Texture, Textures::ID> textures;
         const sf::Time TimePerFrame = sf::seconds(1.f/60.f);
