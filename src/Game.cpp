@@ -6,7 +6,7 @@
 Game::Game(): 
     worldView(sf::FloatRect(32.f, 32.f, 768.f, 432.f)),
     mWindow(sf::VideoMode(1600,900), "SFML Application", sf::Style::Fullscreen){
-        mWindow.setKeyRepeatEnabled(false);
+        mWindow.setKeyRepeatEnabled(true);
         mWindow.setVerticalSyncEnabled(true);
         // mWindow.setFramerateLimit(60);
     }
@@ -23,14 +23,16 @@ bool Game::initTextures(std::vector<Entity>& eList){
     }
     Entity e(textures.get(Textures::Player), 200.f, 200.f, true);
     eList.push_back(e);
-    Entity ee(textures.get(Textures::Henchman), 250.f, 0.f, true);
-    eList.push_back(ee);
-    Entity eee(textures.get(Textures::Boss), 200.f, 400.f, true);
-    eList.push_back(eee);
-    for(int i=0; i<20; i++){
-        Entity eeee(textures.get(Textures::Block), i*20.f, 600.f, false);
-        eList.push_back(eeee);
-    }
+    LevelHandler lvlH;
+    lvlH.loadLevel("levels/lvl1", textures , entList);
+    // Entity ee(textures.get(Textures::Henchman), 250.f, 0.f, true);
+    // eList.push_back(ee);
+    // Entity eee(textures.get(Textures::Boss), 200.f, 400.f, true);
+    // eList.push_back(eee);
+    // for(int i=0; i<20; i++){
+    //     Entity eeee(textures.get(Textures::Block), i*20.f, 600.f, false);
+    //     eList.push_back(eeee);
+    // }
 
     return 1;
 }
@@ -70,7 +72,7 @@ void Game::handlePlayerInput(sf::Keyboard::Key key, bool isPressed){
         lvlH.loadLevel("levels/lvl1", textures , entList);
     }else if( key == sf::Keyboard::Space){
         if(playerOnFloor){
-            playerJump = 900;
+            playerJump = 1050;
             playerOnFloor = false;
         }
     }
@@ -93,8 +95,7 @@ void Game::initWindow(){
     std::cout << "vRat " << vRat << std::endl;
     if(wRat==vRat){
     }else if(wRat < vRat){
-        //bars at the top
-        std::cout << "barTop" << std::endl;
+        //bars at the topfalsel;
         sizeY = wRat / vRat;
         posY = (1-sizeY) / 2.f;
 
@@ -116,6 +117,8 @@ void Game::initWindow(){
 void Game::run(){
     initWindow();
     initTextures(entList);
+    entList[0].setOrigin(entList[0].getBoundingBox().width/2,
+                        entList[0].getBoundingBox().height/2);
 
     Entity o(textures.get(Textures::Landscape), -600.f, -200.f, false);
     o.scale(0.5f, 0.5f);
@@ -156,24 +159,24 @@ void Game::update(sf::Time deltaTime){
             playerJump = -1;
         }
     }
-    if(playerJump>-100){
-        playerJump-=20;
+    if(playerJump>-400){
+        playerJump-=40;
     }else{
         playerJump=-0;
     }
  
-    float playerGrav = 260.f;
+    float playerGrav = 270.f;
     // if(playerOnFloor){
     //     playerGrav = ;
     // }
 
     sf::Vector2f movement(0.f, (-1*playerJump)+playerGrav);
-    if(overshoot>0.00001){
+    // if(overshoot>0.00001){
         
-        movement.y = overshoot / deltaTime.asSeconds();
-        std::cout << "movY: " << movement.y << std::endl;
-    }
-    overshoot =0;
+    //     movement.y = overshoot / deltaTime.asSeconds();
+    //     std::cout << "movY: " << movement.y << std::endl;
+    // }
+    // overshoot =0;
     
     playerOnFloor = false;
     playerOnRoof = false;
@@ -183,16 +186,25 @@ void Game::update(sf::Time deltaTime){
     }if(misMovingDown){
         // movement.y += 200.f;
     }if(misMovingLeft){
-        movement.x -= 300.f;
+        movement.x -= 370.f;
+        if(entList[0].getFacing()){
+            entList[0].scale(-1.f, 1.f);
+            entList[0].setFacing(false);
+        }
+        
     }if(misMovingRight){
-        movement.x += 300.f;
+        movement.x += 370.f;
+        if(!entList[0].getFacing()){
+            entList[0].scale(-1.f, 1.f);
+            entList[0].setFacing(true);
+        }
     }  
 
     for(std::size_t i=0; i<entList.size(); ++i) {
         std::vector<Entity> intersects;
         bool c = true;
         if(entList[i].getGrav()){
-            entList[i].setVelocity(0.f,300.f * deltaTime.asSeconds());
+            entList[i].setVelocity(0.f,390.f * deltaTime.asSeconds());
         }
         sf::FloatRect entBox = entList[i].getBoundingBox();
         // std::cout << "mov: " << movement.x << ":" << movement.y  << playerOnFloor << std::endl;
@@ -206,34 +218,47 @@ void Game::update(sf::Time deltaTime){
             } 
         }
         if(!c){
+            float overshoot = 0;
+            float xOvershoot = 0;
             float yMult = 0;
             float xMult = 0;
             sf::Vector2f entVol = entList[i].getVelocity();
             for(std::size_t j=0; j<intersects.size(); ++j) {
+                // std::cout << "________________________" << std::endl;
                 sf::FloatRect intBox = intersects[j].getBoundingBox();
                 if(entBox.top+entBox.height<=intBox.top){
+                    // std::cout << "IntBot" << std::endl;
                     if(i==0){
                         playerOnFloor = true;
-                        std::cout << "entVol.y: " << entVol.y << " | entBox.bot: " 
-                        << entBox.top + entBox.height << " | intBox.top: " << intBox.top;
-                        overshoot =   (intBox.top-(entBox.top+entBox.height));
-                        std::cout << " | overshoot: " << overshoot << std::endl;
                     }
+                    // std::cout << "entVol.y: " << entVol.y << " | entBox.bot: " 
+                    // << entBox.top + entBox.height << " | intBox.top: " << intBox.top;
+                    overshoot = (intBox.top-(entBox.top+entBox.height));
+                    // std::cout << " | overshoot: " << overshoot << std::endl;
                     yMult = -1.f;
                 }else if(entBox.left+entBox.width<=intBox.left){
+                    std::cout << "IntLeft: " << entBox.left << std::endl;
+                    xOvershoot = (entBox.left-(intBox.left+intBox.width));
                     xMult = -1.f;
                 }else if(entBox.left>=intBox.left+intBox.width){
+                    xOvershoot = (intBox.left-(entBox.left+entBox.width))*-1.f;
+                    std::cout << "IntRight" << std::endl;
                     xMult = -1.f;
                 }
                 if(entBox.top>=intBox.top+intBox.height){
+                    std::cout << "IntTop" << std::endl;
                     if(i==0){
+                        overshoot = (entBox.top-(intBox.top+intBox.height))*-1.f;
                         playerOnRoof = true;
                     }
                     yMult = -1.f;
                 }
                 
             }
-            entList[i].setVelocity(entVol.x*xMult, entVol.y*yMult);
+            
+            // entList[i].setVelocity(0, overshoot);
+            // entList[i].move();
+            entList[i].setVelocity(entVol.x*xMult, (entVol.y*yMult)+overshoot);
             entList[i].move();
         }
 

@@ -5,7 +5,13 @@
 Entity::Entity(sf::Texture& tex, float posX, float posY, bool grav){
     mSprite.setTexture(tex);
     hasGrav = grav;
+    // mSprite.setOrigin(mSprite.getGlobalBounds().width/2,mSprite.getGlobalBounds().height/2);
     setPostion(sf::Vector2f(posX,posY));
+    
+}
+
+void Entity::setOrigin(float x, float y){
+    mSprite.setOrigin(x,y);
 }
 
 bool Entity::getGrav(){
@@ -19,6 +25,14 @@ void Entity::scale(float x, float y){
 void Entity::move(){
     mSprite.move(mVelocity);
     
+}
+
+bool Entity::getFacing(){
+    return facingRight;
+}
+
+void Entity::setFacing(bool fRight){
+    facingRight = fRight;
 }
 
 

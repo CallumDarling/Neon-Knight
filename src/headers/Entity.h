@@ -17,14 +17,19 @@ class Entity{
         bool getGrav();
         void move();
         void scale(float x, float y);
- 
+        bool getFacing();
+        void setFacing(bool facingRight);
+        
+        void setOrigin(float x, float y);
         sf::FloatRect getBoundingBox();
         sf::Vector2f getVelocity() const;
         sf::Vector2f getPosition();
+
     private:
         sf::Sprite mSprite;
         sf::Vector2f mVelocity;
         bool hasGrav;
+        bool facingRight = true;
 
         
 };
