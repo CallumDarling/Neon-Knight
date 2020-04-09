@@ -1,0 +1,7404 @@
+{
+	"_type": "Project",
+	"_id": "AAAAAAFF+h6SjaM2Hec=",
+	"name": "Untitled",
+	"ownedElements": [
+		{
+			"_type": "UMLModel",
+			"_id": "AAAAAAFF+qBWK6M3Z8Y=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "Model",
+			"ownedElements": [
+				{
+					"_type": "UMLClassDiagram",
+					"_id": "AAAAAAFF+qBtyKM79qY=",
+					"_parent": {
+						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
+					},
+					"name": "Main",
+					"defaultDiagram": true
+				}
+			]
+		},
+		{
+			"_type": "FCFlowchart",
+			"_id": "AAAAAAFxUPBRNv9xTqQ=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "Flowchart1",
+			"ownedElements": [
+				{
+					"_type": "FCFlowchartDiagram",
+					"_id": "AAAAAAFxUPBRN/9yLWc=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "FlowchartDiagram1",
+					"ownedViews": [
+						{
+							"_type": "FCProcessView",
+							"_id": "AAAAAAFxUPEwOv94zJ4=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUPEwOf92uF4="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUPEwOv95DMk=",
+									"_parent": {
+										"$ref": "AAAAAAFxUPEwOv94zJ4="
+									},
+									"font": "Arial;13;0",
+									"left": 1218,
+									"top": 458,
+									"width": 205,
+									"height": 13,
+									"text": "Spawn in enclosed cave area",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 1208,
+							"top": 448,
+							"width": 225,
+							"height": 33,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUPEwOv95DMk="
+							}
+						},
+						{
+							"_type": "UMLTextView",
+							"_id": "AAAAAAFxUPNFuP+gTa4=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"font": "Arial;13;0",
+							"left": 856,
+							"top": 224,
+							"width": 145,
+							"height": 64,
+							"text": "Neon-Knight\nLevel 2 Flow Chart"
+						},
+						{
+							"_type": "FCTerminatorView",
+							"_id": "AAAAAAFxUPWeZP+7nHo=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUPWeZP+5qUc="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUPWeZP+8reA=",
+									"_parent": {
+										"$ref": "AAAAAAFxUPWeZP+7nHo="
+									},
+									"font": "Arial;13;0",
+									"left": 1266,
+									"top": 290,
+									"width": 109,
+									"height": 13,
+									"text": "Begin Level",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 1256,
+							"top": 280,
+							"width": 129,
+							"height": 56,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUPWeZP+8reA="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUPY5b//zqs4=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUPY5b//x6MU="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUPY5b//0034=",
+									"_parent": {
+										"$ref": "AAAAAAFxUPY5b//zqs4="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUPY5b//x6MU="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 1331,
+									"top": 384,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUPY5b//zqs4="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUPEwOv94zJ4="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUPWeZP+7nHo="
+							},
+							"lineStyle": 2,
+							"points": "1317:335;1317:448",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUPY5b//0034="
+							}
+						},
+						{
+							"_type": "FCManualInputView",
+							"_id": "AAAAAAFxUPbKUf//rQs=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUPbKUf/9sFg="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUPbKUQAAmIA=",
+									"_parent": {
+										"$ref": "AAAAAAFxUPbKUf//rQs="
+									},
+									"font": "Arial;13;0",
+									"left": 1234,
+									"top": 575,
+									"width": 173,
+									"height": 47,
+									"text": "Player Exits the starting area, using the movement controls on the keyboat",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 1224,
+							"top": 552,
+							"width": 193,
+							"height": 80,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUPbKUQAAmIA="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUPfLIgAP3mA=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUPfLIgANEhM="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUPfLIgAQDs8=",
+									"_parent": {
+										"$ref": "AAAAAAFxUPfLIgAP3mA="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUPfLIgANEhM="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 1334,
+									"top": 509,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUPfLIgAP3mA="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUPbKUf//rQs="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUPEwOv94zJ4="
+							},
+							"lineStyle": 2,
+							"points": "1320:480;1320:552",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUPfLIgAQDs8="
+							}
+						},
+						{
+							"_type": "FCPredefinedProcessView",
+							"_id": "AAAAAAFxUPfzTAAYt8E=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUPfzTAAW9n0="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUPfzTQAZ1yU=",
+									"_parent": {
+										"$ref": "AAAAAAFxUPfzTAAYt8E="
+									},
+									"font": "Arial;13;0",
+									"left": 1207,
+									"top": 706,
+									"width": 224,
+									"height": 52,
+									"text": "Combat: Player Encounters two Brutes in the corridor outside the starting area This combat cannot be circumvented",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 1192,
+							"top": 696,
+							"width": 249,
+							"height": 72,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUPfzTQAZ1yU="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUPyxGwAlAMY=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUPyxGwAjidQ="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUPyxGwAmf7o=",
+									"_parent": {
+										"$ref": "AAAAAAFxUPyxGwAlAMY="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUPyxGwAjidQ="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 1333,
+									"top": 656,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUPyxGwAlAMY="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUPfzTAAYt8E="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUPbKUf//rQs="
+							},
+							"lineStyle": 2,
+							"points": "1319:631;1319:696",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUPyxGwAmf7o="
+							}
+						},
+						{
+							"_type": "FCManualInputView",
+							"_id": "AAAAAAFxUP3kyABI0/Q=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUP3kyABGVVg="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUP3kyABJwyQ=",
+									"_parent": {
+										"$ref": "AAAAAAFxUP3kyABI0/Q="
+									},
+									"font": "Arial;13;0",
+									"left": 1242,
+									"top": 855,
+									"width": 153.82080078125,
+									"height": 48,
+									"text": "Player uses combat controls learned in the previous level to try and defeat the encounter",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 1232,
+							"top": 832,
+							"width": 173.82080078125,
+							"height": 81,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUP3kyABJwyQ="
+							}
+						},
+						{
+							"_type": "FCDecisionView",
+							"_id": "AAAAAAFxUP9WogBY4hw=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUP9WogBWz4o="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUP9WogBZ+BA=",
+									"_parent": {
+										"$ref": "AAAAAAFxUP9WogBY4hw="
+									},
+									"font": "Arial;13;0",
+									"left": 1274,
+									"top": 987.5,
+									"width": 84,
+									"height": 39,
+									"text": "Does the player deafeat the brutes?",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 1232,
+							"top": 968,
+							"width": 168,
+							"height": 78,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUP9WogBZ+BA="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUP/D4QBiLsU=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUP/D4QBgDRo="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUP/D4QBjJ7Y=",
+									"_parent": {
+										"$ref": "AAAAAAFxUP/D4QBiLsU="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUP/D4QBgDRo="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 1331,
+									"top": 792,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUP/D4QBiLsU="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUP3kyABI0/Q="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUPfzTAAYt8E="
+							},
+							"lineStyle": 2,
+							"points": "1317:767;1317:832",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUP/D4QBjJ7Y="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUP/8uABuCCw=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUP/8uABsNL8="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUP/8uABvVvY=",
+									"_parent": {
+										"$ref": "AAAAAAFxUP/8uABuCCw="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUP/8uABsNL8="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 1331,
+									"top": 933,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUP/8uABuCCw="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUP9WogBY4hw="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUP3kyABI0/Q="
+							},
+							"lineStyle": 2,
+							"points": "1317:912;1317:968",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUP/8uABvVvY="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUQDk0gDPSJ0=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUQDk0gDNhug="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUQDk0gDQ4Hg=",
+									"_parent": {
+										"$ref": "AAAAAAFxUQDk0gDPSJ0="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUQDk0gDNhug="
+									},
+									"font": "Arial;13;0",
+									"left": 1577,
+									"top": 737,
+									"width": 16.6181640625,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUQDk0gDPSJ0="
+									},
+									"edgePosition": 1,
+									"text": "No"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUPEwOv94zJ4="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUP9WogBY4hw="
+							},
+							"lineStyle": 2,
+							"points": "1399:1008;1600:1008;1600:480;1432:480",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUQDk0gDQ4Hg="
+							}
+						},
+						{
+							"_type": "FCManualOperationView",
+							"_id": "AAAAAAFxUQNz5wDmk+A=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUQNz5gDkraE="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUQNz5wDnZvY=",
+									"_parent": {
+										"$ref": "AAAAAAFxUQNz5wDmk+A="
+									},
+									"font": "Arial;13;0",
+									"left": 1274,
+									"top": 1114,
+									"width": 76,
+									"height": 39,
+									"text": "Player moves forward",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 1240,
+							"top": 1104,
+							"width": 144,
+							"height": 64,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUQNz5wDnZvY="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUQkkugD3NaM=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUQkkugD1y6k="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUQkkugD4nuc=",
+									"_parent": {
+										"$ref": "AAAAAAFxUQkkugD3NaM="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUQkkugD1y6k="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 1328,
+									"top": 1067,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUQkkugD3NaM="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUQNz5wDmk+A="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUP9WogBY4hw="
+							},
+							"lineStyle": 2,
+							"points": "1314:1045;1314:1104",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUQkkugD4nuc="
+							}
+						},
+						{
+							"_type": "FCDecisionView",
+							"_id": "AAAAAAFxUQkzVgEASpU=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUQkzVQD+5vc="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUQkzVgEBcEE=",
+									"_parent": {
+										"$ref": "AAAAAAFxUQkzVgEASpU="
+									},
+									"font": "Arial;13;0",
+									"left": 1248,
+									"top": 1214,
+									"width": 128,
+									"height": 60,
+									"text": "Player is presented with a crossroad with three paths",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 1184,
+							"top": 1184,
+							"width": 256,
+							"height": 120,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUQkzVgEBcEE="
+							}
+						},
+						{
+							"_type": "FCPredefinedProcessView",
+							"_id": "AAAAAAFxUQxX8wEKIvk=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUQxX8gEIgGc="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUQxX9AELBPM=",
+									"_parent": {
+										"$ref": "AAAAAAFxUQxX8wEKIvk="
+									},
+									"font": "Arial;13;0",
+									"left": 471,
+									"top": 1546,
+									"width": 200,
+									"height": 13,
+									"text": "Combat: Three brutes",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 456,
+							"top": 1536,
+							"width": 225,
+							"height": 33,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUQxX9AELBPM="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUQx+lAETzMo=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUQx+kwER9Kw="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUQx+lAEUiBs=",
+									"_parent": {
+										"$ref": "AAAAAAFxUQx+lAETzMo="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUQx+kwER9Kw="
+									},
+									"font": "Arial;13;0",
+									"left": 487,
+									"top": 1239,
+									"width": 184.2724609375,
+									"height": 13,
+									"alpha": 2.875339633285217,
+									"distance": 11.40175425099138,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUQx+lAETzMo="
+									},
+									"edgePosition": 1,
+									"text": "Player chooses lower left tunnel"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUVByzwLCMSI="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUQkzVgEASpU="
+							},
+							"lineStyle": 2,
+							"points": "1184:1256;576:1256;576:1352",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUQx+lAEUiBs="
+							}
+						},
+						{
+							"_type": "FCPredefinedProcessView",
+							"_id": "AAAAAAFxUQ3HRAExHY4=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUQ3HRAEvUM4="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUQ3HRQEyrlY=",
+									"_parent": {
+										"$ref": "AAAAAAFxUQ3HRAExHY4="
+									},
+									"font": "Arial;13;0",
+									"left": 1735,
+									"top": 1370,
+									"width": 183,
+									"height": 26,
+									"text": "Combat: Player encounters a brute and a gunman",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 1720,
+							"top": 1360,
+							"width": 208,
+							"height": 49,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUQ3HRQEyrlY="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUQ3k6gE5F+M=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUQ3k6QE3SAw="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUQ3k6gE65RE=",
+									"_parent": {
+										"$ref": "AAAAAAFxUQ3k6gE5F+M="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUQ3k6QE3SAw="
+									},
+									"font": "Arial;13;0",
+									"left": 1222,
+									"top": 1364,
+									"width": 192.2197265625,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUQ3k6gE5F+M="
+									},
+									"edgePosition": 1,
+									"text": "Player chooese lower right tunnel"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUWMIYwP+Rlg="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUQkzVgEASpU="
+							},
+							"lineStyle": 2,
+							"points": "1304:1303;1304:1440",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUQ3k6gE65RE="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUQ4G2AFDXEY=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUQ4G2AFB7iA="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUQ4G2AFEhSs=",
+									"_parent": {
+										"$ref": "AAAAAAFxUQ4G2AFDXEY="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUQ4G2AFB7iA="
+									},
+									"font": "Arial;13;0",
+									"left": 1487,
+									"top": 1231,
+									"width": 178.49609375,
+									"height": 13,
+									"alpha": -3.899970630573772,
+									"distance": 26.1725046566048,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUQ4G2AFDXEY="
+									},
+									"edgePosition": 1,
+									"text": "Player chooses top right tunnel"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUUwmfQKI5IY="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUQkzVgEASpU="
+							},
+							"lineStyle": 2,
+							"points": "1439:1256;1752:1256",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUQ4G2AFEhSs="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxURUz7wGGBIQ=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxURUz7wGEfG8="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxURUz8AGHrNc=",
+									"_parent": {
+										"$ref": "AAAAAAFxURUz7wGGBIQ="
+									},
+									"model": {
+										"$ref": "AAAAAAFxURUz7wGEfG8="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 1321,
+									"top": 1168,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxURUz7wGGBIQ="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUQkzVgEASpU="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUQNz5wDmk+A="
+							},
+							"lineStyle": 2,
+							"points": "1307:1167;1307:1184",
+							"nameLabel": {
+								"$ref": "AAAAAAFxURUz8AGHrNc="
+							}
+						},
+						{
+							"_type": "FCDecisionView",
+							"_id": "AAAAAAFxURWK2QGP/B0=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxURWK2QGNE5w="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxURWK2QGQsoA=",
+									"_parent": {
+										"$ref": "AAAAAAFxURWK2QGP/B0="
+									},
+									"font": "Arial;13;0",
+									"left": 1778.25,
+									"top": 1488.5,
+									"width": 84.5,
+									"height": 49,
+									"text": "Does player get past the enocounter?",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 1736,
+							"top": 1464,
+							"width": 169,
+							"height": 98,
+							"nameLabel": {
+								"$ref": "AAAAAAFxURWK2QGQsoA="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxURZyhgGqor4=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxURZyhQGo29s="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxURZyhgGrcGQ=",
+									"_parent": {
+										"$ref": "AAAAAAFxURZyhgGqor4="
+									},
+									"model": {
+										"$ref": "AAAAAAFxURZyhQGo29s="
+									},
+									"font": "Arial;13;0",
+									"left": 1993,
+									"top": 901,
+									"width": 16.6181640625,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxURZyhgGqor4="
+									},
+									"edgePosition": 1,
+									"text": "No"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUPWeZP+7nHo="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxURWK2QGP/B0="
+							},
+							"lineStyle": 2,
+							"points": "1904:1512;2016:1512;2016:304;1384:304",
+							"nameLabel": {
+								"$ref": "AAAAAAFxURZyhgGrcGQ="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxURbXIAG4soA=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxURbXIAG2+3s="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxURbXIAG5AV4=",
+									"_parent": {
+										"$ref": "AAAAAAFxURbXIAG4soA="
+									},
+									"model": {
+										"$ref": "AAAAAAFxURbXIAG2+3s="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 1836,
+									"top": 1429,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxURbXIAG4soA="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxURWK2QGP/B0="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUQ3HRAExHY4="
+							},
+							"lineStyle": 2,
+							"points": "1822:1408;1822:1464",
+							"nameLabel": {
+								"$ref": "AAAAAAFxURbXIAG5AV4="
+							}
+						},
+						{
+							"_type": "FCPredefinedProcessView",
+							"_id": "AAAAAAFxURcScwHBqO8=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxURcScwG//Jo="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxURcScwHC5fI=",
+									"_parent": {
+										"$ref": "AAAAAAFxURcScwHBqO8="
+									},
+									"font": "Arial;13;0",
+									"left": 1767,
+									"top": 1634,
+									"width": 112.06982421875,
+									"height": 39,
+									"text": "Player Encounters a door with a padlock",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 1752,
+							"top": 1624,
+							"width": 137.06982421875,
+							"height": 59,
+							"nameLabel": {
+								"$ref": "AAAAAAFxURcScwHC5fI="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUR3aFAHPEUA=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUR3aEwHN/vI="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUR3aFAHQL+s=",
+									"_parent": {
+										"$ref": "AAAAAAFxUR3aFAHPEUA="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUR3aEwHN/vI="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 1834,
+									"top": 1585,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUR3aFAHPEUA="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxURcScwHBqO8="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxURWK2QGP/B0="
+							},
+							"lineStyle": 2,
+							"points": "1820:1561;1820:1624",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUR3aFAHQL+s="
+							}
+						},
+						{
+							"_type": "FCDecisionView",
+							"_id": "AAAAAAFxUR50TwHYyCI=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUR50TwHWlUU="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUR50TwHZchs=",
+									"_parent": {
+										"$ref": "AAAAAAFxUR50TwHYyCI="
+									},
+									"font": "Arial;13;0",
+									"left": 1768.25,
+									"top": 1744.5,
+									"width": 112.5,
+									"height": 65,
+									"text": "Does the player wish to go through the door and have the key",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 1712,
+							"top": 1712,
+							"width": 225,
+							"height": 130,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUR50TwHZchs="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUR7tvAHkVqU=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUR7tuwHiH0k="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUR7tvAHlOu8=",
+									"_parent": {
+										"$ref": "AAAAAAFxUR7tvAHkVqU="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUR7tuwHiH0k="
+									},
+									"font": "Arial;13;0",
+									"left": 1602,
+									"top": 1525,
+									"width": 14.4599609375,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUR7tvAHkVqU="
+									},
+									"edgePosition": 1,
+									"text": "no"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUQkzVgEASpU="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUR50TwHYyCI="
+							},
+							"lineStyle": 2,
+							"points": "1712:1776;1624:1776;1624:1288;1439:1288",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUR7tvAHlOu8="
+							}
+						},
+						{
+							"_type": "FCPredefinedProcessView",
+							"_id": "AAAAAAFxUSQENAH9KMM=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUSQEMwH7cTE="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUSQENAH+xkc=",
+									"_parent": {
+										"$ref": "AAAAAAFxUSQENAH9KMM="
+									},
+									"font": "Arial;13;0",
+									"left": 2063,
+									"top": 1746,
+									"width": 160,
+									"height": 26,
+									"text": "Combat: three brutes and a gunman",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 2048,
+							"top": 1736,
+							"width": 185,
+							"height": 73,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUSQENAH+xkc="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUURyawIKnz0=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUURyagIIWqg="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUURybAILR9c=",
+									"_parent": {
+										"$ref": "AAAAAAFxUURyawIKnz0="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUURyagIIWqg="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 1839,
+									"top": 1690,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUURyawIKnz0="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUR50TwHYyCI="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxURcScwHBqO8="
+							},
+							"lineStyle": 2,
+							"points": "1825:1682;1825:1712",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUURybAILR9c="
+							}
+						},
+						{
+							"_type": "FCDecisionView",
+							"_id": "AAAAAAFxUUTA3wIWeIc=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUUTA3wIUEDI="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUUTA3wIXNtE=",
+									"_parent": {
+										"$ref": "AAAAAAFxUUTA3wIWeIc="
+									},
+									"font": "Arial;13;0",
+									"left": 2102.25,
+									"top": 1906.25,
+									"width": 92.5,
+									"height": 52.5,
+									"text": "Does player defeat the encounter",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 2056,
+							"top": 1880,
+							"width": 185,
+							"height": 105,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUUTA3wIXNtE="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUUZN/AIj9no=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUUZN+wIhhTY="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUUZN/AIkfjU=",
+									"_parent": {
+										"$ref": "AAAAAAFxUUZN/AIj9no="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUUZN+wIhhTY="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 2156,
+									"top": 1837,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUUZN/AIj9no="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUUTA3wIWeIc="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUSQENAH9KMM="
+							},
+							"lineStyle": 2,
+							"points": "2142:1808;2142:1880",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUUZN/AIkfjU="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUUZg2QIsp7w=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUUZg2QIqFJU="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUUZg2QIt4WI=",
+									"_parent": {
+										"$ref": "AAAAAAFxUUZg2QIsp7w="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUUZg2QIqFJU="
+									},
+									"font": "Arial;13;0",
+									"left": 1982,
+									"top": 1754,
+									"width": 20.22998046875,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUUZg2QIsp7w="
+									},
+									"edgePosition": 1,
+									"text": "yes"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUSQENAH9KMM="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUR50TwHYyCI="
+							},
+							"lineStyle": 2,
+							"points": "1936:1775;2048:1775",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUUZg2QIt4WI="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUUaaLQI2mm8=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUUaaLAI0jF0="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUUaaLQI3F+4=",
+									"_parent": {
+										"$ref": "AAAAAAFxUUaaLQI2mm8="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUUaaLAI0jF0="
+									},
+									"font": "Arial;13;0",
+									"left": 2282,
+									"top": 1789,
+									"width": 14.4599609375,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUUaaLQI2mm8="
+									},
+									"edgePosition": 1,
+									"text": "no"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxURcScwHBqO8="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUUTA3wIWeIc="
+							},
+							"lineStyle": 2,
+							"points": "2240:1928;2304:1928;2304:1664;1888:1664",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUUaaLQI3F+4="
+							}
+						},
+						{
+							"_type": "FCManualOperationView",
+							"_id": "AAAAAAFxUUjXVQJCCbY=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUUjXVAJATLI="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUUjXVQJD4Kw=",
+									"_parent": {
+										"$ref": "AAAAAAFxUUjXVQJCCbY="
+									},
+									"font": "Arial;13;0",
+									"left": 1604,
+									"top": 1914,
+									"width": 89,
+									"height": 39,
+									"text": "Player moves back to the crossroads",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 1568,
+							"top": 1904,
+							"width": 161,
+							"height": 65,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUUjXVQJD4Kw="
+							}
+						},
+						{
+							"_type": "FCPredefinedProcessView",
+							"_id": "AAAAAAFxUUmd0AJahFE=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUUmd0AJYkFE="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUUmd0AJbges=",
+									"_parent": {
+										"$ref": "AAAAAAFxUUmd0AJahFE="
+									},
+									"font": "Arial;13;0",
+									"left": 1799,
+									"top": 1906,
+									"width": 151,
+									"height": 39,
+									"text": "Player gets a permenant extra life as a reward for defeating the encounter",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 1784,
+							"top": 1896,
+							"width": 176,
+							"height": 73,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUUmd0AJbges="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUUo6ZgJpGg8=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUUo6ZgJnZOQ="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUUo6ZgJqyIs=",
+									"_parent": {
+										"$ref": "AAAAAAFxUUo6ZgJpGg8="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUUo6ZgJnZOQ="
+									},
+									"font": "Arial;13;0",
+									"left": 1996,
+									"top": 1943,
+									"width": 20.22998046875,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUUo6ZgJpGg8="
+									},
+									"edgePosition": 1,
+									"text": "yes"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUUmd0AJahFE="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUUTA3wIWeIc="
+							},
+							"lineStyle": 2,
+							"points": "2056:1934;1959:1934",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUUo6ZgJqyIs="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUUpdIAJzs5o=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUUpdIAJx6rw="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUUpdIAJ0e5s=",
+									"_parent": {
+										"$ref": "AAAAAAFxUUpdIAJzs5o="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUUpdIAJx6rw="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 1755,
+									"top": 1945,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUUpdIAJzs5o="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUUjXVQJCCbY="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUUmd0AJahFE="
+							},
+							"lineStyle": 2,
+							"points": "1784:1936;1728:1936",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUUpdIAJ0e5s="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUUquPQJ+aYg=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUUquPQJ8QA0="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUUquPQJ/WUc=",
+									"_parent": {
+										"$ref": "AAAAAAFxUUquPQJ+aYg="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUUquPQJ8QA0="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 1583,
+									"top": 1312,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUUquPQJ+aYg="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUQkzVgEASpU="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUUjXVQJCCbY="
+							},
+							"lineStyle": 2,
+							"points": "1584:1904;1584:1303;1439:1303",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUUquPQJ/WUc="
+							}
+						},
+						{
+							"_type": "FCDecisionView",
+							"_id": "AAAAAAFxUUwmfQKI5IY=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUUwmfAKGX4k="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUUwmfQKJbXA=",
+									"_parent": {
+										"$ref": "AAAAAAFxUUwmfQKI5IY="
+									},
+									"font": "Arial;13;0",
+									"left": 1790.25,
+									"top": 1226,
+									"width": 76.5,
+									"height": 52,
+									"text": "Player has already defeated encounter",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 1752,
+							"top": 1200,
+							"width": 153,
+							"height": 104,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUUwmfQKJbXA="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUUz72AKd87M=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUUz72AKbHZ4="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUUz72AKeGwU=",
+									"_parent": {
+										"$ref": "AAAAAAFxUUz72AKd87M="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUUz72AKbHZ4="
+									},
+									"font": "Arial;13;0",
+									"left": 1685,
+									"top": 1441,
+									"width": 20.22998046875,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUUz72AKd87M="
+									},
+									"edgePosition": 1,
+									"text": "yes"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxURcScwHBqO8="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUUwmfQKI5IY="
+							},
+							"lineStyle": 2,
+							"points": "1752:1272;1680:1272;1680:1624;1752:1624",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUUz72AKeGwU="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUU1JIQKoo14=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUU1JIQKmj+s="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUU1JIQKpy8o=",
+									"_parent": {
+										"$ref": "AAAAAAFxUU1JIQKoo14="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUU1JIQKmj+s="
+									},
+									"font": "Arial;13;0",
+									"left": 1833,
+									"top": 1324,
+									"width": 14.4599609375,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUU1JIQKoo14="
+									},
+									"edgePosition": 1,
+									"text": "no"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUQ3HRAExHY4="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUUwmfQKI5IY="
+							},
+							"lineStyle": 2,
+							"points": "1826:1303;1826:1360",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUU1JIQKpy8o="
+							}
+						},
+						{
+							"_type": "FCDecisionView",
+							"_id": "AAAAAAFxUVByzwLCMSI=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUVByzgLAbrQ="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUVByzwLD7WE=",
+									"_parent": {
+										"$ref": "AAAAAAFxUVByzwLCMSI="
+									},
+									"font": "Arial;13;0",
+									"left": 532.25,
+									"top": 1378,
+									"width": 88.5,
+									"height": 52,
+									"text": "Player has already defeated encounter",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 488,
+							"top": 1352,
+							"width": 177,
+							"height": 104,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUVByzwLD7WE="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUVGQUwLd7X8=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUVGQUgLbRwM="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUVGQUwLeNNI=",
+									"_parent": {
+										"$ref": "AAAAAAFxUVGQUwLd7X8="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUVGQUgLbRwM="
+									},
+									"font": "Arial;13;0",
+									"left": 580,
+									"top": 1488,
+									"width": 14.4599609375,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUVGQUwLd7X8="
+									},
+									"edgePosition": 1,
+									"text": "no"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUQxX8wEKIvk="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUVByzwLCMSI="
+							},
+							"lineStyle": 2,
+							"points": "573:1455;573:1536",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUVGQUwLeNNI="
+							}
+						},
+						{
+							"_type": "FCDecisionView",
+							"_id": "AAAAAAFxUVGvJgLntko=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUVGvJgLlLKM="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUVGvJgLoahw=",
+									"_parent": {
+										"$ref": "AAAAAAFxUVGvJgLntko="
+									},
+									"font": "Arial;13;0",
+									"left": 506,
+									"top": 1858,
+									"width": 84,
+									"height": 52,
+									"text": "Player has already defeated encounter",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 464,
+							"top": 1832,
+							"width": 168,
+							"height": 104,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUVGvJgLoahw="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUVHNGgLwOGI=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUVHNGgLujk8="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUVHNGgLx3K4=",
+									"_parent": {
+										"$ref": "AAAAAAFxUVHNGgLwOGI="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUVHNGgLujk8="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 558,
+									"top": 1597,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUVHNGgLwOGI="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUVH3ywL6vIs="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUQxX8wEKIvk="
+							},
+							"lineStyle": 2,
+							"points": "544:1568;544:1640",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUVHNGgLx3K4="
+							}
+						},
+						{
+							"_type": "FCDecisionView",
+							"_id": "AAAAAAFxUVH3ywL6vIs=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUVH3ywL4Spk="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUVH3ywL7KY4=",
+									"_parent": {
+										"$ref": "AAAAAAFxUVH3ywL6vIs="
+									},
+									"font": "Arial;13;0",
+									"left": 502.25,
+									"top": 1666,
+									"width": 76.5,
+									"height": 52,
+									"text": "does player get past encounter",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 464,
+							"top": 1640,
+							"width": 153,
+							"height": 104,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUVH3ywL7KY4="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUVJ7ZgMMH1c=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUVJ7ZgMK6Wg="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUVJ7ZwMN9Eo=",
+									"_parent": {
+										"$ref": "AAAAAAFxUVJ7ZgMMH1c="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUVJ7ZgMK6Wg="
+									},
+									"font": "Arial;13;0",
+									"left": 546,
+									"top": 1780,
+									"width": 20.22998046875,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUVJ7ZgMMH1c="
+									},
+									"edgePosition": 1,
+									"text": "yes"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUVGvJgLntko="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUVH3ywL6vIs="
+							},
+							"lineStyle": 2,
+							"points": "542:1743;542:1832",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUVJ7ZwMN9Eo="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUVKYEQMWx8c=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUVKYEQMUbH4="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUVKYEQMXp4E=",
+									"_parent": {
+										"$ref": "AAAAAAFxUVKYEQMWx8c="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUVKYEQMUbH4="
+									},
+									"font": "Arial;13;0",
+									"left": 709,
+									"top": 1637,
+									"width": 20.22998046875,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUVKYEQMWx8c="
+									},
+									"edgePosition": 1,
+									"text": "yes"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUVGvJgLntko="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUVByzwLCMSI="
+							},
+							"lineStyle": 2,
+							"points": "664:1408;704:1408;704:1880;631:1880",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUVKYEQMXp4E="
+							}
+						},
+						{
+							"_type": "FCPredefinedProcessView",
+							"_id": "AAAAAAFxUVOZpAMoyOo=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUVOZowMmlHE="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUVOZpAMpJz0=",
+									"_parent": {
+										"$ref": "AAAAAAFxUVOZpAMoyOo="
+									},
+									"font": "Arial;13;0",
+									"left": 495,
+									"top": 1994,
+									"width": 112.06982421875,
+									"height": 26,
+									"text": "Combat: One henchman",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 480,
+							"top": 1984,
+							"width": 137.06982421875,
+							"height": 46,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUVOZpAMpJz0="
+							}
+						},
+						{
+							"_type": "FCDecisionView",
+							"_id": "AAAAAAFxUVQiDwM0HFs=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUVQiDwMyvm8="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUVQiDwM1zEI=",
+									"_parent": {
+										"$ref": "AAAAAAFxUVQiDwM0HFs="
+									},
+									"font": "Arial;13;0",
+									"left": 498,
+									"top": 2116,
+									"width": 84,
+									"height": 40,
+									"text": "Does player get past encounter",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 456,
+							"top": 2096,
+							"width": 168,
+							"height": 80,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUVQiDwM1zEI="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUVWbqQM/Rqk=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUVWbqQM9Ok4="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUVWbqQNAWMQ=",
+									"_parent": {
+										"$ref": "AAAAAAFxUVWbqQM/Rqk="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUVWbqQM9Ok4="
+									},
+									"font": "Arial;13;0",
+									"left": 554,
+									"top": 1952,
+									"width": 14.4599609375,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUVWbqQM/Rqk="
+									},
+									"edgePosition": 1,
+									"text": "no"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUVOZpAMoyOo="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUVGvJgLntko="
+							},
+							"lineStyle": 2,
+							"points": "547:1935;547:1984",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUVWbqQNAWMQ="
+							}
+						},
+						{
+							"_type": "FCManualOperationView",
+							"_id": "AAAAAAFxUVY+LANXlS0=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUVY+LANV+Tc="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUVY+LQNYqcM=",
+									"_parent": {
+										"$ref": "AAAAAAFxUVY+LANXlS0="
+									},
+									"font": "Arial;13;0",
+									"left": 770,
+									"top": 1402,
+									"width": 77,
+									"height": 52,
+									"text": "Player moves back to the crossroads",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 736,
+							"top": 1392,
+							"width": 145,
+							"height": 72,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUVY+LQNYqcM="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUVabqANjkZg=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUVabqANh2GI="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUVabqANkp78=",
+									"_parent": {
+										"$ref": "AAAAAAFxUVabqANjkZg="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUVabqANh2GI="
+									},
+									"font": "Arial;13;0",
+									"left": 791,
+									"top": 1879,
+									"width": 20.22998046875,
+									"height": 13,
+									"alpha": -5.376435331136673,
+									"distance": 29.206163733020468,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUVabqANjkZg="
+									},
+									"edgePosition": 1,
+									"text": "yes"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUVY+LANXlS0="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUVGvJgLntko="
+							},
+							"lineStyle": 2,
+							"points": "631:1904;824:1904;824:1463",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUVabqANkp78="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUVdMxQN2QI0=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUVdMxAN022Q="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUVdMxQN3Mic=",
+									"_parent": {
+										"$ref": "AAAAAAFxUVdMxQN2QI0="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUVdMxAN022Q="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 1145,
+									"top": 1305,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUVdMxQN2QI0="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUQkzVgEASpU="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUVY+LANXlS0="
+							},
+							"lineStyle": 2,
+							"points": "816:1392;816:1312;1160:1312;1160:1280;1184:1280",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUVdMxQN3Mic="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUVf1AAOJxBg=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUVf1AAOHzl0="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUVf1AQOK2L8=",
+									"_parent": {
+										"$ref": "AAAAAAFxUVf1AAOJxBg="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUVf1AAOHzl0="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 560,
+									"top": 2055,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUVf1AAOJxBg="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUVQiDwM0HFs="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUVOZpAMoyOo="
+							},
+							"lineStyle": 2,
+							"points": "546:2029;546:2096",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUVf1AQOK2L8="
+							}
+						},
+						{
+							"_type": "FCPredefinedProcessView",
+							"_id": "AAAAAAFxUVkSuQOSU+w=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUVkSuAOQbbc="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUVkSuQOT9fE=",
+									"_parent": {
+										"$ref": "AAAAAAFxUVkSuQOSU+w="
+									},
+									"font": "Arial;13;0",
+									"left": 463,
+									"top": 2250,
+									"width": 160,
+									"height": 26,
+									"text": "Player picks up key from henchman",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 448,
+							"top": 2240,
+							"width": 185,
+							"height": 49,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUVkSuQOT9fE="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUVowNwOsbmE=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUVowNgOqRTM="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUVowNwOt99I=",
+									"_parent": {
+										"$ref": "AAAAAAFxUVowNwOsbmE="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUVowNgOqRTM="
+									},
+									"font": "Arial;13;0",
+									"left": 543,
+									"top": 2200,
+									"width": 20.22998046875,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUVowNwOsbmE="
+									},
+									"edgePosition": 1,
+									"text": "yes"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUVkSuQOSU+w="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUVQiDwM0HFs="
+							},
+							"lineStyle": 2,
+							"points": "539:2175;539:2240",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUVowNwOt99I="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUVqRyAPE/Ow=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUVqRyAPCMT8="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUVqRyAPFYSA=",
+									"_parent": {
+										"$ref": "AAAAAAFxUVqRyAPE/Ow="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUVqRyAPCMT8="
+									},
+									"font": "Arial;13;0",
+									"left": 354,
+									"top": 1665,
+									"width": 14.4599609375,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUVqRyAPE/Ow="
+									},
+									"edgePosition": 1,
+									"text": "no"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUQkzVgEASpU="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUVQiDwM0HFs="
+							},
+							"lineStyle": 2,
+							"points": "456:2128;376:2128;376:1216;1184:1216",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUVqRyAPFYSA="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUV1jsQPWE8M=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUV1jsAPUdr0="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUV1jsQPXVDc=",
+									"_parent": {
+										"$ref": "AAAAAAFxUV1jsQPWE8M="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUV1jsAPUdr0="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 825,
+									"top": 2257,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUV1jsQPWE8M="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUVY+LANXlS0="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUVkSuQOSU+w="
+							},
+							"lineStyle": 2,
+							"points": "632:2264;840:2264;840:1463",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUV1jsQPXVDc="
+							}
+						},
+						{
+							"_type": "FCManualOperationView",
+							"_id": "AAAAAAFxUWMIYwP+Rlg=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUWMIYwP8zPk="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUWMIYwP/1t8=",
+									"_parent": {
+										"$ref": "AAAAAAFxUWMIYwP+Rlg="
+									},
+									"font": "Arial;13;0",
+									"left": 1254,
+									"top": 1450,
+									"width": 92,
+									"height": 26,
+									"text": "Player moves forward",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 1216,
+							"top": 1440,
+							"width": 168,
+							"height": 46,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUWMIYwP/1t8="
+							}
+						},
+						{
+							"_type": "FCDecisionView",
+							"_id": "AAAAAAFxUWVKOQQbF04=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUWVKOQQZohs="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUWVKOQQcuGY=",
+									"_parent": {
+										"$ref": "AAAAAAFxUWVKOQQbF04="
+									},
+									"font": "Arial;13;0",
+									"left": 1238.25,
+									"top": 1600.5,
+									"width": 124.5,
+									"height": 65,
+									"text": "Player presented with a choice between continuing or taking the platform the the upper tunnel",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 1176,
+							"top": 1568,
+							"width": 249,
+							"height": 130,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUWVKOQQcuGY="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUWmTZAQ3QKA=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUWmTZAQ1TF4="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUWmTZAQ45U0=",
+									"_parent": {
+										"$ref": "AAAAAAFxUWmTZAQ3QKA="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUWmTZAQ1TF4="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 1315,
+									"top": 1519,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUWmTZAQ3QKA="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUWVKOQQbF04="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUWMIYwP+Rlg="
+							},
+							"lineStyle": 2,
+							"points": "1301:1485;1301:1568",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUWmTZAQ45U0="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUWmkbgRAxD4=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUWmkbgQ+Yg4="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUWmkbgRBoLo=",
+									"_parent": {
+										"$ref": "AAAAAAFxUWmkbgRAxD4="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUWmkbgQ+Yg4="
+									},
+									"font": "Arial;13;0",
+									"left": 1440,
+									"top": 1623,
+									"width": 137.30615234375,
+									"height": 13,
+									"alpha": -3.3148383412671456,
+									"distance": 81.21576201698781,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUWmkbgRAxD4="
+									},
+									"edgePosition": 1,
+									"text": "platform to upper tunnel"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxURcScwHBqO8="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUWVKOQQbF04="
+							},
+							"lineStyle": 2,
+							"points": "1424:1644;1752:1644",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUWmkbgRBoLo="
+							}
+						},
+						{
+							"_type": "FCPredefinedProcessView",
+							"_id": "AAAAAAFxUW483wR31ng=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUW483wR1+HM="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUW483wR4Jc0=",
+									"_parent": {
+										"$ref": "AAAAAAFxUW483wR31ng="
+									},
+									"font": "Arial;13;0",
+									"left": 1231,
+									"top": 2002,
+									"width": 112.06982421875,
+									"height": 26,
+									"text": "Combat: 3 brutes and a gunman",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 1216,
+							"top": 1992,
+							"width": 137.06982421875,
+							"height": 46,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUW483wR4Jc0="
+							}
+						},
+						{
+							"_type": "FCDecisionView",
+							"_id": "AAAAAAFxUW7OyQSCwAA=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUW7OyQSAUXI="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUW7OyQSDwjE=",
+									"_parent": {
+										"$ref": "AAAAAAFxUW7OyQSCwAA="
+									},
+									"font": "Arial;13;0",
+									"left": 1246.25,
+									"top": 1850,
+									"width": 76.5,
+									"height": 52,
+									"text": "Has player already defeated encounter",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 1208,
+							"top": 1824,
+							"width": 153,
+							"height": 104,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUW7OyQSDwjE="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUXAVPQSQq/o=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUXAVPQSOojQ="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUXAVPQSRaFg=",
+									"_parent": {
+										"$ref": "AAAAAAFxUXAVPQSQq/o="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUXAVPQSOojQ="
+									},
+									"font": "Arial;13;0",
+									"left": 1304,
+									"top": 1748,
+									"width": 49.14990234375,
+									"height": 13,
+									"alpha": 1.7561440535201682,
+									"distance": 32.55764119219941,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUXAVPQSQq/o="
+									},
+									"edgePosition": 1,
+									"text": "continue"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUW7OyQSCwAA="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUWVKOQQbF04="
+							},
+							"lineStyle": 2,
+							"points": "1296:1697;1296:1824",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUXAVPQSRaFg="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUX9LAwSqibA=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUX9LAwSoBk4="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUX9LAwSrUIA=",
+									"_parent": {
+										"$ref": "AAAAAAFxUX9LAwSqibA="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUX9LAwSoBk4="
+									},
+									"font": "Arial;13;0",
+									"left": 1291,
+									"top": 1952,
+									"width": 14.4599609375,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUX9LAwSqibA="
+									},
+									"edgePosition": 1,
+									"text": "no"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUW483wR31ng="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUW7OyQSCwAA="
+							},
+							"lineStyle": 2,
+							"points": "1284:1927;1284:1992",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUX9LAwSrUIA="
+							}
+						},
+						{
+							"_type": "FCPredefinedProcessView",
+							"_id": "AAAAAAFxUYEYdQS0HxE=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUYEYdQSygbE="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUYEYdQS1z/g=",
+									"_parent": {
+										"$ref": "AAAAAAFxUYEYdQS0HxE="
+									},
+									"font": "Arial;13;0",
+									"left": 1175,
+									"top": 2442,
+									"width": 200,
+									"height": 78,
+									"text": "Encounter Combat/Platforming. Three brutes arranged on platforms above the player, the player must jump between platforms and defeat the enemeis waiting for him",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 1160,
+							"top": 2432,
+							"width": 225,
+							"height": 98,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUYEYdQS1z/g="
+							}
+						},
+						{
+							"_type": "FCDecisionView",
+							"_id": "AAAAAAFxUYLIpgTAPtw=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUYLIpQS+tCA="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUYLIpgTBUyM=",
+									"_parent": {
+										"$ref": "AAAAAAFxUYLIpgTAPtw="
+									},
+									"font": "Arial;13;0",
+									"left": 1242,
+									"top": 2134.25,
+									"width": 84,
+									"height": 44.5,
+									"text": "Does player defeat encounter",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 1200,
+							"top": 2112,
+							"width": 168,
+							"height": 89,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUYLIpgTBUyM="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUYMC+wTN24o=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUYMC+wTLtc8="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUYMC+wTOZho=",
+									"_parent": {
+										"$ref": "AAAAAAFxUYMC+wTN24o="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUYMC+wTLtc8="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 1295,
+									"top": 2067,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUYMC+wTN24o="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUYLIpgTAPtw="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUW483wR31ng="
+							},
+							"lineStyle": 2,
+							"points": "1281:2037;1281:2112",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUYMC+wTOZho="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUYNx2ATcTMo=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUYNx1wTaJuw="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUYNx2ATdSBU=",
+									"_parent": {
+										"$ref": "AAAAAAFxUYNx2ATcTMo="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUYNx1wTaJuw="
+									},
+									"font": "Arial;13;0",
+									"left": 1426,
+									"top": 1905,
+									"width": 14.4599609375,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUYNx2ATcTMo="
+									},
+									"edgePosition": 1,
+									"text": "no"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUWVKOQQbF04="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUYLIpgTAPtw="
+							},
+							"lineStyle": 2,
+							"points": "1367:2152;1448:2152;1448:1672;1424:1672",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUYNx2ATdSBU="
+							}
+						},
+						{
+							"_type": "FCManualOperationView",
+							"_id": "AAAAAAFxUYQKBgUEDxM=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUYQKBgUCXdc="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUYQKBgUFuck=",
+									"_parent": {
+										"$ref": "AAAAAAFxUYQKBgUEDxM="
+									},
+									"font": "Arial;13;0",
+									"left": 1251,
+									"top": 2306,
+									"width": 51,
+									"height": 39,
+									"text": "Player moves forward",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 1224,
+							"top": 2296,
+							"width": 105,
+							"height": 59,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUYQKBgUFuck="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUYU5dQUSFuo=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUYU5dAUQi8k="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUYU5dQUTszM=",
+									"_parent": {
+										"$ref": "AAAAAAFxUYU5dQUSFuo="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUYU5dAUQi8k="
+									},
+									"font": "Arial;13;0",
+									"left": 1165,
+									"top": 2093,
+									"width": 20.22998046875,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUYU5dQUSFuo="
+									},
+									"edgePosition": 1,
+									"text": "yes"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUYQKBgUEDxM="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUW7OyQSCwAA="
+							},
+							"lineStyle": 2,
+							"points": "1208:1872;1160:1872;1160:2328;1224:2328",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUYU5dQUTszM="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUYXqpwUfiEY=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUYXqpgUd7L8="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUYXqpwUgw+w=",
+									"_parent": {
+										"$ref": "AAAAAAFxUYXqpwUfiEY="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUYXqpgUd7L8="
+									},
+									"font": "Arial;13;0",
+									"left": 1285,
+									"top": 2241,
+									"width": 20.22998046875,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUYXqpwUfiEY="
+									},
+									"edgePosition": 1,
+									"text": "yes"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUYQKBgUEDxM="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUYLIpgTAPtw="
+							},
+							"lineStyle": 2,
+							"points": "1281:2200;1281:2296",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUYXqpwUgw+w="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUYYetQUq6Y0=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUYYetAUoMeI="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUYYetQUra1M=",
+									"_parent": {
+										"$ref": "AAAAAAFxUYYetQUq6Y0="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUYYetAUoMeI="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 1290,
+									"top": 2386,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUYYetQUq6Y0="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUYEYdQS0HxE="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUYQKBgUEDxM="
+							},
+							"lineStyle": 2,
+							"points": "1276:2354;1276:2432",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUYYetQUra1M="
+							}
+						},
+						{
+							"_type": "FCDecisionView",
+							"_id": "AAAAAAFxUZCNDgVEX0U=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUZCNDQVC/yk="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUZCNDwVFxUg=",
+									"_parent": {
+										"$ref": "AAAAAAFxUZCNDgVEX0U="
+									},
+									"font": "Arial;13;0",
+									"left": 1226.25,
+									"top": 2634,
+									"width": 84.5,
+									"height": 52,
+									"text": "Does player defeat encounter ",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 1184,
+							"top": 2608,
+							"width": 169,
+							"height": 104,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUZCNDwVFxUg="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUZEIzAVR0VY=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUZEIywVPuhI="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUZEIzAVSafs=",
+									"_parent": {
+										"$ref": "AAAAAAFxUZEIzAVR0VY="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUZEIywVPuhI="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 1285,
+									"top": 2561,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUZEIzAVR0VY="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUZCNDgVEX0U="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUYEYdQS0HxE="
+							},
+							"lineStyle": 2,
+							"points": "1271:2529;1271:2608",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUZEIzAVSafs="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUZFQ4AVaXvM=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUZFQ3wVYOyo="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUZFQ4AVboD0=",
+									"_parent": {
+										"$ref": "AAAAAAFxUZFQ4AVaXvM="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUZFQ3wVYOyo="
+									},
+									"font": "Arial;13;0",
+									"left": 1415,
+									"top": 2485,
+									"width": 20.22998046875,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUZFQ4AVaXvM="
+									},
+									"edgePosition": 1,
+									"text": "no"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUYQKBgUEDxM="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUZCNDgVEX0U="
+							},
+							"lineStyle": 2,
+							"points": "1352:2656;1440:2656;1440:2328;1328:2328",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUZFQ4AVboD0="
+							}
+						},
+						{
+							"_type": "FCPredefinedProcessView",
+							"_id": "AAAAAAFxUZIHsAVumW0=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUZIHrwVs+do="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUZIHsAVvj4I=",
+									"_parent": {
+										"$ref": "AAAAAAFxUZIHsAVumW0="
+									},
+									"font": "Arial;13;0",
+									"left": 1143,
+									"top": 2802,
+									"width": 239,
+									"height": 26,
+									"text": "Player encounters a pit which they have to drop down and cannot exit from",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 1128,
+							"top": 2792,
+							"width": 264,
+							"height": 57,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUZIHsAVvj4I="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUZL+zwWbFrk=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUZL+zgWZzTM="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUZL+zwWcZU4=",
+									"_parent": {
+										"$ref": "AAAAAAFxUZL+zwWbFrk="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUZL+zgWZzTM="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 1279,
+									"top": 2744,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUZL+zwWbFrk="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUZIHsAVumW0="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUZCNDgVEX0U="
+							},
+							"lineStyle": 2,
+							"points": "1265:2711;1265:2792",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUZL+zwWcZU4="
+							}
+						},
+						{
+							"_type": "FCDecisionView",
+							"_id": "AAAAAAFxUZMKnQWk+p8=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUZMKnAWiMuY="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUZMKnQWlf1s=",
+									"_parent": {
+										"$ref": "AAAAAAFxUZMKnQWk+p8="
+									},
+									"font": "Arial;13;0",
+									"left": 1220.25,
+									"top": 2936,
+									"width": 88.5,
+									"height": 48,
+									"text": "Does the player proceed or backtrack",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 1176,
+							"top": 2912,
+							"width": 177,
+							"height": 96,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUZMKnQWlf1s="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUZNkOAW0r44=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUZNkOAWy7Qg="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUZNkOAW1tkQ=",
+									"_parent": {
+										"$ref": "AAAAAAFxUZNkOAW0r44="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUZNkOAWy7Qg="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 1274,
+									"top": 2873,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUZNkOAW0r44="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUZMKnQWk+p8="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUZIHsAVumW0="
+							},
+							"lineStyle": 2,
+							"points": "1260:2848;1260:2912",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUZNkOAW1tkQ="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUZPUkAW++qk=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUZPUjwW85AI="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUZPUkAW/93k=",
+									"_parent": {
+										"$ref": "AAAAAAFxUZPUkAW++qk="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUZPUjwW85AI="
+									},
+									"font": "Arial;13;0",
+									"left": 992,
+									"top": 2160,
+									"width": 55.630859375,
+									"height": 13,
+									"alpha": -1.653712040590165,
+									"distance": 736.5303795499544,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUZPUkAW++qk="
+									},
+									"edgePosition": 1,
+									"text": "backtrack"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUQkzVgEASpU="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUZMKnQWk+p8="
+							},
+							"lineStyle": 2,
+							"points": "1176:2960;1080:2960;1080:1432;1208:1432;1208:1303",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUZPUkAW/93k="
+							}
+						},
+						{
+							"_type": "FCPredefinedProcessView",
+							"_id": "AAAAAAFxUZUDFwXZn6A=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUZUDFgXX1mo="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUZUDFwXaBiE=",
+									"_parent": {
+										"$ref": "AAAAAAFxUZUDFwXZn6A="
+									},
+									"font": "Arial;13;0",
+									"left": 1463,
+									"top": 2938,
+									"width": 192,
+									"height": 26,
+									"text": "Boss Encounter: Two bosses in a platform filled room",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 1448,
+							"top": 2928,
+							"width": 217,
+							"height": 57,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUZUDFwXaBiE="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUZZZnwXkNb4=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUZZZnwXiHOY="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUZZZnwXlwV0=",
+									"_parent": {
+										"$ref": "AAAAAAFxUZZZnwXkNb4="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUZZZnwXiHOY="
+									},
+									"font": "Arial;13;0",
+									"left": 1377,
+									"top": 2937,
+									"width": 46.97900390625,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUZZZnwXkNb4="
+									},
+									"edgePosition": 1,
+									"text": "proceed"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUZUDFwXZn6A="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUZMKnQWk+p8="
+							},
+							"lineStyle": 2,
+							"points": "1352:2958;1448:2958",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUZZZnwXlwV0="
+							}
+						},
+						{
+							"_type": "FCDecisionView",
+							"_id": "AAAAAAFxUZbJnwXuFfs=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUZbJnwXsmCI="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUZbJnwXv0ko=",
+									"_parent": {
+										"$ref": "AAAAAAFxUZbJnwXuFfs="
+									},
+									"font": "Arial;13;0",
+									"left": 1832,
+									"top": 2938,
+									"width": 96,
+									"height": 52,
+									"text": "Does the player defeat the boss",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 1784,
+							"top": 2912,
+							"width": 192,
+							"height": 104,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUZbJnwXv0ko="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUZb+ZgX5rU8=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUZb+ZgX35DU="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUZb+ZgX6bgM=",
+									"_parent": {
+										"$ref": "AAAAAAFxUZb+ZgX5rU8="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUZb+ZgX35DU="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 1724,
+									"top": 2940,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUZb+ZgX5rU8="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUZbJnwXuFfs="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUZUDFwXZn6A="
+							},
+							"lineStyle": 2,
+							"points": "1664:2961;1784:2961",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUZb+ZgX6bgM="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUZcseAYCp90=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUZcseAYA0pg="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUZcseAYDDyg=",
+									"_parent": {
+										"$ref": "AAAAAAFxUZcseAYCp90="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUZcseAYA0pg="
+									},
+									"font": "Arial;13;0",
+									"left": 1671,
+									"top": 2823,
+									"width": 14.4599609375,
+									"height": 13,
+									"alpha": -0.12266866382238684,
+									"distance": 147.10540438746634,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUZcseAYCp90="
+									},
+									"edgePosition": 1,
+									"text": "no"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUZIHsAVumW0="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUZbJnwXuFfs="
+							},
+							"lineStyle": 2,
+							"points": "1824:2912;1824:2848;1391:2848",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUZcseAYDDyg="
+							}
+						},
+						{
+							"_type": "FCTerminatorView",
+							"_id": "AAAAAAFxUZeIgwYRatk=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUZeIggYP4p8="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxUZeIgwYSKJY=",
+									"_parent": {
+										"$ref": "AAAAAAFxUZeIgwYRatk="
+									},
+									"font": "Arial;13;0",
+									"left": 2138,
+									"top": 2938,
+									"width": 172,
+									"height": 13,
+									"text": "Level Complete",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 2128,
+							"top": 2928,
+							"width": 192,
+							"height": 80,
+							"nameLabel": {
+								"$ref": "AAAAAAFxUZeIgwYSKJY="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxUZegfgYavOU=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxUZegfQYYFy4="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxUZegfgYbfsg=",
+									"_parent": {
+										"$ref": "AAAAAAFxUZegfgYavOU="
+									},
+									"model": {
+										"$ref": "AAAAAAFxUZegfQYYFy4="
+									},
+									"font": "Arial;13;0",
+									"left": 2041,
+									"top": 2945,
+									"width": 20.22998046875,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxUZegfgYavOU="
+									},
+									"edgePosition": 1,
+									"text": "yes"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxUZeIgwYRatk="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxUZbJnwXuFfs="
+							},
+							"lineStyle": 2,
+							"points": "1975:2966;2128:2966",
+							"nameLabel": {
+								"$ref": "AAAAAAFxUZegfgYbfsg="
+							}
+						},
+						{
+							"_type": "UMLTextView",
+							"_id": "AAAAAAFxVOTMK9EKyQc=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"font": "Arial;13;0",
+							"left": 2400,
+							"top": 80,
+							"width": 281,
+							"height": 116,
+							"text": "To make hte floatchard clearner I have seperated out the basic player input from the overall flow of the level, whenever a player is moving or is in combat this is how they interact with the game, additionally the controls will be remappable so the keypresses used here are not hugely important"
+						},
+						{
+							"_type": "FCTerminatorView",
+							"_id": "AAAAAAFxVOaS99EVInA=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVOaS99ET6mk="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxVOaS99EW3fE=",
+									"_parent": {
+										"$ref": "AAAAAAFxVOaS99EVInA="
+									},
+									"font": "Arial;13;0",
+									"left": 2450,
+									"top": 234,
+									"width": 140,
+									"height": 13,
+									"text": "Begin",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 2440,
+							"top": 224,
+							"width": 160,
+							"height": 41,
+							"nameLabel": {
+								"$ref": "AAAAAAFxVOaS99EW3fE="
+							}
+						},
+						{
+							"_type": "FCDecisionView",
+							"_id": "AAAAAAFxVOfNSNEyDyg=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVOfNSNEwjkM="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxVOfNSdEzHj4=",
+									"_parent": {
+										"$ref": "AAAAAAFxVOfNSNEyDyg="
+									},
+									"font": "Arial;13;0",
+									"left": 2472,
+									"top": 442,
+									"width": 96,
+									"height": 36,
+									"text": "Is right arrow being pressed",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 2424,
+							"top": 424,
+							"width": 192,
+							"height": 72,
+							"nameLabel": {
+								"$ref": "AAAAAAFxVOfNSdEzHj4="
+							}
+						},
+						{
+							"_type": "FCProcessView",
+							"_id": "AAAAAAFxVOguitE8NT8=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVOguitE6ESw="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxVOguitE9n8k=",
+									"_parent": {
+										"$ref": "AAAAAAFxVOguitE8NT8="
+									},
+									"font": "Arial;13;0",
+									"left": 2465,
+									"top": 322,
+									"width": 109,
+									"height": 26,
+									"text": "PLayer's x velocity is set to 0",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 2455,
+							"top": 312,
+							"width": 129,
+							"height": 72,
+							"nameLabel": {
+								"$ref": "AAAAAAFxVOguitE9n8k="
+							}
+						},
+						{
+							"_type": "FCDecisionView",
+							"_id": "AAAAAAFxVOlf79Fjkn4=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVOlf79FhjjM="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxVOlf79FkBzo=",
+									"_parent": {
+										"$ref": "AAAAAAFxVOlf79Fjkn4="
+									},
+									"font": "Arial;13;0",
+									"left": 2491.542236328125,
+									"top": 634,
+									"width": 57.08447265625,
+									"height": 52,
+									"text": "is left arrow being pressed",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 2463,
+							"top": 608,
+							"width": 114.1689453125,
+							"height": 104,
+							"nameLabel": {
+								"$ref": "AAAAAAFxVOlf79FkBzo="
+							}
+						},
+						{
+							"_type": "FCDecisionView",
+							"_id": "AAAAAAFxVOmZaNF1Pro=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVOmZaNFzPP8="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxVOmZaNF2MOw=",
+									"_parent": {
+										"$ref": "AAAAAAFxVOmZaNF1Pro="
+									},
+									"font": "Arial;13;0",
+									"left": 2484.542236328125,
+									"top": 898,
+									"width": 57.08447265625,
+									"height": 52,
+									"text": "is up arrow bieng pressed",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 2456,
+							"top": 872,
+							"width": 114.1689453125,
+							"height": 104,
+							"nameLabel": {
+								"$ref": "AAAAAAFxVOmZaNF2MOw="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxVOoCK9GXdzo=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVOoCK9GVpgY="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxVOoCLNGY+NY=",
+									"_parent": {
+										"$ref": "AAAAAAFxVOoCK9GXdzo="
+									},
+									"model": {
+										"$ref": "AAAAAAFxVOoCK9GVpgY="
+									},
+									"font": "Arial;13;0",
+									"left": 2503,
+									"top": 543,
+									"width": 14.4599609375,
+									"height": 13,
+									"alpha": -1.681453845358742,
+									"distance": 9.055385138137417,
+									"hostEdge": {
+										"$ref": "AAAAAAFxVOoCK9GXdzo="
+									},
+									"edgePosition": 1,
+									"text": "no"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxVOlf79Fjkn4="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxVOfNSNEyDyg="
+							},
+							"lineStyle": 2,
+							"points": "2519:495;2519:608",
+							"nameLabel": {
+								"$ref": "AAAAAAFxVOoCLNGY+NY="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxVOomJtG8KLE=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVOomJtG6Q8g="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxVOomJtG9U9A=",
+									"_parent": {
+										"$ref": "AAAAAAFxVOomJtG8KLE="
+									},
+									"model": {
+										"$ref": "AAAAAAFxVOomJtG6Q8g="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 2536,
+									"top": 281,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxVOomJtG8KLE="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxVOguitE8NT8="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxVOaS99EVInA="
+							},
+							"lineStyle": 2,
+							"points": "2522:264;2522:312",
+							"nameLabel": {
+								"$ref": "AAAAAAFxVOomJtG9U9A="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxVOo2H9HpEmA=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVOo2H9HnZYI="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxVOo2H9HqcQQ=",
+									"_parent": {
+										"$ref": "AAAAAAFxVOo2H9HpEmA="
+									},
+									"model": {
+										"$ref": "AAAAAAFxVOo2H9HnZYI="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 2537,
+									"top": 396,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxVOo2H9HpEmA="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxVOfNSNEyDyg="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxVOguitE8NT8="
+							},
+							"lineStyle": 2,
+							"points": "2523:383;2523:424",
+							"nameLabel": {
+								"$ref": "AAAAAAFxVOo2H9HqcQQ="
+							}
+						},
+						{
+							"_type": "FCProcessView",
+							"_id": "AAAAAAFxVOrcrNIn87g=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVOrcrNIl+bU="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxVOrcrdIoP2Q=",
+									"_parent": {
+										"$ref": "AAAAAAFxVOrcrNIn87g="
+									},
+									"font": "Arial;13;0",
+									"left": 2682,
+									"top": 418,
+									"width": 54.18994140625,
+									"height": 65,
+									"text": "player speed is added to Player x velocity ",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 2672,
+							"top": 408,
+							"width": 74.18994140625,
+							"height": 85,
+							"nameLabel": {
+								"$ref": "AAAAAAFxVOrcrdIoP2Q="
+							}
+						},
+						{
+							"_type": "FCProcessView",
+							"_id": "AAAAAAFxVOu9R9IxSKI=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVOu9R9IvX4o="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxVOu9R9IyXZA=",
+									"_parent": {
+										"$ref": "AAAAAAFxVOu9R9IxSKI="
+									},
+									"font": "Arial;13;0",
+									"left": 2674,
+									"top": 634,
+									"width": 60.70263671875,
+									"height": 78,
+									"text": "player speed is subtracted from player x velocity",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 2664,
+							"top": 624,
+							"width": 80.70263671875,
+							"height": 98,
+							"nameLabel": {
+								"$ref": "AAAAAAFxVOu9R9IyXZA="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxVOwu09JJjwc=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVOwu0tJHW6E="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxVOwu09JKH98=",
+									"_parent": {
+										"$ref": "AAAAAAFxVOwu09JJjwc="
+									},
+									"model": {
+										"$ref": "AAAAAAFxVOwu0tJHW6E="
+									},
+									"font": "Arial;13;0",
+									"left": 2495,
+									"top": 767,
+									"width": 14.4599609375,
+									"height": 13,
+									"alpha": -2.4186137543844883,
+									"distance": 22.67156809750927,
+									"hostEdge": {
+										"$ref": "AAAAAAFxVOwu09JJjwc="
+									},
+									"edgePosition": 1,
+									"text": "no"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxVOmZaNF1Pro="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxVOlf79Fjkn4="
+							},
+							"lineStyle": 2,
+							"points": "2517:711;2517:872",
+							"nameLabel": {
+								"$ref": "AAAAAAFxVOwu09JKH98="
+							}
+						},
+						{
+							"_type": "FCProcessView",
+							"_id": "AAAAAAFxVOyJUtJTudg=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVOyJUtJRTvw="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxVOyJU9JU1hk=",
+									"_parent": {
+										"$ref": "AAAAAAFxVOyJUtJTudg="
+									},
+									"font": "Arial;13;0",
+									"left": 2786,
+									"top": 922,
+									"width": 54.18994140625,
+									"height": 78,
+									"text": "Player jump speed is added to y velocity",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 2776,
+							"top": 912,
+							"width": 74.18994140625,
+							"height": 98,
+							"nameLabel": {
+								"$ref": "AAAAAAFxVOyJU9JU1hk="
+							}
+						},
+						{
+							"_type": "FCDecisionView",
+							"_id": "AAAAAAFxVOzSIdJcw/g=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVOzSIdJanj4="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxVOzSIdJdoMk=",
+									"_parent": {
+										"$ref": "AAAAAAFxVOzSIdJcw/g="
+									},
+									"font": "Arial;13;0",
+									"left": 2484.542236328125,
+									"top": 1107.5,
+									"width": 57.08447265625,
+									"height": 39,
+									"text": "is space bar being pressed",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 2456,
+							"top": 1088,
+							"width": 114.1689453125,
+							"height": 78,
+							"nameLabel": {
+								"$ref": "AAAAAAFxVOzSIdJdoMk="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxVO1gg9KpGVc=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVO1gg9Kn4zQ="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxVO1gg9Kqyfk=",
+									"_parent": {
+										"$ref": "AAAAAAFxVO1gg9KpGVc="
+									},
+									"model": {
+										"$ref": "AAAAAAFxVO1gg9Kn4zQ="
+									},
+									"font": "Arial;13;0",
+									"left": 2633,
+									"top": 433,
+									"width": 20.22998046875,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxVO1gg9KpGVc="
+									},
+									"edgePosition": 1,
+									"text": "yes"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxVOrcrNIn87g="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxVOfNSNEyDyg="
+							},
+							"lineStyle": 2,
+							"points": "2615:454;2672:454",
+							"nameLabel": {
+								"$ref": "AAAAAAFxVO1gg9Kqyfk="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxVO13DNKz7jA=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVO13DNKxMQ8="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxVO13DNK05k4=",
+									"_parent": {
+										"$ref": "AAAAAAFxVO13DNKz7jA="
+									},
+									"model": {
+										"$ref": "AAAAAAFxVO13DNKxMQ8="
+									},
+									"font": "Arial;13;0",
+									"left": 2610,
+									"top": 648,
+									"width": 20.22998046875,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxVO13DNKz7jA="
+									},
+									"edgePosition": 1,
+									"text": "yes"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxVOu9R9IxSKI="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxVOlf79Fjkn4="
+							},
+							"lineStyle": 2,
+							"points": "2576:669;2664:669",
+							"nameLabel": {
+								"$ref": "AAAAAAFxVO13DNK05k4="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxVO2TE9LHVyA=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVO2TE9LF+wI="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxVO2TE9LI3T4=",
+									"_parent": {
+										"$ref": "AAAAAAFxVO2TE9LHVyA="
+									},
+									"model": {
+										"$ref": "AAAAAAFxVO2TE9LF+wI="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 2607,
+									"top": 553,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxVO2TE9LHVyA="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxVOlf79Fjkn4="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxVOrcrNIn87g="
+							},
+							"lineStyle": 2,
+							"points": "2672:492;2672:544;2544:544;2544:608",
+							"nameLabel": {
+								"$ref": "AAAAAAFxVO2TE9LI3T4="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxVO2hl9LZWmM=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVO2hl9LXm2Q="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxVO2hl9Laslg=",
+									"_parent": {
+										"$ref": "AAAAAAFxVO2hl9LZWmM="
+									},
+									"model": {
+										"$ref": "AAAAAAFxVO2hl9LXm2Q="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 2611,
+									"top": 817,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxVO2hl9LZWmM="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxVOmZaNF1Pro="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxVOu9R9IxSKI="
+							},
+							"lineStyle": 2,
+							"points": "2696:721;2696:808;2528:808;2528:872",
+							"nameLabel": {
+								"$ref": "AAAAAAFxVO2hl9Laslg="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxVO25LNLrzxU=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVO25LNLpWvI="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxVO25LNLsO3k=",
+									"_parent": {
+										"$ref": "AAAAAAFxVO25LNLrzxU="
+									},
+									"model": {
+										"$ref": "AAAAAAFxVO25LNLpWvI="
+									},
+									"font": "Arial;13;0",
+									"left": 2487,
+									"top": 1006,
+									"width": 14.4599609375,
+									"height": 13,
+									"alpha": -2.279423009655346,
+									"distance": 27.65863337187866,
+									"hostEdge": {
+										"$ref": "AAAAAAFxVO25LNLrzxU="
+									},
+									"edgePosition": 1,
+									"text": "no"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxVOzSIdJcw/g="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxVOmZaNF1Pro="
+							},
+							"lineStyle": 2,
+							"points": "2515:975;2515:1088",
+							"nameLabel": {
+								"$ref": "AAAAAAFxVO25LNLsO3k="
+							}
+						},
+						{
+							"_type": "FCDecisionView",
+							"_id": "AAAAAAFxVPKTWdM/16w=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVPKTWdM9bV8="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxVPKTWdNA4Zs=",
+									"_parent": {
+										"$ref": "AAAAAAFxVPKTWdM/16w="
+									},
+									"font": "Arial;13;0",
+									"left": 2484.542236328125,
+									"top": 1256.25,
+									"width": 57.08447265625,
+									"height": 32.5,
+									"text": "is x being pressed",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 2456,
+							"top": 1240,
+							"width": 114.1689453125,
+							"height": 65,
+							"nameLabel": {
+								"$ref": "AAAAAAFxVPKTWdNA4Zs="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxVPLvJdNKeeg=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVPLvJdNIU/c="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxVPLvJdNLL10=",
+									"_parent": {
+										"$ref": "AAAAAAFxVPLvJdNKeeg="
+									},
+									"model": {
+										"$ref": "AAAAAAFxVPLvJdNIU/c="
+									},
+									"font": "Arial;13;0",
+									"left": 2479,
+									"top": 1194,
+									"width": 14.4599609375,
+									"height": 13,
+									"alpha": -1.6092392257047858,
+									"distance": 26.019223662515376,
+									"hostEdge": {
+										"$ref": "AAAAAAFxVPLvJdNKeeg="
+									},
+									"edgePosition": 1,
+									"text": "no"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxVPKTWdM/16w="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxVOzSIdJcw/g="
+							},
+							"lineStyle": 2,
+							"points": "2512:1165;2512:1240",
+							"nameLabel": {
+								"$ref": "AAAAAAFxVPLvJdNLL10="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxVPL/v9NUW2M=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVPL/v9NSw0c="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxVPL/v9NV9wA=",
+									"_parent": {
+										"$ref": "AAAAAAFxVPL/v9NUW2M="
+									},
+									"model": {
+										"$ref": "AAAAAAFxVPL/v9NSw0c="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 2641,
+									"top": 1233,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxVPL/v9NUW2M="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxVPKTWdM/16w="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxVOyJUtJTudg="
+							},
+							"lineStyle": 2,
+							"points": "2788:1009;2788:1224;2496:1224;2496:1240",
+							"nameLabel": {
+								"$ref": "AAAAAAFxVPL/v9NV9wA="
+							}
+						},
+						{
+							"_type": "FCDecisionView",
+							"_id": "AAAAAAFxVPSbWdOC5Ss=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVPSbWNOAtGA="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxVPSbWdODshU=",
+									"_parent": {
+										"$ref": "AAAAAAFxVPSbWdOC5Ss="
+									},
+									"font": "Arial;13;0",
+									"left": 2628.542236328125,
+									"top": 958.25,
+									"width": 57.08447265625,
+									"height": 60.5,
+									"text": "is player on ground",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 2600,
+							"top": 928,
+							"width": 114.1689453125,
+							"height": 121,
+							"nameLabel": {
+								"$ref": "AAAAAAFxVPSbWdODshU="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxVPUm5dO9awc=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVPUm5dO72l8="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxVPUm5dO+LXw=",
+									"_parent": {
+										"$ref": "AAAAAAFxVPUm5dO9awc="
+									},
+									"model": {
+										"$ref": "AAAAAAFxVPUm5dO72l8="
+									},
+									"font": "Arial;13;0",
+									"left": 2588,
+									"top": 933,
+									"width": 20.22998046875,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxVPUm5dO9awc="
+									},
+									"edgePosition": 1,
+									"text": "yes"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxVPSbWdOC5Ss="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxVOmZaNF1Pro="
+							},
+							"lineStyle": 2,
+							"points": "2569:912;2584:912;2584:968;2600:968",
+							"nameLabel": {
+								"$ref": "AAAAAAFxVPUm5dO+LXw="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxVPU1f9PHkng=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVPU1f9PF3xI="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxVPU1f9PICcg=",
+									"_parent": {
+										"$ref": "AAAAAAFxVPU1f9PHkng="
+									},
+									"model": {
+										"$ref": "AAAAAAFxVPU1f9PF3xI="
+									},
+									"font": "Arial;13;0",
+									"left": 2575,
+									"top": 1024,
+									"width": 20.22998046875,
+									"height": 13,
+									"alpha": -0.7328154459390863,
+									"distance": 13.45362404707371,
+									"hostEdge": {
+										"$ref": "AAAAAAFxVPU1f9PHkng="
+									},
+									"edgePosition": 1,
+									"text": "yes"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxVPSbWdOC5Ss="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxVOzSIdJcw/g="
+							},
+							"lineStyle": 2,
+							"points": "2569:1088;2576:1088;2576:992;2600:992",
+							"nameLabel": {
+								"$ref": "AAAAAAFxVPU1f9PICcg="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxVPYeqNP1ots=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVPYeqNPzoTE="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxVPYeqNP2RZ8=",
+									"_parent": {
+										"$ref": "AAAAAAFxVPYeqNP1ots="
+									},
+									"model": {
+										"$ref": "AAAAAAFxVPYeqNPzoTE="
+									},
+									"font": "Arial;13;0",
+									"left": 2734,
+									"top": 965,
+									"width": 20.22998046875,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxVPYeqNP1ots="
+									},
+									"edgePosition": 1,
+									"text": "yes"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxVOyJUtJTudg="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxVPSbWdOC5Ss="
+							},
+							"lineStyle": 2,
+							"points": "2713:986;2776:986",
+							"nameLabel": {
+								"$ref": "AAAAAAFxVPYeqNP2RZ8="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxVPZ+ztQADME=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVPZ+ztP+aPw="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxVPZ+ztQB+BM=",
+									"_parent": {
+										"$ref": "AAAAAAFxVPZ+ztQADME="
+									},
+									"model": {
+										"$ref": "AAAAAAFxVPZ+ztP+aPw="
+									},
+									"font": "Arial;13;0",
+									"left": 2572,
+									"top": 1193,
+									"width": 14.4599609375,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxVPZ+ztQADME="
+									},
+									"edgePosition": 1,
+									"text": "no"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxVPKTWdM/16w="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxVPSbWdOC5Ss="
+							},
+							"lineStyle": 2,
+							"points": "2632:1048;2632:1184;2528:1184;2528:1240",
+							"nameLabel": {
+								"$ref": "AAAAAAFxVPZ+ztQB+BM="
+							}
+						},
+						{
+							"_type": "FCDecisionView",
+							"_id": "AAAAAAFxVPy0ydQUjic=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVPy0yNQSX18="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxVPy0ytQVPM4=",
+									"_parent": {
+										"$ref": "AAAAAAFxVPy0ydQUjic="
+									},
+									"font": "Arial;13;0",
+									"left": 2668.542236328125,
+									"top": 1267.5,
+									"width": 57.08447265625,
+									"height": 39,
+									"text": "is attack on cooldown",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 2640,
+							"top": 1248,
+							"width": 114.1689453125,
+							"height": 78,
+							"nameLabel": {
+								"$ref": "AAAAAAFxVPy0ytQVPM4="
+							}
+						},
+						{
+							"_type": "FCProcessView",
+							"_id": "AAAAAAFxVPzRXtQdEys=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVPzRXtQbwlk="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxVPzRXtQe3RQ=",
+									"_parent": {
+										"$ref": "AAAAAAFxVPzRXtQdEys="
+									},
+									"font": "Arial;13;0",
+									"left": 2890,
+									"top": 1250,
+									"width": 54.92626953125,
+									"height": 78,
+									"text": "trigger light attack and start attack cooldown",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 2880,
+							"top": 1240,
+							"width": 74.92626953125,
+							"height": 98,
+							"nameLabel": {
+								"$ref": "AAAAAAFxVPzRXtQe3RQ="
+							}
+						},
+						{
+							"_type": "FCDecisionView",
+							"_id": "AAAAAAFxVP0Kq9QmPPw=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVP0Kq9QkWFA="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxVP0Kq9Qnn/A=",
+									"_parent": {
+										"$ref": "AAAAAAFxVP0Kq9QmPPw="
+									},
+									"font": "Arial;13;0",
+									"left": 2484.542236328125,
+									"top": 1421,
+									"width": 57.08447265625,
+									"height": 26,
+									"text": "is c being pressed",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 2456,
+							"top": 1408,
+							"width": 114.1689453125,
+							"height": 52,
+							"nameLabel": {
+								"$ref": "AAAAAAFxVP0Kq9Qnn/A="
+							}
+						},
+						{
+							"_type": "FCDecisionView",
+							"_id": "AAAAAAFxVP1OPdQvjMY=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVP1OPdQtEvI="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxVP1OPdQwbvA=",
+									"_parent": {
+										"$ref": "AAAAAAFxVP1OPdQvjMY="
+									},
+									"font": "Arial;13;0",
+									"left": 2668.542236328125,
+									"top": 1443.5,
+									"width": 57.08447265625,
+									"height": 39,
+									"text": "is attack on cooldown",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 2640,
+							"top": 1424,
+							"width": 114.1689453125,
+							"height": 78,
+							"nameLabel": {
+								"$ref": "AAAAAAFxVP1OPdQwbvA="
+							}
+						},
+						{
+							"_type": "FCProcessView",
+							"_id": "AAAAAAFxVP1nq9Q4YSA=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVP1nqtQ2tDU="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxVP1nq9Q5FxM=",
+									"_parent": {
+										"$ref": "AAAAAAFxVP1nq9Q4YSA="
+									},
+									"font": "Arial;13;0",
+									"left": 2898,
+									"top": 1418,
+									"width": 54.92626953125,
+									"height": 78,
+									"text": "trigger heavy attack and start attack cooldown",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 2888,
+							"top": 1408,
+							"width": 74.92626953125,
+							"height": 98,
+							"nameLabel": {
+								"$ref": "AAAAAAFxVP1nq9Q5FxM="
+							}
+						},
+						{
+							"_type": "FCDecisionView",
+							"_id": "AAAAAAFxVP+TgtRF4K8=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVP+TgdRDLrU="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxVP+TgtRGBSk=",
+									"_parent": {
+										"$ref": "AAAAAAFxVP+TgtRF4K8="
+									},
+									"font": "Arial;13;0",
+									"left": 2500.542236328125,
+									"top": 1573,
+									"width": 57.08447265625,
+									"height": 26,
+									"text": "is z being pressed",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 2472,
+							"top": 1560,
+							"width": 114.1689453125,
+							"height": 52,
+							"nameLabel": {
+								"$ref": "AAAAAAFxVP+TgtRGBSk="
+							}
+						},
+						{
+							"_type": "FCDecisionView",
+							"_id": "AAAAAAFxVQAIp9RPCZc=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVQAIp9RNzY4="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxVQAIp9RQOAk=",
+									"_parent": {
+										"$ref": "AAAAAAFxVQAIp9RPCZc="
+									},
+									"font": "Arial;13;0",
+									"left": 2628.25,
+									"top": 1695,
+									"width": 88.5,
+									"height": 78,
+									"text": "is there an object to be interacted with in the player's vicinity (such as a door)",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 2584,
+							"top": 1656,
+							"width": 177,
+							"height": 156,
+							"nameLabel": {
+								"$ref": "AAAAAAFxVQAIp9RQOAk="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxVQDpGdRe9T0=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVQDpGdRcN6I="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxVQDpGdRfhQ4=",
+									"_parent": {
+										"$ref": "AAAAAAFxVQDpGdRe9T0="
+									},
+									"model": {
+										"$ref": "AAAAAAFxVQDpGdRcN6I="
+									},
+									"font": "Arial;13;0",
+									"left": 2594,
+									"top": 1261,
+									"width": 20.22998046875,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxVQDpGdRe9T0="
+									},
+									"edgePosition": 1,
+									"text": "yes"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxVPy0ydQUjic="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxVPKTWdM/16w="
+							},
+							"lineStyle": 2,
+							"points": "2569:1282;2640:1282",
+							"nameLabel": {
+								"$ref": "AAAAAAFxVQDpGdRfhQ4="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxVQEE09RoIog=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVQEE09RmL84="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxVQEE09RpDJ0=",
+									"_parent": {
+										"$ref": "AAAAAAFxVQEE09RoIog="
+									},
+									"model": {
+										"$ref": "AAAAAAFxVQEE09RmL84="
+									},
+									"font": "Arial;13;0",
+									"left": 2809,
+									"top": 1267,
+									"width": 14.4599609375,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxVQEE09RoIog="
+									},
+									"edgePosition": 1,
+									"text": "no"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxVPzRXtQdEys="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxVPy0ydQUjic="
+							},
+							"lineStyle": 2,
+							"points": "2753:1288;2880:1288",
+							"nameLabel": {
+								"$ref": "AAAAAAFxVQEE09RpDJ0="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxVQEWf9Ryo/s=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVQEWf9RwSMM="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxVQEWf9Rz3LE=",
+									"_parent": {
+										"$ref": "AAAAAAFxVQEWf9Ryo/s="
+									},
+									"model": {
+										"$ref": "AAAAAAFxVQEWf9RwSMM="
+									},
+									"font": "Arial;13;0",
+									"left": 2519,
+									"top": 1349,
+									"width": 14.4599609375,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxVQEWf9Ryo/s="
+									},
+									"edgePosition": 1,
+									"text": "no"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxVP0Kq9QmPPw="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxVPKTWdM/16w="
+							},
+							"lineStyle": 2,
+							"points": "2512:1304;2512:1408",
+							"nameLabel": {
+								"$ref": "AAAAAAFxVQEWf9Rz3LE="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxVQEr8NR8PIw=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVQEr79R6hrs="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxVQEr8NR9oMc=",
+									"_parent": {
+										"$ref": "AAAAAAFxVQEr8NR8PIw="
+									},
+									"model": {
+										"$ref": "AAAAAAFxVQEr79R6hrs="
+									},
+									"font": "Arial;13;0",
+									"left": 2594,
+									"top": 1432,
+									"width": 20.22998046875,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxVQEr8NR8PIw="
+									},
+									"edgePosition": 1,
+									"text": "yes"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxVP1OPdQvjMY="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxVP0Kq9QmPPw="
+							},
+							"lineStyle": 2,
+							"points": "2569:1453;2640:1453",
+							"nameLabel": {
+								"$ref": "AAAAAAFxVQEr8NR9oMc="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxVQE93NSG414=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVQE93NSEoy8="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxVQE93NSHhDE=",
+									"_parent": {
+										"$ref": "AAAAAAFxVQE93NSG414="
+									},
+									"model": {
+										"$ref": "AAAAAAFxVQE93NSEoy8="
+									},
+									"font": "Arial;13;0",
+									"left": 2813,
+									"top": 1439,
+									"width": 14.4599609375,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxVQE93NSG414="
+									},
+									"edgePosition": 1,
+									"text": "no"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxVP1nq9Q4YSA="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxVP1OPdQvjMY="
+							},
+							"lineStyle": 2,
+							"points": "2753:1460;2888:1460",
+							"nameLabel": {
+								"$ref": "AAAAAAFxVQE93NSHhDE="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxVQFcNNSQzG0=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVQFcNNSOtC4="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxVQFcNNSRzuQ=",
+									"_parent": {
+										"$ref": "AAAAAAFxVQFcNNSQzG0="
+									},
+									"model": {
+										"$ref": "AAAAAAFxVQFcNNSOtC4="
+									},
+									"font": "Arial;13;0",
+									"left": 2981,
+									"top": 1369,
+									"width": 20.22998046875,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxVQFcNNSQzG0="
+									},
+									"edgePosition": 1,
+									"text": "yes"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxVP+TgtRF4K8="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxVPy0ydQUjic="
+							},
+							"lineStyle": 2,
+							"points": "2696:1325;2696:1376;2976:1376;2976:1584;2585:1584",
+							"nameLabel": {
+								"$ref": "AAAAAAFxVQFcNNSRzuQ="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxVQF8JNSaytc=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVQF8JNSYtnY="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxVQF8JNSbMaQ=",
+									"_parent": {
+										"$ref": "AAAAAAFxVQF8JNSaytc="
+									},
+									"model": {
+										"$ref": "AAAAAAFxVQF8JNSYtnY="
+									},
+									"font": "Arial;13;0",
+									"left": 2617,
+									"top": 1537,
+									"width": 20.22998046875,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxVQF8JNSaytc="
+									},
+									"edgePosition": 1,
+									"text": "yes"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxVP+TgtRF4K8="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxVP1OPdQvjMY="
+							},
+							"lineStyle": 2,
+							"points": "2696:1501;2696:1528;2560:1528;2560:1560",
+							"nameLabel": {
+								"$ref": "AAAAAAFxVQF8JNSbMaQ="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxVQGY8tSkVfU=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVQGY8tSimd4="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxVQGY89SlJm8=",
+									"_parent": {
+										"$ref": "AAAAAAFxVQGY8tSkVfU="
+									},
+									"model": {
+										"$ref": "AAAAAAFxVQGY8tSimd4="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 3023,
+									"top": 1445,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxVQGY8tSkVfU="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxVP+TgtRF4K8="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxVPzRXtQdEys="
+							},
+							"lineStyle": 2,
+							"points": "2954:1304;3008:1304;3008:1600;2585:1600",
+							"nameLabel": {
+								"$ref": "AAAAAAFxVQGY89SlJm8="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxVQGmK9StoYU=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVQGmK9SrJuw="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxVQGmLNSuKZc=",
+									"_parent": {
+										"$ref": "AAAAAAFxVQGmK9StoYU="
+									},
+									"model": {
+										"$ref": "AAAAAAFxVQGmK9SrJuw="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 2927,
+									"top": 1569,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxVQGmK9StoYU="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxVP+TgtRF4K8="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxVP1nq9Q4YSA="
+							},
+							"lineStyle": 2,
+							"points": "2928:1505;2928:1560;2585:1560",
+							"nameLabel": {
+								"$ref": "AAAAAAFxVQGmLNSuKZc="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxVQPHq9TmCXA=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVQPHqtTkWeM="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxVQPHq9Tn9SI=",
+									"_parent": {
+										"$ref": "AAAAAAFxVQPHq9TmCXA="
+									},
+									"model": {
+										"$ref": "AAAAAAFxVQPHqtTkWeM="
+									},
+									"font": "Arial;13;0",
+									"left": 2543,
+									"top": 1715,
+									"width": 20.22998046875,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxVQPHq9TmCXA="
+									},
+									"edgePosition": 1,
+									"text": "yes"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxVQAIp9RPCZc="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxVP+TgtRF4K8="
+							},
+							"lineStyle": 2,
+							"points": "2553:1611;2553:1736;2584:1736",
+							"nameLabel": {
+								"$ref": "AAAAAAFxVQPHq9Tn9SI="
+							}
+						},
+						{
+							"_type": "FCProcessView",
+							"_id": "AAAAAAFxVQP2AtTxRwI=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVQP2AtTv+W4="
+							},
+							"subViews": [
+								{
+									"_type": "LabelView",
+									"_id": "AAAAAAFxVQP2AtTycus=",
+									"_parent": {
+										"$ref": "AAAAAAFxVQP2AtTxRwI="
+									},
+									"font": "Arial;13;0",
+									"left": 2826,
+									"top": 1698,
+									"width": 117,
+									"height": 39,
+									"text": "trigger the interaction with the object",
+									"wordWrap": true
+								}
+							],
+							"font": "Arial;13;0",
+							"left": 2816,
+							"top": 1688,
+							"width": 137,
+							"height": 73,
+							"nameLabel": {
+								"$ref": "AAAAAAFxVQP2AtTycus="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxVQQ36dT7avE=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVQQ36NT5aC4="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxVQQ36dT8UE8=",
+									"_parent": {
+										"$ref": "AAAAAAFxVQQ36dT7avE="
+									},
+									"model": {
+										"$ref": "AAAAAAFxVQQ36NT5aC4="
+									},
+									"font": "Arial;13;0",
+									"left": 2778,
+									"top": 1708,
+									"width": 20.22998046875,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxVQQ36dT7avE="
+									},
+									"edgePosition": 1,
+									"text": "yes"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxVQP2AtTxRwI="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxVQAIp9RPCZc="
+							},
+							"lineStyle": 2,
+							"points": "2760:1729;2816:1729",
+							"nameLabel": {
+								"$ref": "AAAAAAFxVQQ36dT8UE8="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxVS4iJNUTXXs=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVS4iJNURUGc="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxVS4iJNUUZHo=",
+									"_parent": {
+										"$ref": "AAAAAAFxVS4iJNUTXXs="
+									},
+									"model": {
+										"$ref": "AAAAAAFxVS4iJNURUGc="
+									},
+									"visible": false,
+									"font": "Arial;13;0",
+									"left": 3121,
+									"top": 1029,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxVS4iJNUTXXs="
+									},
+									"edgePosition": 1
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxVOguitE8NT8="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxVQP2AtTxRwI="
+							},
+							"lineStyle": 2,
+							"points": "2952:1728;3136:1728;3136:344;2583:344",
+							"nameLabel": {
+								"$ref": "AAAAAAFxVS4iJNUUZHo="
+							}
+						},
+						{
+							"_type": "FCFlowView",
+							"_id": "AAAAAAFxVS5/BdUfzL4=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPBRN/9yLWc="
+							},
+							"model": {
+								"$ref": "AAAAAAFxVS5/BNUdyLE="
+							},
+							"subViews": [
+								{
+									"_type": "EdgeLabelView",
+									"_id": "AAAAAAFxVS5/BdUgpYo=",
+									"_parent": {
+										"$ref": "AAAAAAFxVS5/BdUfzL4="
+									},
+									"model": {
+										"$ref": "AAAAAAFxVS5/BNUdyLE="
+									},
+									"font": "Arial;13;0",
+									"left": 2338,
+									"top": 945,
+									"width": 14.4599609375,
+									"height": 13,
+									"alpha": 1.5707963267948966,
+									"distance": 15,
+									"hostEdge": {
+										"$ref": "AAAAAAFxVS5/BdUfzL4="
+									},
+									"edgePosition": 1,
+									"text": "no"
+								}
+							],
+							"font": "Arial;13;0",
+							"head": {
+								"$ref": "AAAAAAFxVOguitE8NT8="
+							},
+							"tail": {
+								"$ref": "AAAAAAFxVP+TgtRF4K8="
+							},
+							"lineStyle": 2,
+							"points": "2472:1560;2360:1560;2360:344;2455:344",
+							"nameLabel": {
+								"$ref": "AAAAAAFxVS5/BdUgpYo="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCProcess",
+					"_id": "AAAAAAFxUPEwOf92uF4=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Spawn in enclosed cave area",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUPfLIgANEhM=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPEwOf92uF4="
+							},
+							"source": {
+								"$ref": "AAAAAAFxUPEwOf92uF4="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUPbKUf/9sFg="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCTerminator",
+					"_id": "AAAAAAFxUPWeZP+5qUc=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Begin Level",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUPY5b//x6MU=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPWeZP+5qUc="
+							},
+							"source": {
+								"$ref": "AAAAAAFxUPWeZP+5qUc="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUPEwOf92uF4="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCManualInput",
+					"_id": "AAAAAAFxUPbKUf/9sFg=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Player Exits the starting area, using the movement controls on the keyboat",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUPyxGwAjidQ=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPbKUf/9sFg="
+							},
+							"source": {
+								"$ref": "AAAAAAFxUPbKUf/9sFg="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUPfzTAAW9n0="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCPredefinedProcess",
+					"_id": "AAAAAAFxUPfzTAAW9n0=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Combat: Player Encounters two Brutes in the corridor outside the starting area This combat cannot be circumvented",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUP/D4QBgDRo=",
+							"_parent": {
+								"$ref": "AAAAAAFxUPfzTAAW9n0="
+							},
+							"source": {
+								"$ref": "AAAAAAFxUPfzTAAW9n0="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUP3kyABGVVg="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCManualInput",
+					"_id": "AAAAAAFxUP3kyABGVVg=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Player uses combat controls learned in the previous level to try and defeat the encounter",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUP/8uABsNL8=",
+							"_parent": {
+								"$ref": "AAAAAAFxUP3kyABGVVg="
+							},
+							"source": {
+								"$ref": "AAAAAAFxUP3kyABGVVg="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUP9WogBWz4o="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCDecision",
+					"_id": "AAAAAAFxUP9WogBWz4o=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Does the player deafeat the brutes?",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUQDk0gDNhug=",
+							"_parent": {
+								"$ref": "AAAAAAFxUP9WogBWz4o="
+							},
+							"name": "No",
+							"source": {
+								"$ref": "AAAAAAFxUP9WogBWz4o="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUPEwOf92uF4="
+							}
+						},
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUQkkugD1y6k=",
+							"_parent": {
+								"$ref": "AAAAAAFxUP9WogBWz4o="
+							},
+							"source": {
+								"$ref": "AAAAAAFxUP9WogBWz4o="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUQNz5gDkraE="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCManualOperation",
+					"_id": "AAAAAAFxUQNz5gDkraE=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Player moves forward",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxURUz7wGEfG8=",
+							"_parent": {
+								"$ref": "AAAAAAFxUQNz5gDkraE="
+							},
+							"source": {
+								"$ref": "AAAAAAFxUQNz5gDkraE="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUQkzVQD+5vc="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCDecision",
+					"_id": "AAAAAAFxUQkzVQD+5vc=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Player is presented with a crossroad with three paths",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUQx+kwER9Kw=",
+							"_parent": {
+								"$ref": "AAAAAAFxUQkzVQD+5vc="
+							},
+							"name": "Player chooses lower left tunnel",
+							"source": {
+								"$ref": "AAAAAAFxUQkzVQD+5vc="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUVByzgLAbrQ="
+							}
+						},
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUQ3k6QE3SAw=",
+							"_parent": {
+								"$ref": "AAAAAAFxUQkzVQD+5vc="
+							},
+							"name": "Player chooese lower right tunnel",
+							"source": {
+								"$ref": "AAAAAAFxUQkzVQD+5vc="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUWMIYwP8zPk="
+							}
+						},
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUQ4G2AFB7iA=",
+							"_parent": {
+								"$ref": "AAAAAAFxUQkzVQD+5vc="
+							},
+							"name": "Player chooses top right tunnel",
+							"source": {
+								"$ref": "AAAAAAFxUQkzVQD+5vc="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUUwmfAKGX4k="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCPredefinedProcess",
+					"_id": "AAAAAAFxUQxX8gEIgGc=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Combat: Three brutes",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUVHNGgLujk8=",
+							"_parent": {
+								"$ref": "AAAAAAFxUQxX8gEIgGc="
+							},
+							"source": {
+								"$ref": "AAAAAAFxUQxX8gEIgGc="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUVH3ywL4Spk="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCPredefinedProcess",
+					"_id": "AAAAAAFxUQ3HRAEvUM4=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Combat: Player encounters a brute and a gunman",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxURbXIAG2+3s=",
+							"_parent": {
+								"$ref": "AAAAAAFxUQ3HRAEvUM4="
+							},
+							"source": {
+								"$ref": "AAAAAAFxUQ3HRAEvUM4="
+							},
+							"target": {
+								"$ref": "AAAAAAFxURWK2QGNE5w="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCDecision",
+					"_id": "AAAAAAFxURWK2QGNE5w=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Does player get past the enocounter?",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxURZyhQGo29s=",
+							"_parent": {
+								"$ref": "AAAAAAFxURWK2QGNE5w="
+							},
+							"name": "No",
+							"source": {
+								"$ref": "AAAAAAFxURWK2QGNE5w="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUPWeZP+5qUc="
+							}
+						},
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUR3aEwHN/vI=",
+							"_parent": {
+								"$ref": "AAAAAAFxURWK2QGNE5w="
+							},
+							"source": {
+								"$ref": "AAAAAAFxURWK2QGNE5w="
+							},
+							"target": {
+								"$ref": "AAAAAAFxURcScwG//Jo="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCPredefinedProcess",
+					"_id": "AAAAAAFxURcScwG//Jo=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Player Encounters a door with a padlock",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUURyagIIWqg=",
+							"_parent": {
+								"$ref": "AAAAAAFxURcScwG//Jo="
+							},
+							"source": {
+								"$ref": "AAAAAAFxURcScwG//Jo="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUR50TwHWlUU="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCDecision",
+					"_id": "AAAAAAFxUR50TwHWlUU=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Does the player wish to go through the door and have the key",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUR7tuwHiH0k=",
+							"_parent": {
+								"$ref": "AAAAAAFxUR50TwHWlUU="
+							},
+							"name": "no",
+							"source": {
+								"$ref": "AAAAAAFxUR50TwHWlUU="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUQkzVQD+5vc="
+							}
+						},
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUUZg2QIqFJU=",
+							"_parent": {
+								"$ref": "AAAAAAFxUR50TwHWlUU="
+							},
+							"name": "yes",
+							"source": {
+								"$ref": "AAAAAAFxUR50TwHWlUU="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUSQEMwH7cTE="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCPredefinedProcess",
+					"_id": "AAAAAAFxUSQEMwH7cTE=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Combat: three brutes and a gunman",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUUZN+wIhhTY=",
+							"_parent": {
+								"$ref": "AAAAAAFxUSQEMwH7cTE="
+							},
+							"source": {
+								"$ref": "AAAAAAFxUSQEMwH7cTE="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUUTA3wIUEDI="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCDecision",
+					"_id": "AAAAAAFxUUTA3wIUEDI=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Does player defeat the encounter",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUUaaLAI0jF0=",
+							"_parent": {
+								"$ref": "AAAAAAFxUUTA3wIUEDI="
+							},
+							"name": "no",
+							"source": {
+								"$ref": "AAAAAAFxUUTA3wIUEDI="
+							},
+							"target": {
+								"$ref": "AAAAAAFxURcScwG//Jo="
+							}
+						},
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUUo6ZgJnZOQ=",
+							"_parent": {
+								"$ref": "AAAAAAFxUUTA3wIUEDI="
+							},
+							"name": "yes",
+							"source": {
+								"$ref": "AAAAAAFxUUTA3wIUEDI="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUUmd0AJYkFE="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCManualOperation",
+					"_id": "AAAAAAFxUUjXVAJATLI=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Player moves back to the crossroads",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUUquPQJ8QA0=",
+							"_parent": {
+								"$ref": "AAAAAAFxUUjXVAJATLI="
+							},
+							"source": {
+								"$ref": "AAAAAAFxUUjXVAJATLI="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUQkzVQD+5vc="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCPredefinedProcess",
+					"_id": "AAAAAAFxUUmd0AJYkFE=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Player gets a permenant extra life as a reward for defeating the encounter",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUUpdIAJx6rw=",
+							"_parent": {
+								"$ref": "AAAAAAFxUUmd0AJYkFE="
+							},
+							"source": {
+								"$ref": "AAAAAAFxUUmd0AJYkFE="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUUjXVAJATLI="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCDecision",
+					"_id": "AAAAAAFxUUwmfAKGX4k=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Player has already defeated encounter",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUUz72AKbHZ4=",
+							"_parent": {
+								"$ref": "AAAAAAFxUUwmfAKGX4k="
+							},
+							"name": "yes",
+							"source": {
+								"$ref": "AAAAAAFxUUwmfAKGX4k="
+							},
+							"target": {
+								"$ref": "AAAAAAFxURcScwG//Jo="
+							}
+						},
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUU1JIQKmj+s=",
+							"_parent": {
+								"$ref": "AAAAAAFxUUwmfAKGX4k="
+							},
+							"name": "no",
+							"source": {
+								"$ref": "AAAAAAFxUUwmfAKGX4k="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUQ3HRAEvUM4="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCDecision",
+					"_id": "AAAAAAFxUVByzgLAbrQ=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Player has already defeated encounter",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUVGQUgLbRwM=",
+							"_parent": {
+								"$ref": "AAAAAAFxUVByzgLAbrQ="
+							},
+							"name": "no",
+							"source": {
+								"$ref": "AAAAAAFxUVByzgLAbrQ="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUQxX8gEIgGc="
+							}
+						},
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUVKYEQMUbH4=",
+							"_parent": {
+								"$ref": "AAAAAAFxUVByzgLAbrQ="
+							},
+							"name": "yes",
+							"source": {
+								"$ref": "AAAAAAFxUVByzgLAbrQ="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUVGvJgLlLKM="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCDecision",
+					"_id": "AAAAAAFxUVGvJgLlLKM=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Player has already defeated encounter",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUVWbqQM9Ok4=",
+							"_parent": {
+								"$ref": "AAAAAAFxUVGvJgLlLKM="
+							},
+							"name": "no",
+							"source": {
+								"$ref": "AAAAAAFxUVGvJgLlLKM="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUVOZowMmlHE="
+							}
+						},
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUVabqANh2GI=",
+							"_parent": {
+								"$ref": "AAAAAAFxUVGvJgLlLKM="
+							},
+							"name": "yes",
+							"source": {
+								"$ref": "AAAAAAFxUVGvJgLlLKM="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUVY+LANV+Tc="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCDecision",
+					"_id": "AAAAAAFxUVH3ywL4Spk=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "does player get past encounter",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUVJ7ZgMK6Wg=",
+							"_parent": {
+								"$ref": "AAAAAAFxUVH3ywL4Spk="
+							},
+							"name": "yes",
+							"source": {
+								"$ref": "AAAAAAFxUVH3ywL4Spk="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUVGvJgLlLKM="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCPredefinedProcess",
+					"_id": "AAAAAAFxUVOZowMmlHE=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Combat: One henchman",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUVf1AAOHzl0=",
+							"_parent": {
+								"$ref": "AAAAAAFxUVOZowMmlHE="
+							},
+							"source": {
+								"$ref": "AAAAAAFxUVOZowMmlHE="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUVQiDwMyvm8="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCDecision",
+					"_id": "AAAAAAFxUVQiDwMyvm8=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Does player get past encounter",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUVowNgOqRTM=",
+							"_parent": {
+								"$ref": "AAAAAAFxUVQiDwMyvm8="
+							},
+							"name": "yes",
+							"source": {
+								"$ref": "AAAAAAFxUVQiDwMyvm8="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUVkSuAOQbbc="
+							}
+						},
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUVqRyAPCMT8=",
+							"_parent": {
+								"$ref": "AAAAAAFxUVQiDwMyvm8="
+							},
+							"name": "no",
+							"source": {
+								"$ref": "AAAAAAFxUVQiDwMyvm8="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUQkzVQD+5vc="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCManualOperation",
+					"_id": "AAAAAAFxUVY+LANV+Tc=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Player moves back to the crossroads",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUVdMxAN022Q=",
+							"_parent": {
+								"$ref": "AAAAAAFxUVY+LANV+Tc="
+							},
+							"source": {
+								"$ref": "AAAAAAFxUVY+LANV+Tc="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUQkzVQD+5vc="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCPredefinedProcess",
+					"_id": "AAAAAAFxUVkSuAOQbbc=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Player picks up key from henchman",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUV1jsAPUdr0=",
+							"_parent": {
+								"$ref": "AAAAAAFxUVkSuAOQbbc="
+							},
+							"source": {
+								"$ref": "AAAAAAFxUVkSuAOQbbc="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUVY+LANV+Tc="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCManualOperation",
+					"_id": "AAAAAAFxUWMIYwP8zPk=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Player moves forward",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUWmTZAQ1TF4=",
+							"_parent": {
+								"$ref": "AAAAAAFxUWMIYwP8zPk="
+							},
+							"source": {
+								"$ref": "AAAAAAFxUWMIYwP8zPk="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUWVKOQQZohs="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCDecision",
+					"_id": "AAAAAAFxUWVKOQQZohs=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Player presented with a choice between continuing or taking the platform the the upper tunnel",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUWmkbgQ+Yg4=",
+							"_parent": {
+								"$ref": "AAAAAAFxUWVKOQQZohs="
+							},
+							"name": "platform to upper tunnel",
+							"source": {
+								"$ref": "AAAAAAFxUWVKOQQZohs="
+							},
+							"target": {
+								"$ref": "AAAAAAFxURcScwG//Jo="
+							}
+						},
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUXAVPQSOojQ=",
+							"_parent": {
+								"$ref": "AAAAAAFxUWVKOQQZohs="
+							},
+							"name": "continue",
+							"source": {
+								"$ref": "AAAAAAFxUWVKOQQZohs="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUW7OyQSAUXI="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCPredefinedProcess",
+					"_id": "AAAAAAFxUW483wR1+HM=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Combat: 3 brutes and a gunman",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUYMC+wTLtc8=",
+							"_parent": {
+								"$ref": "AAAAAAFxUW483wR1+HM="
+							},
+							"source": {
+								"$ref": "AAAAAAFxUW483wR1+HM="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUYLIpQS+tCA="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCDecision",
+					"_id": "AAAAAAFxUW7OyQSAUXI=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Has player already defeated encounter",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUX9LAwSoBk4=",
+							"_parent": {
+								"$ref": "AAAAAAFxUW7OyQSAUXI="
+							},
+							"name": "no",
+							"source": {
+								"$ref": "AAAAAAFxUW7OyQSAUXI="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUW483wR1+HM="
+							}
+						},
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUYU5dAUQi8k=",
+							"_parent": {
+								"$ref": "AAAAAAFxUW7OyQSAUXI="
+							},
+							"name": "yes",
+							"source": {
+								"$ref": "AAAAAAFxUW7OyQSAUXI="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUYQKBgUCXdc="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCPredefinedProcess",
+					"_id": "AAAAAAFxUYEYdQSygbE=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Encounter Combat/Platforming. Three brutes arranged on platforms above the player, the player must jump between platforms and defeat the enemeis waiting for him",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUZEIywVPuhI=",
+							"_parent": {
+								"$ref": "AAAAAAFxUYEYdQSygbE="
+							},
+							"source": {
+								"$ref": "AAAAAAFxUYEYdQSygbE="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUZCNDQVC/yk="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCDecision",
+					"_id": "AAAAAAFxUYLIpQS+tCA=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Does player defeat encounter",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUYNx1wTaJuw=",
+							"_parent": {
+								"$ref": "AAAAAAFxUYLIpQS+tCA="
+							},
+							"name": "no",
+							"source": {
+								"$ref": "AAAAAAFxUYLIpQS+tCA="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUWVKOQQZohs="
+							}
+						},
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUYXqpgUd7L8=",
+							"_parent": {
+								"$ref": "AAAAAAFxUYLIpQS+tCA="
+							},
+							"name": "yes",
+							"source": {
+								"$ref": "AAAAAAFxUYLIpQS+tCA="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUYQKBgUCXdc="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCManualOperation",
+					"_id": "AAAAAAFxUYQKBgUCXdc=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Player moves forward",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUYYetAUoMeI=",
+							"_parent": {
+								"$ref": "AAAAAAFxUYQKBgUCXdc="
+							},
+							"source": {
+								"$ref": "AAAAAAFxUYQKBgUCXdc="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUYEYdQSygbE="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCDecision",
+					"_id": "AAAAAAFxUZCNDQVC/yk=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Does player defeat encounter ",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUZFQ3wVYOyo=",
+							"_parent": {
+								"$ref": "AAAAAAFxUZCNDQVC/yk="
+							},
+							"name": "no",
+							"source": {
+								"$ref": "AAAAAAFxUZCNDQVC/yk="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUYQKBgUCXdc="
+							}
+						},
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUZL+zgWZzTM=",
+							"_parent": {
+								"$ref": "AAAAAAFxUZCNDQVC/yk="
+							},
+							"source": {
+								"$ref": "AAAAAAFxUZCNDQVC/yk="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUZIHrwVs+do="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCPredefinedProcess",
+					"_id": "AAAAAAFxUZIHrwVs+do=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Player encounters a pit which they have to drop down and cannot exit from",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUZNkOAWy7Qg=",
+							"_parent": {
+								"$ref": "AAAAAAFxUZIHrwVs+do="
+							},
+							"source": {
+								"$ref": "AAAAAAFxUZIHrwVs+do="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUZMKnAWiMuY="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCDecision",
+					"_id": "AAAAAAFxUZMKnAWiMuY=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Does the player proceed or backtrack",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUZPUjwW85AI=",
+							"_parent": {
+								"$ref": "AAAAAAFxUZMKnAWiMuY="
+							},
+							"name": "backtrack",
+							"source": {
+								"$ref": "AAAAAAFxUZMKnAWiMuY="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUQkzVQD+5vc="
+							}
+						},
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUZZZnwXiHOY=",
+							"_parent": {
+								"$ref": "AAAAAAFxUZMKnAWiMuY="
+							},
+							"name": "proceed",
+							"source": {
+								"$ref": "AAAAAAFxUZMKnAWiMuY="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUZUDFgXX1mo="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCPredefinedProcess",
+					"_id": "AAAAAAFxUZUDFgXX1mo=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Boss Encounter: Two bosses in a platform filled room",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUZb+ZgX35DU=",
+							"_parent": {
+								"$ref": "AAAAAAFxUZUDFgXX1mo="
+							},
+							"source": {
+								"$ref": "AAAAAAFxUZUDFgXX1mo="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUZbJnwXsmCI="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCDecision",
+					"_id": "AAAAAAFxUZbJnwXsmCI=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Does the player defeat the boss",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUZcseAYA0pg=",
+							"_parent": {
+								"$ref": "AAAAAAFxUZbJnwXsmCI="
+							},
+							"name": "no",
+							"source": {
+								"$ref": "AAAAAAFxUZbJnwXsmCI="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUZIHrwVs+do="
+							}
+						},
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxUZegfQYYFy4=",
+							"_parent": {
+								"$ref": "AAAAAAFxUZbJnwXsmCI="
+							},
+							"name": "yes",
+							"source": {
+								"$ref": "AAAAAAFxUZbJnwXsmCI="
+							},
+							"target": {
+								"$ref": "AAAAAAFxUZeIggYP4p8="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCTerminator",
+					"_id": "AAAAAAFxUZeIggYP4p8=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Level Complete"
+				},
+				{
+					"_type": "FCTerminator",
+					"_id": "AAAAAAFxVOaS99ET6mk=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Begin",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVOomJtG6Q8g=",
+							"_parent": {
+								"$ref": "AAAAAAFxVOaS99ET6mk="
+							},
+							"source": {
+								"$ref": "AAAAAAFxVOaS99ET6mk="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVOguitE6ESw="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCDecision",
+					"_id": "AAAAAAFxVOfNSNEwjkM=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Is right arrow being pressed",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVOoCK9GVpgY=",
+							"_parent": {
+								"$ref": "AAAAAAFxVOfNSNEwjkM="
+							},
+							"name": "no",
+							"source": {
+								"$ref": "AAAAAAFxVOfNSNEwjkM="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVOlf79FhjjM="
+							}
+						},
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVO1gg9Kn4zQ=",
+							"_parent": {
+								"$ref": "AAAAAAFxVOfNSNEwjkM="
+							},
+							"name": "yes",
+							"source": {
+								"$ref": "AAAAAAFxVOfNSNEwjkM="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVOrcrNIl+bU="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCProcess",
+					"_id": "AAAAAAFxVOguitE6ESw=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "PLayer's x velocity is set to 0",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVOo2H9HnZYI=",
+							"_parent": {
+								"$ref": "AAAAAAFxVOguitE6ESw="
+							},
+							"source": {
+								"$ref": "AAAAAAFxVOguitE6ESw="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVOfNSNEwjkM="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCDecision",
+					"_id": "AAAAAAFxVOk6dtFdPzU=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Is right arrow being pressed"
+				},
+				{
+					"_type": "FCDecision",
+					"_id": "AAAAAAFxVOlf79FhjjM=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "is left arrow being pressed",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVOwu0tJHW6E=",
+							"_parent": {
+								"$ref": "AAAAAAFxVOlf79FhjjM="
+							},
+							"name": "no",
+							"source": {
+								"$ref": "AAAAAAFxVOlf79FhjjM="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVOmZaNFzPP8="
+							}
+						},
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVO13DNKxMQ8=",
+							"_parent": {
+								"$ref": "AAAAAAFxVOlf79FhjjM="
+							},
+							"name": "yes",
+							"source": {
+								"$ref": "AAAAAAFxVOlf79FhjjM="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVOu9R9IvX4o="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCDecision",
+					"_id": "AAAAAAFxVOmZaNFzPP8=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "is up arrow bieng pressed",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVO25LNLpWvI=",
+							"_parent": {
+								"$ref": "AAAAAAFxVOmZaNFzPP8="
+							},
+							"name": "no",
+							"source": {
+								"$ref": "AAAAAAFxVOmZaNFzPP8="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVOzSIdJanj4="
+							}
+						},
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVPUm5dO72l8=",
+							"_parent": {
+								"$ref": "AAAAAAFxVOmZaNFzPP8="
+							},
+							"name": "yes",
+							"source": {
+								"$ref": "AAAAAAFxVOmZaNFzPP8="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVPSbWNOAtGA="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCProcess",
+					"_id": "AAAAAAFxVOrcrNIl+bU=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "player speed is added to Player x velocity ",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVO2TE9LF+wI=",
+							"_parent": {
+								"$ref": "AAAAAAFxVOrcrNIl+bU="
+							},
+							"source": {
+								"$ref": "AAAAAAFxVOrcrNIl+bU="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVOlf79FhjjM="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCProcess",
+					"_id": "AAAAAAFxVOu9R9IvX4o=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "player speed is subtracted from player x velocity",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVO2hl9LXm2Q=",
+							"_parent": {
+								"$ref": "AAAAAAFxVOu9R9IvX4o="
+							},
+							"source": {
+								"$ref": "AAAAAAFxVOu9R9IvX4o="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVOmZaNFzPP8="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCProcess",
+					"_id": "AAAAAAFxVOyJUtJRTvw=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "Player jump speed is added to y velocity",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVPL/v9NSw0c=",
+							"_parent": {
+								"$ref": "AAAAAAFxVOyJUtJRTvw="
+							},
+							"source": {
+								"$ref": "AAAAAAFxVOyJUtJRTvw="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVPKTWdM9bV8="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCDecision",
+					"_id": "AAAAAAFxVOzSIdJanj4=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "is space bar being pressed",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVPJp6dMyXlg=",
+							"_parent": {
+								"$ref": "AAAAAAFxVOzSIdJanj4="
+							},
+							"name": "yes",
+							"source": {
+								"$ref": "AAAAAAFxVOzSIdJanj4="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVOyJUtJRTvw="
+							}
+						},
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVPLvJdNIU/c=",
+							"_parent": {
+								"$ref": "AAAAAAFxVOzSIdJanj4="
+							},
+							"name": "no",
+							"source": {
+								"$ref": "AAAAAAFxVOzSIdJanj4="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVPKTWdM9bV8="
+							}
+						},
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVPU1f9PF3xI=",
+							"_parent": {
+								"$ref": "AAAAAAFxVOzSIdJanj4="
+							},
+							"name": "yes",
+							"source": {
+								"$ref": "AAAAAAFxVOzSIdJanj4="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVPSbWNOAtGA="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCDecision",
+					"_id": "AAAAAAFxVPKTWdM9bV8=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "is x being pressed",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVQDpGdRcN6I=",
+							"_parent": {
+								"$ref": "AAAAAAFxVPKTWdM9bV8="
+							},
+							"name": "yes",
+							"source": {
+								"$ref": "AAAAAAFxVPKTWdM9bV8="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVPy0yNQSX18="
+							}
+						},
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVQEWf9RwSMM=",
+							"_parent": {
+								"$ref": "AAAAAAFxVPKTWdM9bV8="
+							},
+							"name": "no",
+							"source": {
+								"$ref": "AAAAAAFxVPKTWdM9bV8="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVP0Kq9QkWFA="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCDecision",
+					"_id": "AAAAAAFxVPSbWNOAtGA=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "is player on ground",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVPYeqNPzoTE=",
+							"_parent": {
+								"$ref": "AAAAAAFxVPSbWNOAtGA="
+							},
+							"name": "yes",
+							"source": {
+								"$ref": "AAAAAAFxVPSbWNOAtGA="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVOyJUtJRTvw="
+							}
+						},
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVPZ+ztP+aPw=",
+							"_parent": {
+								"$ref": "AAAAAAFxVPSbWNOAtGA="
+							},
+							"name": "no",
+							"source": {
+								"$ref": "AAAAAAFxVPSbWNOAtGA="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVPKTWdM9bV8="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCDecision",
+					"_id": "AAAAAAFxVPy0yNQSX18=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "is attack on cooldown",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVQEE09RmL84=",
+							"_parent": {
+								"$ref": "AAAAAAFxVPy0yNQSX18="
+							},
+							"name": "no",
+							"source": {
+								"$ref": "AAAAAAFxVPy0yNQSX18="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVPzRXtQbwlk="
+							}
+						},
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVQFcNNSOtC4=",
+							"_parent": {
+								"$ref": "AAAAAAFxVPy0yNQSX18="
+							},
+							"name": "yes",
+							"source": {
+								"$ref": "AAAAAAFxVPy0yNQSX18="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVP+TgdRDLrU="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCProcess",
+					"_id": "AAAAAAFxVPzRXtQbwlk=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "trigger light attack and start attack cooldown",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVQGY8tSimd4=",
+							"_parent": {
+								"$ref": "AAAAAAFxVPzRXtQbwlk="
+							},
+							"source": {
+								"$ref": "AAAAAAFxVPzRXtQbwlk="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVP+TgdRDLrU="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCDecision",
+					"_id": "AAAAAAFxVP0Kq9QkWFA=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "is c being pressed",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVQEr79R6hrs=",
+							"_parent": {
+								"$ref": "AAAAAAFxVP0Kq9QkWFA="
+							},
+							"name": "yes",
+							"source": {
+								"$ref": "AAAAAAFxVP0Kq9QkWFA="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVP1OPdQtEvI="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCDecision",
+					"_id": "AAAAAAFxVP1OPdQtEvI=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "is attack on cooldown",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVQE93NSEoy8=",
+							"_parent": {
+								"$ref": "AAAAAAFxVP1OPdQtEvI="
+							},
+							"name": "no",
+							"source": {
+								"$ref": "AAAAAAFxVP1OPdQtEvI="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVP1nqtQ2tDU="
+							}
+						},
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVQF8JNSYtnY=",
+							"_parent": {
+								"$ref": "AAAAAAFxVP1OPdQtEvI="
+							},
+							"name": "yes",
+							"source": {
+								"$ref": "AAAAAAFxVP1OPdQtEvI="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVP+TgdRDLrU="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCProcess",
+					"_id": "AAAAAAFxVP1nqtQ2tDU=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "trigger heavy attack and start attack cooldown",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVQGmK9SrJuw=",
+							"_parent": {
+								"$ref": "AAAAAAFxVP1nqtQ2tDU="
+							},
+							"source": {
+								"$ref": "AAAAAAFxVP1nqtQ2tDU="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVP+TgdRDLrU="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCDecision",
+					"_id": "AAAAAAFxVP+TgdRDLrU=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "is z being pressed",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVQPHqtTkWeM=",
+							"_parent": {
+								"$ref": "AAAAAAFxVP+TgdRDLrU="
+							},
+							"name": "yes",
+							"source": {
+								"$ref": "AAAAAAFxVP+TgdRDLrU="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVQAIp9RNzY4="
+							}
+						},
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVS5/BNUdyLE=",
+							"_parent": {
+								"$ref": "AAAAAAFxVP+TgdRDLrU="
+							},
+							"name": "no",
+							"source": {
+								"$ref": "AAAAAAFxVP+TgdRDLrU="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVOguitE6ESw="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCDecision",
+					"_id": "AAAAAAFxVQAIp9RNzY4=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "is there an object to be interacted with in the player's vicinity (such as a door)",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVQQ36NT5aC4=",
+							"_parent": {
+								"$ref": "AAAAAAFxVQAIp9RNzY4="
+							},
+							"name": "yes",
+							"source": {
+								"$ref": "AAAAAAFxVQAIp9RNzY4="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVQP2AtTv+W4="
+							}
+						}
+					]
+				},
+				{
+					"_type": "FCProcess",
+					"_id": "AAAAAAFxVQP2AtTv+W4=",
+					"_parent": {
+						"$ref": "AAAAAAFxUPBRNv9xTqQ="
+					},
+					"name": "trigger the interaction with the object",
+					"ownedElements": [
+						{
+							"_type": "FCFlow",
+							"_id": "AAAAAAFxVS4iJNURUGc=",
+							"_parent": {
+								"$ref": "AAAAAAFxVQP2AtTv+W4="
+							},
+							"source": {
+								"$ref": "AAAAAAFxVQP2AtTv+W4="
+							},
+							"target": {
+								"$ref": "AAAAAAFxVOguitE6ESw="
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"_type": "FCDecision",
+			"_id": "AAAAAAFxVOkGH9FY4Vo=",
+			"_parent": {
+				"$ref": "AAAAAAFF+h6SjaM2Hec="
+			},
+			"name": "Is right arrow being pressed"
+		}
+	]
+}

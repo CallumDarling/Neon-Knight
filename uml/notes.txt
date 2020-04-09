@@ -1,0 +1,3 @@
+add inventory component to player character - facilitate keys
+add some kind of speed  value to movementcomponent
+add uptime to bullet
