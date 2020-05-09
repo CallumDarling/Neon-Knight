@@ -113,8 +113,15 @@ void Game::initWindow(){
 
 }
 
+void Game::initECS(){
+     entt::registry registry;
+     auto entity = registry.create();
+     
+}
+
 
 void Game::run(){
+    initECS();
     initWindow();
     initTextures(entList);
     entList[0].setOrigin(entList[0].getBoundingBox().width/2,

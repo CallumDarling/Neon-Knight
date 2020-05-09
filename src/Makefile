@@ -1,5 +1,5 @@
 CXX = g++
-CXXFLAGS = -Wall -Werror -Wextra -pedantic -std=c++17 -g -fsanitize=address
+CXXFLAGS = -Wall -Werror -Wextra -pedantic -std=gnu++17 -g -fsanitize=address
 LDFLAGS =  -fsanitize=address -lsfml-graphics -lsfml-window -lsfml-system 
 
 SRC = main.cpp Game.cpp Entity.cpp Enemy.cpp LevelHandler.cpp
@@ -9,7 +9,7 @@ EXEC = Neon-Knight
 all: $(EXEC)
 
 $(EXEC): $(OBJ)
-	$(CXX) $(LDFLAGS) -o $@ $(OBJ) $(LBLIBS)
+	$(CXX) -std=c++17 $(LDFLAGS) -o $@ $(OBJ) $(LBLIBS)
 
 clean:
 	rm -rf $(OBJ) $(EXEC)

@@ -8,6 +8,7 @@
 #include "ResourceHandler.h"
 #include "LevelHandler.h"
 #include "Entity.h"
+#include "../entt/entity/registry.hpp"
 
 
 
@@ -21,6 +22,7 @@ class Game{
         bool misMovingRight = false;
          
     private:
+        void initECS();
         void processEvents();
         void initWindow();
         bool initTextures(std::vector<Entity>& entList);
