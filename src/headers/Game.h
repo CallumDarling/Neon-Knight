@@ -1,14 +1,13 @@
 #ifndef GAME
 #define GAME
 
-#include <SFML/Graphics.hpp>
+// #include <SFML/Graphics.hpp>
 #include <cstdlib>
 #include <cassert>
 #include <iostream>
-#include "ResourceHandler.h"
 #include "LevelHandler.h"
 #include "Entity.h"
-#include "../entt/entity/registry.hpp"
+#include "EntityFactory.h"
 
 
 

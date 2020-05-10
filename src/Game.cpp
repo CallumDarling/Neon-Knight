@@ -25,6 +25,7 @@ bool Game::initTextures(std::vector<Entity>& eList){
     eList.push_back(e);
     LevelHandler lvlH;
     lvlH.loadLevel("levels/lvl1", textures , entList);
+    return 1;
     // Entity ee(textures.get(Textures::Henchman), 250.f, 0.f, true);
     // eList.push_back(ee);
     // Entity eee(textures.get(Textures::Boss), 200.f, 400.f, true);
@@ -112,9 +113,11 @@ void Game::initWindow(){
 }
 
 void Game::initECS(){
-     entt::registry registry;
-     auto entity = registry.create();
-     registry
+    EntityFactory eFac;
+    entt::registry registry;
+    eFac.createPlayer(registry, "haha");
+    std::cout << "Boof?" << std::endl;
+    std::cout << "B: "<< registry.size() << std::endl;
 }
 
 
