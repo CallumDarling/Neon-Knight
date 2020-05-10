@@ -31,10 +31,8 @@ bool Game::initTextures(std::vector<Entity>& eList){
     // eList.push_back(eee);
     // for(int i=0; i<20; i++){
     //     Entity eeee(textures.get(Textures::Block), i*20.f, 600.f, false);
-    //     eList.push_back(eeee);
-    // }
-
-    return 1;
+    //     eList.push_back// The position of the tile that the entity is currently in.
+// Between ticks, each entity animates from this tile to an adjacent tile
 }
 
 void Game::processEvents(){
@@ -116,7 +114,7 @@ void Game::initWindow(){
 void Game::initECS(){
      entt::registry registry;
      auto entity = registry.create();
-     
+     registry
 }
 
 
