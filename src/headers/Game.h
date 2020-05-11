@@ -19,6 +19,7 @@ class Game{
         bool misMovingDown = false;
         bool misMovingLeft = false;
         bool misMovingRight = false;
+
          
     private:
         void initECS();
@@ -28,6 +29,7 @@ class Game{
         void update(sf::Time deltaTime);
         void render();
         void handlePlayerInput(sf::Keyboard::Key key, bool isPressed);
+        
 
 
     private:
@@ -41,8 +43,7 @@ class Game{
         float playerJump = 0;
         bool playerOnFloor = false;
         bool playerOnRoof = false;
-
-        
+        entt::registry registry;
         ResourceHandler<sf::Texture, Textures::ID> textures;
         const sf::Time TimePerFrame = sf::seconds(1.f/60.f);
 

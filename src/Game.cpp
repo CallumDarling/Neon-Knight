@@ -114,17 +114,21 @@ void Game::initWindow(){
 
 void Game::initECS(){
     EntityFactory eFac;
-    entt::registry registry;
-    eFac.createPlayer(registry, "haha");
+    eFac.createPlayer(registry, "a",textures);
+    // eFac.createPlayer(registry, "b",textures);
+    // eFac.createPlayer(registry, "c",textures);
+    // eFac.createPlayer(registry, "d",textures);
+    // eFac.createPlayer(registry, "e",textures);
+    // eFac.createPlayer(registry, "f",textures);
     std::cout << "Boof?" << std::endl;
     std::cout << "B: "<< registry.size() << std::endl;
 }
 
 
 void Game::run(){
-    initECS();
     initWindow();
     initTextures(entList);
+    initECS();
     entList[0].setOrigin(entList[0].getBoundingBox().width/2,
                         entList[0].getBoundingBox().height/2);
 
@@ -150,11 +154,16 @@ void Game::run(){
         // mWindow.draw(mPlayer);
         worldView.setCenter(entList[0].getPosition());
         mWindow.setView(worldView);
+        const auto view = registry.view<Draw>();
+            for (const entt::entity e : view) {
+                sf::Sprite spri = view.get<Draw>(e).sprite;
+                mWindow.draw(spri);
+            }
 
-        for(std::size_t i=0; i<entList.size(); ++i) {
-            
-            entList[i].draw(mWindow);
-        }
+
+        // for(std::size_t i=0; i<entList.size(); ++i) {   
+        //     entList[i].draw(mWindow);
+        // }
         mWindow.display();
     }
 }
