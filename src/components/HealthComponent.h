@@ -4,7 +4,8 @@
 #include <SFML/Graphics.hpp>
 
 struct Health{
-
+    int maxHealth;
+    int currentHealth;
 };
 
 #endif

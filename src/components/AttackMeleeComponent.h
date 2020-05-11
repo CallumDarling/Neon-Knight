@@ -4,7 +4,8 @@
 #include <SFML/Graphics.hpp>
 
 struct AttackMelee{
-
+    int attackDamage;
+    int attackRange;
 };
 
 #endif
