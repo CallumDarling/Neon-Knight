@@ -114,12 +114,11 @@ void Game::initWindow(){
 
 void Game::initECS(){
     EntityFactory eFac;
-    eFac.createPlayer(registry, "a",textures);
-    // eFac.createPlayer(registry, "b",textures);
-    // eFac.createPlayer(registry, "c",textures);
-    // eFac.createPlayer(registry, "d",textures);
-    // eFac.createPlayer(registry, "e",textures);
-    // eFac.createPlayer(registry, "f",textures);
+    eFac.createPlayer(registry,textures);
+    eFac.createBrute(registry,textures, {450.f,400.f}, {});
+    eFac.createGun(registry,textures, {500.f,400.f}, 0);
+    eFac.createHench(registry,textures, {550.f,400.f}, {});
+    eFac.createBoss(registry,textures, {600.f,400.f}, {});
     std::cout << "Boof?" << std::endl;
     std::cout << "B: "<< registry.size() << std::endl;
 }

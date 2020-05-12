@@ -5,7 +5,7 @@
 
 struct AI{
     std::vector<sf::Vector2f> path;
-    std::vector<sf::Vector2f> vision;
+    int vision;
     bool canSeePlayer;
 };
 
