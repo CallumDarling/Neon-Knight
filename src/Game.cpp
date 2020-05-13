@@ -18,6 +18,7 @@ bool Game::initTextures(std::vector<Entity>& eList){
         textures.load(Textures::Boss, "media/textures/boss1.png");
         textures.load(Textures::Block, "media/textures/basicblock.png");
         textures.load(Textures::Landscape, "media/textures/bg.jpg");
+        textures.load(Textures::HealthBar, "media/textures/healthbar.png");
     }catch(const std::exception& e){
         return 0;
     }
@@ -26,14 +27,6 @@ bool Game::initTextures(std::vector<Entity>& eList){
     LevelHandler lvlH;
     lvlH.loadLevel("levels/lvl1", textures , entList);
     return 1;
-    // Entity ee(textures.get(Textures::Henchman), 250.f, 0.f, true);
-    // eList.push_back(ee);
-    // Entity eee(textures.get(Textures::Boss), 200.f, 400.f, true);
-    // eList.push_back(eee);
-    // for(int i=0; i<20; i++){
-    //     Entity eeee(textures.get(Textures::Block), i*20.f, 600.f, false);
-    //     eList.push_back// The position of the tile that the entity is currently in.
-// Between ticks, each entity animates from this tile to an adjacent tile
 }
 
 void Game::processEvents(){

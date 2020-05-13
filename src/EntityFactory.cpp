@@ -44,6 +44,7 @@ entt::entity EntityFactory::createBrute(entt::registry &registry, ResourceHandle
     registry.emplace<AttackMelee>(e,bruteAttack,bruteRange);
     registry.emplace<AI>(e, path, bruteVision);
     registry.emplace<Animation>(e, cExc, bruteIdleTime, bruteTransitionTime);
+    return e;
 }
 
 entt::entity EntityFactory::createHench(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location, std::vector<sf::Vector2f> path){
@@ -57,6 +58,7 @@ entt::entity EntityFactory::createHench(entt::registry &registry, ResourceHandle
     registry.emplace<AttackRanged>(e,henchProj,henchProjRange,henchProjDamage);
     registry.emplace<AI>(e, path, henchVision);
     registry.emplace<Animation>(e, cExc, henchIdleTime, henchTransitionTime);
+    return e;
 }
 entt::entity EntityFactory::createGun(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location, int angle){
     entt::entity e = createEnemy(registry);
@@ -69,10 +71,11 @@ entt::entity EntityFactory::createGun(entt::registry &registry, ResourceHandler<
     registry.emplace<AttackRanged>(e,gunProj,gunProjRange,gunProjDamage);
     registry.emplace<AI>(e, cO, gunVision);
     registry.emplace<Animation>(e, cExc, gunIdleTime, gunTransitionTime);
+    return e;
 }
 
 entt::entity EntityFactory::createBoss(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location, std::vector<sf::Vector2f> path){
-        entt::entity e = createEnemy(registry);
+    entt::entity e = createEnemy(registry);
     sf::Sprite sprit;
     sprit.setTexture(text.get(Textures::Boss));
     sprit.setPosition(location);
@@ -82,4 +85,31 @@ entt::entity EntityFactory::createBoss(entt::registry &registry, ResourceHandler
     registry.emplace<AttackRanged>(e,bossProj,bossProjRange,bossProjDamage);
     registry.emplace<AI>(e, path, bossVision);
     registry.emplace<Animation>(e, cExc, bossIdleTime, bossTransitionTime);
+    return e;
 }
+
+entt::entity EntityFactory::createLevelPart(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location){
+    entt::entity e = registry.create();
+    registry.emplace<Movement>(e, location);
+    return e;
+}
+
+entt::entity EntityFactory::createUI(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location, int partNo){
+    entt::entity e = createLevelPart(registry, text, location);
+    sf::Sprite sprit;
+    sprit.setTexture(text.get(Textures::Boss));
+    sprit.setPosition(location);
+    //TODO Add part number and UI Elements
+    registry.emplace<Draw>(e, text.get(Textures::HealthBar),sprit,true,location);    
+    registry.emplace<Animation>(e, cExc, bossIdleTime, bossTransitionTime);
+
+
+}
+
+
+
+entt::entity EntityFactory::createLadder(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location){}
+entt::entity EntityFactory::createTile(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location){}
+entt::entity EntityFactory::createPlatform(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location){}
+entt::entity EntityFactory::createDoor(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location){}
+entt::entity EntityFactory::createBullet(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location){}
