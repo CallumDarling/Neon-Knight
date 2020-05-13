@@ -20,9 +20,9 @@ bool Game::initTextures(std::vector<Entity>& eList){
         textures.load(Textures::Landscape, "media/textures/bg.jpg");
         textures.load(Textures::HealthBar, "media/textures/healthbar.png");
         textures.load(Textures::Ladder, "media/textures/ladder.png");
-        textures.load(Textures::Platform, "media/textures/ladder.png");
-        textures.load(Textures::Door, "media/textures/ladder.png");
-        textures.load(Textures::Bullet, "media/textures/ladder.png");
+        textures.load(Textures::Platform, "media/textures/platform.png");
+        textures.load(Textures::Door, "media/textures/door.png");
+        textures.load(Textures::Bullet, "media/textures/bullet.png");
     }catch(const std::exception& e){
         return 0;
     }
@@ -116,6 +116,12 @@ void Game::initECS(){
     eFac.createGun(registry,textures, {500.f,400.f}, 0);
     eFac.createHench(registry,textures, {550.f,400.f}, {});
     eFac.createBoss(registry,textures, {600.f,400.f}, {});
+
+    eFac.createBlock(registry,textures, {650.f,400.f});
+    eFac.createPlatform(registry,textures, {700.f,400.f});
+    eFac.createDoor(registry,textures, {750.f,400.f});
+    eFac.createUI(registry,textures, {800.f,200.f}, 0);
+    eFac.createLadder(registry,textures, {850.f,400.f});
     std::cout << "Boof?" << std::endl;
     std::cout << "B: "<< registry.size() << std::endl;
 }

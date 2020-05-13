@@ -97,7 +97,7 @@ entt::entity EntityFactory::createLevelPart(entt::registry &registry, ResourceHa
 entt::entity EntityFactory::createUI(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location, int partNo){
     entt::entity e = createLevelPart(registry, text, location);
     sf::Sprite sprit;
-    sprit.setTexture(text.get(Textures::Ladder));
+    sprit.setTexture(text.get(Textures::HealthBar));
     sprit.setPosition(location);
     //TODO Add part number and UI Elements, animation for these?
     registry.emplace<Draw>(e, text.get(Textures::HealthBar),sprit,true,location);    
@@ -116,17 +116,40 @@ entt::entity EntityFactory::createLadder(entt::registry &registry, ResourceHandl
     return e; 
 }
 
-entt::entity EntityFactory::createTile(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location){
+entt::entity EntityFactory::createBlock(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location){
     entt::entity e = createLevelPart(registry, text, location);
     std::vector<std::string> cExc = {""};
     sf::Sprite sprit;
     sprit.setTexture(text.get(Textures::Block));
     sprit.setPosition(location);
     registry.emplace<Draw>(e, text.get(Textures::Block),sprit,true,location);
-    registry.emplace<Physics>(e,true,1.f,true,cExc);
+    registry.emplace<Physics>(e,false,1.f,true,cExc);
     return e; 
 }
 
-entt::entity EntityFactory::createPlatform(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location){}
-entt::entity EntityFactory::createDoor(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location){}
-entt::entity EntityFactory::createBullet(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location){}
+entt::entity EntityFactory::createPlatform(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location){
+    entt::entity e = createLevelPart(registry, text, location);
+    std::vector<std::string> cExc = {""};
+    sf::Sprite sprit;
+    sprit.setTexture(text.get(Textures::Platform));
+    sprit.setPosition(location);
+    registry.emplace<Draw>(e, text.get(Textures::Platform),sprit,true,location);
+    registry.emplace<Physics>(e,false,1.f,true,cExc);
+    return e; 
+}
+
+entt::entity EntityFactory::createDoor(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location){
+    entt::entity e = createLevelPart(registry, text, location);
+    std::vector<std::string> cExc = {""};
+    sf::Sprite sprit;
+    sprit.setTexture(text.get(Textures::Door));
+    sprit.setPosition(location);
+    registry.emplace<Draw>(e, text.get(Textures::Door),sprit,true,location);
+    registry.emplace<Physics>(e,false,1.f,false,cExc);
+    return e; 
+}
+
+entt::entity EntityFactory::createBullet(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location){
+    entt::entity e = createLevelPart(registry, text, location);
+    return e;
+}
