@@ -1,3 +1,6 @@
+#ifndef ENTCONF
+#define ENTCONF
+
 const int bruteAttack = 20;
 const int bruteRange = 150;
 const int bruteVision = 500;
@@ -35,3 +38,5 @@ const int bossProjDamage = 20;
 const float bossIdleTime = 15.f;
 const float bossTransitionTime = 0.f;
 const int bossMaxHealth = 150;
+
+#endif

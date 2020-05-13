@@ -9,7 +9,7 @@ entt::entity EntityFactory::createPlayer(entt::registry &registry,
     sprit.setTexture(text.get(Textures::Player));
     sprit.setPosition(loc);
     std::vector<std::string> cExc = {""};
-    
+    sf::Vector2f vel = {1.f,1.f};
     //creates entity and adds components
     // TODO move these values to entityConfig
     entt::entity e = registry.create();
@@ -17,7 +17,7 @@ entt::entity EntityFactory::createPlayer(entt::registry &registry,
     registry.emplace<Physics>(e,true,1.f,true,cExc);
     registry.emplace<AttackMelee>(e,20,150);
     registry.emplace<AttackRanged>(e,"bullet",20,15);
-    registry.emplace<Movement>(e, loc);
+    registry.emplace<Movement>(e, vel);
     registry.emplace<Animation>(e, cExc, 15.f, 0.f);
     registry.emplace<Health>(e, 100, 100);
     return e;
@@ -90,7 +90,7 @@ entt::entity EntityFactory::createBoss(entt::registry &registry, ResourceHandler
 
 entt::entity EntityFactory::createLevelPart(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location){
     entt::entity e = registry.create();
-    registry.emplace<Movement>(e, location);
+    // registry.emplace<Movement>(e, location);
     return e;
 }
 

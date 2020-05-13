@@ -6,9 +6,11 @@ LevelHandler::LevelHandler(){
 
 int LevelHandler::loadLevel(std::string fileName,
                             ResourceHandler<sf::Texture, Textures::ID>& textures
-                            ,std::vector<Entity>& entList){
+                            ,std::vector<Entity>& entList
+                            ,entt::registry& reg){
 
     std::ifstream file(fileName);
+    EntityFactory entFac;
     if(file){
         int stage = 0;
        for( std::string line; std::getline( file, line ); ){
@@ -29,6 +31,7 @@ int LevelHandler::loadLevel(std::string fileName,
                 try{
                     Entity e(textures.get(Textures::Block), std::stoi(strings[0])*20.f, std::stoi(strings[1])*20.f, false);
                     entList.push_back(e);
+                    entFac.createBlock(reg,textures, {std::stoi(strings[0])*20.f, std::stoi(strings[1])*20.f});
                 }catch(const std::exception& ex){
                     std::cout << "levelfail" << std::endl;
                 }
@@ -36,6 +39,7 @@ int LevelHandler::loadLevel(std::string fileName,
                  try{
                     Entity e(textures.get(Textures::Boss), std::stoi(strings[0])*20.f, std::stoi(strings[1])*20.f, true);
                     entList.push_back(e);
+                    entFac.createBoss(reg,textures, {std::stoi(strings[0])*20.f, std::stoi(strings[1])*20.f}, {});
                 }catch(const std::exception& ex){
                     std::cout << "levelfail" << std::endl;
                 }
@@ -44,8 +48,10 @@ int LevelHandler::loadLevel(std::string fileName,
                  try{
                     Entity e(textures.get(Textures::Henchman), std::stoi(strings[0])*20.f, std::stoi(strings[1])*20.f, true);
                     entList.push_back(e);
+                    entFac.createHench(reg,textures, {std::stoi(strings[0])*20.f, std::stoi(strings[1])*20.f}, {});
                 }catch(const std::exception& ex){
                     std::cout << "levelfail" << std::endl;
+                    
                 }
 
             }else if(stage == 3){

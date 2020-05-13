@@ -1,3 +1,6 @@
+#ifndef ENTFAC
+#define ENTFAC
+
 #include "../components/Components.h"
 #include "../entt/entt.hpp"
 #include "ResourceHandler.h"
@@ -22,3 +25,5 @@ class EntityFactory{
         entt::entity createDoor(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location);
         entt::entity createBullet(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location);
 };
+
+#endif

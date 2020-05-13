@@ -7,6 +7,8 @@
 #include <fstream>
 #include "Entity.h"
 #include <sstream>
+#include "../entt/entt.hpp"
+#include "EntityFactory.h"
 
 
 class LevelHandler{
@@ -14,7 +16,8 @@ class LevelHandler{
         LevelHandler();
         int loadLevel(std::string fileName,
         ResourceHandler<sf::Texture, Textures::ID>& textures
-        ,std::vector<Entity>& entList);
+        ,std::vector<Entity>& entList
+        ,entt::registry& reg);
     private:
         int i;
 
