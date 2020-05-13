@@ -8,7 +8,7 @@
 #include <cassert>
 
 namespace Textures{
-     enum ID { Landscape, Player, Henchman, Boss, Block, HealthBar};
+     enum ID { Landscape, Player, Henchman, Boss, Block, HealthBar, Ladder, Platform, Door, Bullet};
 }
 
 template <typename Resource, typename Identifier>

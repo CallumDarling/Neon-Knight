@@ -19,6 +19,10 @@ bool Game::initTextures(std::vector<Entity>& eList){
         textures.load(Textures::Block, "media/textures/basicblock.png");
         textures.load(Textures::Landscape, "media/textures/bg.jpg");
         textures.load(Textures::HealthBar, "media/textures/healthbar.png");
+        textures.load(Textures::Ladder, "media/textures/ladder.png");
+        textures.load(Textures::Platform, "media/textures/ladder.png");
+        textures.load(Textures::Door, "media/textures/ladder.png");
+        textures.load(Textures::Bullet, "media/textures/ladder.png");
     }catch(const std::exception& e){
         return 0;
     }
