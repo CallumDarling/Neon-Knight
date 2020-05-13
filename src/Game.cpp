@@ -182,7 +182,7 @@ void Game::update(sf::Time deltaTime){
         playerJump=-0;
     }
  
-    float playerGrav = 270.f;
+    float playerGrav = 20.f;
 
     sf::Vector2f movement(0.f, (-1*playerJump)+playerGrav);
 
@@ -208,14 +208,36 @@ void Game::update(sf::Time deltaTime){
         }
     }
 
-    registry.get<Movement>(playerID).velocity = movement * deltaTime.asSeconds();
+    registry.get<Movement>(playerID).velocity = movement;
     const auto view = registry.view<Draw, Movement>();
+    const auto view2 = registry.view<Draw, Physics>();
     for (const entt::entity e : view) {
         sf::Sprite spri = view.get<Draw>(e).sprite;
-        std::cout << "Entity Velocity : " << view.get<Movement>(e).velocity.x << "    " << view.get<Movement>(e).velocity.y << std::endl;
-        spri.move(view.get<Movement>(e).velocity);
+        sf::FloatRect eBounds = spri.getGlobalBounds();
+
+        for (const entt::entity j : view2) {
+            sf::FloatRect jBounds = view2.get<Draw>(j).sprite.getGlobalBounds();
+            // std::cout << "--- "<< jBounds.left <<" --- " << eBounds.top << "--- " << jBounds.intersects(eBounds) << std::endl;
+            
+             if(jBounds.height != eBounds.height){
+                //  std::cout << "NINT NINT NINT" << std::endl;
+                if(jBounds.intersects(eBounds)){
+                    sf::Vector2f velZero = {0.f,0.f};
+                    std::cout << "INT INT INT" << std::endl;
+                    view.get<Movement>(e).velocity = velZero;
+                }
+             }
+
+        }
+
+
+
+
+        // Moving the entity according to their velocity
+        spri.move(view.get<Movement>(e).velocity * deltaTime.asSeconds());
         view.get<Draw>(e).sprite = spri;
     }
+
 
     
 
