@@ -192,12 +192,6 @@ void Game::update(sf::Time deltaTime) {
     if (misMovingLeft) {
         movement.x -= 370.f;
         if (registry.get<Draw>(playerID).facing) {
-            // sf::Sprite sp = registry.get<Draw>(playerID).sprite;
-            // sf::Vector2f org = sp.getOrigin();
-            // sp.setOrigin(sp.getGlobalBounds().width, sp.getGlobalBounds().height/2);
-            // std::cout << sp.getOrigin().x << " : " << sp.getOrigin().y << " ORG " << org.x << " : " << org.y <<std::endl;
-            // sp.scale(-1.f, 1.f);
-            // sp.setOrigin(org);
             sf::Sprite sp = registry.get<Draw>(playerID).sprite;
             sf::IntRect ir = sp.getTextureRect();
             sp.setTextureRect(sf::IntRect(ir.width, 0, -ir.width, ir.height));
@@ -210,18 +204,9 @@ void Game::update(sf::Time deltaTime) {
         if (!registry.get<Draw>(playerID).facing) {
             sf::Sprite sp = registry.get<Draw>(playerID).sprite;
             sf::IntRect ir = sp.getTextureRect();
-            sp.setTextureRect(sf::IntRect(0, 0, ir.width, ir.height));
+            sp.setTextureRect(sf::IntRect(0, 0, -ir.width, ir.height));
             registry.get<Draw>(playerID).sprite = sp;
             registry.get<Draw>(playerID).facing = true;
-            // unflip X
-            // sprite.setTextureRect(sf::IntRect(0, 0, width, height));
-            // sf::Vector2f org = sp.getOrigin();
-            // sp.setOrigin(sp.getGlobalBounds().width, sp.getGlobalBounds().height/2);
-            // sf::Vector2f scale = sp.getScale();
-            // sp.setScale(scale.x * -1.f, scale.y * 1.f);
-            // // sp.scale(-1.f, -1.f);
-            // sp.setOrigin(org);
-
         }
     }
 
