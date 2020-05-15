@@ -8,6 +8,7 @@ struct Draw {
   sf::Sprite sprite;
   bool visible;
   sf::Vector2f location;
+  bool facing;
 };
 
 #endif

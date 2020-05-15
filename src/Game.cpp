@@ -108,6 +108,9 @@ void Game::initECS() {
     eFac.createGun(registry, textures, {500.f, 400.f}, 0);
     eFac.createHench(registry, textures, {550.f, 400.f}, {});
     eFac.createBoss(registry, textures, {600.f, 400.f}, {});
+    for(int x=0; x<1000; x++){
+        eFac.createBlock(registry, textures, {(500.f+(x*29)), 400.f});
+    }
 
     eFac.createBlock(registry, textures, {650.f, 400.f});
     eFac.createPlatform(registry, textures, {700.f, 400.f});
@@ -177,7 +180,7 @@ void Game::update(sf::Time deltaTime) {
 
     sf::Vector2f movement(0.f, (-1 * playerJump) + playerGrav);
 
-    playerOnFloor = true;
+    playerOnFloor = false;
     playerOnRoof = false;
 
     if (misMovingUp) {
@@ -188,18 +191,47 @@ void Game::update(sf::Time deltaTime) {
     }
     if (misMovingLeft) {
         movement.x -= 370.f;
-        if (entList[0].getFacing()) {
-            entList[0].scale(-1.f, 1.f);
-            entList[0].setFacing(false);
+        if (registry.get<Draw>(playerID).facing) {
+            // sf::Sprite sp = registry.get<Draw>(playerID).sprite;
+            // sf::Vector2f org = sp.getOrigin();
+            // sp.setOrigin(sp.getGlobalBounds().width, sp.getGlobalBounds().height/2);
+            // std::cout << sp.getOrigin().x << " : " << sp.getOrigin().y << " ORG " << org.x << " : " << org.y <<std::endl;
+            // sp.scale(-1.f, 1.f);
+            // sp.setOrigin(org);
+            sf::Sprite sp = registry.get<Draw>(playerID).sprite;
+            sf::IntRect ir = sp.getTextureRect();
+            sp.setTextureRect(sf::IntRect(ir.width, 0, -ir.width, ir.height));
+            registry.get<Draw>(playerID).sprite = sp;
+            registry.get<Draw>(playerID).facing = false;
         }
     }
     if (misMovingRight) {
         movement.x += 370.f;
-        if (!entList[0].getFacing()) {
-            entList[0].scale(-1.f, 1.f);
-            entList[0].setFacing(true);
+        if (!registry.get<Draw>(playerID).facing) {
+            sf::Sprite sp = registry.get<Draw>(playerID).sprite;
+            sf::IntRect ir = sp.getTextureRect();
+            sp.setTextureRect(sf::IntRect(0, 0, ir.width, ir.height));
+            registry.get<Draw>(playerID).sprite = sp;
+            registry.get<Draw>(playerID).facing = true;
+            // unflip X
+            // sprite.setTextureRect(sf::IntRect(0, 0, width, height));
+            // sf::Vector2f org = sp.getOrigin();
+            // sp.setOrigin(sp.getGlobalBounds().width, sp.getGlobalBounds().height/2);
+            // sf::Vector2f scale = sp.getScale();
+            // sp.setScale(scale.x * -1.f, scale.y * 1.f);
+            // // sp.scale(-1.f, -1.f);
+            // sp.setOrigin(org);
+
         }
     }
+
+    const auto gravView = registry.view<Movement,Physics>();
+     for (const entt::entity e : gravView) {
+         if(gravView.get<Physics>(e).hasGrav){
+             if(gravView.get<Movement>(e).velocity.y<=gravity);
+             gravView.get<Movement>(e).velocity.y = gravity;
+         }
+     }
 
     registry.get<Movement>(playerID).velocity = movement;
     const auto view = registry.view<Draw, Movement>();
@@ -224,13 +256,13 @@ void Game::update(sf::Time deltaTime) {
         for (const entt::entity j : view2) {
             sf::FloatRect jBounds = view2.get<Draw>(j).sprite.getGlobalBounds();
             // //TODO find better way of checking if they are not the same object
-            if (jBounds.height != eXBounds.height) {
+            if(j != e){
                 if (jBounds.intersects(eXBounds)) {
                     if(!(eXBounds.left<=jBounds.left+jBounds.width && !(jBounds.left<=eXBounds.left))){
-                        std::cout << "IntRight" << std::endl;
+                        // std::cout << "IntRight" << std::endl;
                         xIdealCoordinate = jBounds.left+jBounds.width;
                     }else{
-                        std::cout << "IntLeft" << std::endl;
+                        // std::cout << "IntLeft" << std::endl;
                         xIdealCoordinate = jBounds.left - eXBounds.width;
                     }   
                     velx = {0.f, 0.f};
@@ -238,11 +270,14 @@ void Game::update(sf::Time deltaTime) {
                 if (jBounds.intersects(eYBounds)) {
                     // float yOvershoot = (jBounds.top-eYBounds.top+eYBounds.height);
                     if(!(eYBounds.top<=jBounds.top+jBounds.height && !(jBounds.top<=eYBounds.top))){
-                        std::cout << "IntTop" << std::endl;
+                        // std::cout << "IntTop" << std::endl;
                         yIdealCoordinate = jBounds.top+jBounds.height;
                     }else{
-                        std::cout << "IntBot" << std::endl;
+                        // std::cout << "IntBot" << std::endl;
                         yIdealCoordinate = jBounds.top - eYBounds.height;
+                        if(e == playerID){
+                            playerOnFloor = true;
+                        }
                     }
                     vely = {0.f,0.f};
                 }
