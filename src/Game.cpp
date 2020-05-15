@@ -103,21 +103,21 @@ void Game::initWindow() {
 void Game::initECS() {
     EntityFactory eFac;
     playerID = eFac.createPlayer(registry, textures);
-    eFac.createBrute(registry, textures, {450.f, 400.f}, {});
-    eFac.createGun(registry, textures, {500.f, 400.f}, 0);
-    eFac.createHench(registry, textures, {550.f, 400.f}, {});
-    eFac.createBoss(registry, textures, {600.f, 400.f}, {});
-    for (int x = 0; x < 1000; x++) {
-        eFac.createBlock(registry, textures, {(500.f + (x * 29)), 400.f});
-    }
+    // eFac.createBrute(registry, textures, {450.f, 400.f}, {});
+    // eFac.createGun(registry, textures, {500.f, 400.f}, 0);
+    // eFac.createHench(registry, textures, {550.f, 400.f}, {});
+    // eFac.createBoss(registry, textures, {600.f, 400.f}, {});
+    // for (int x = 0; x < 1000; x++) {
+    //     eFac.createBlock(registry, textures, {(500.f + (x * 29)), 400.f});
+    // }
 
-    eFac.createBlock(registry, textures, {650.f, 400.f});
-    eFac.createPlatform(registry, textures, {700.f, 400.f});
-    eFac.createDoor(registry, textures, {750.f, 400.f});
-    eFac.createUI(registry, textures, {800.f, 200.f}, 0);
-    eFac.createLadder(registry, textures, {850.f, 400.f});
-    std::cout << "Boof?" << std::endl;
-    std::cout << "B: " << registry.size() << std::endl;
+    // eFac.createBlock(registry, textures, {650.f, 400.f});
+    // eFac.createPlatform(registry, textures, {700.f, 400.f});
+    // eFac.createDoor(registry, textures, {750.f, 400.f});
+    // eFac.createUI(registry, textures, {800.f, 200.f}, 0);
+    // eFac.createLadder(registry, textures, {850.f, 400.f});
+    // std::cout << "Boof?" << std::endl;
+    // std::cout << "B: " << registry.size() << std::endl;
 }
 
 void Game::run() {
