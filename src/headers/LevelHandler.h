@@ -15,9 +15,10 @@ class LevelHandler{
     public:
         LevelHandler();
         int loadLevel(std::string fileName,
-        ResourceHandler<sf::Texture, Textures::ID>& textures
-        ,std::vector<Entity>& entList
-        ,entt::registry& reg);
+                            ResourceHandler<sf::Texture, Textures::ID>& textures,
+                            ResourceHandler<sf::Font, Fonts::ID>& fonts,
+                            std::vector<Entity>& entList,
+                            entt::registry& reg);
     private:
         int i;
 

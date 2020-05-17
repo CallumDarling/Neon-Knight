@@ -153,3 +153,22 @@ entt::entity EntityFactory::createBullet(entt::registry &registry, ResourceHandl
     entt::entity e = createLevelPart(registry, text, location);
     return e;
 }
+
+entt::entity createText(entt::registry &registry, ResourceHandler<sf::Font, Fonts::ID> &fonts, sf::Vector2f location, std::string text, int size){
+    entt::entity e = registry.create();
+    sf::Text tex;
+    tex.setFont(fonts.get(Fonts::MenuFont));
+    tex.setString(text);
+    tex.setCharacterSize(size);
+    tex.setOrigin(tex.getGlobalBounds().width/2,tex.getGlobalBounds().height/2);
+    tex.setPosition(location);
+    tex.setOutlineColor(sf::Color::Black);
+    tex.setOutlineThickness(2);
+    registry.emplace<Text>(e, tex);
+    return e;
+}
+
+entt::entity createImage(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location){
+    entt::entity e = registry.create();
+    return e;
+}

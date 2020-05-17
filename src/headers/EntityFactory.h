@@ -24,6 +24,8 @@ class EntityFactory{
         entt::entity createPlatform(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location);
         entt::entity createDoor(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location);
         entt::entity createBullet(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location);
+        entt::entity createImage(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location);
+        entt::entity createText(entt::registry &registry, ResourceHandler<sf::Font, Fonts::ID> &fonts, sf::Vector2f location, std::string text, int size);
 };
 
 #endif

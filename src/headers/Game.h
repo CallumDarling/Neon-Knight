@@ -27,9 +27,12 @@ class Game{
         void initWindow();
         bool initTextures(std::vector<Entity>& entList);
         void update(sf::Time deltaTime);
+        void updateLevel(sf::Time deltaTime);
+        void updateMenu(sf::Time deltaTime);
         void render();
         void handlePlayerInput(sf::Keyboard::Key key, bool isPressed);
         void loadLevel(std::string level);
+        void initMenu();
         
 
 
@@ -46,8 +49,10 @@ class Game{
         bool playerOnRoof = false;
         entt::registry registry;
         ResourceHandler<sf::Texture, Textures::ID> textures;
+        ResourceHandler<sf::Font, Fonts::ID> fonts;
         const sf::Time TimePerFrame = sf::seconds(1.f/60.f);
         entt::entity playerID;
+        std::string currentLevel =  "menu";
 
 };
 

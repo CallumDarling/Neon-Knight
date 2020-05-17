@@ -11,11 +11,15 @@ void Game::loadLevel(std::string level){
     registry.clear();
     EntityFactory eFac;
     LevelHandler lvlH;
-    if(level.compare("lvl2")!=0){
-        playerID = eFac.createPlayer(registry, textures);
-    }
-    lvlH.loadLevel("levels/"+level, textures, entList, registry);
+    // if(level.compare("menu")!=0){
+    playerID = eFac.createPlayer(registry, textures);
+    // }
+    
+    currentLevel = level;
+    lvlH.loadLevel("levels/"+level, textures, fonts, entList, registry);
 }
+
+
 
 bool Game::initTextures(std::vector<Entity> &eList) {
     try {
@@ -29,10 +33,12 @@ bool Game::initTextures(std::vector<Entity> &eList) {
         textures.load(Textures::Platform, "media/textures/platform.png");
         textures.load(Textures::Door, "media/textures/door.png");
         textures.load(Textures::Bullet, "media/textures/bullet.png");
+        textures.load(Textures::Logo, "media/textures/logo.png");
+        fonts.load(Fonts::MenuFont, "media/fonts/menufont.ttf");
     } catch (const std::exception &e) {
         return 0;
     }
-    loadLevel("lvl2");
+    loadLevel("menu");
     return 1;
 }
 
@@ -63,11 +69,7 @@ void Game::handlePlayerInput(sf::Keyboard::Key key, bool isPressed) {
     } else if (key == sf::Keyboard::Right) {
         misMovingRight = isPressed;
     } else if (key == sf::Keyboard::SemiColon) {
-        Entity player = entList[0];
-        entList.clear();
-        entList.push_back(player);
-        LevelHandler lvlH;
-        lvlH.loadLevel("levels/lvl1", textures, entList, registry);
+        loadLevel("lvl1");
     } else if (key == sf::Keyboard::Space) {
         if (playerOnFloor) {
             playerJump = 1050;
@@ -111,9 +113,11 @@ void Game::run() {
     initWindow();
     initTextures(entList);
     initECS();
-    Entity o(textures.get(Textures::Landscape), -600.f, -200.f, false);
+    sf::Vector2f ploc = registry.get<Draw>(playerID).sprite.getPosition();
+    // Entity o(textures.get(Textures::Landscape), -600.f, -200.f, false);
+    Entity o(textures.get(Textures::Landscape), ploc.x,ploc.y, false);
+    o.setOrigin(o.getBoundingBox().width/2,o.getBoundingBox().height/2);
     o.scale(0.5f, 0.5f);
-
     sf::Clock clock;
     sf::Time timeSinceLastUpdate = sf::Time::Zero;
     while (mWindow.isOpen()) {
@@ -128,6 +132,8 @@ void Game::run() {
         // render();
         mWindow.clear();
         o.draw(mWindow);
+        // y.draw(mWindow);
+        // mWindow.draw(t);
         //todo, should always have player just maybe dont always draw them lmao 
         if(registry.has<Draw>(playerID)){
             worldView.setCenter(registry.get<Draw>(playerID).sprite.getPosition());
@@ -140,142 +146,154 @@ void Game::run() {
             sf::Sprite spri = view.get<Draw>(e).sprite;
             mWindow.draw(spri);
         }
+        const auto view2 = registry.view<Text>();
+        if(view2.size()>0){
+            for (const entt::entity e : view) {
+                sf::Text text = view2.get<Text>(e).text;
+                mWindow.draw(text);
+            }
+        //  mWindow.draw(t);
+        }
+
         mWindow.display();
     }
 }
 
-void Game::update(sf::Time deltaTime) {
-    if (playerOnRoof) {
-        playerJump = -50;
-        if (playerOnFloor) {
-            playerJump = -1;
-        }
-    }
-    if (playerJump > -400) {
-        playerJump -= 40;
-    } else {
-        playerJump = -0;
-    }
+void Game::updateMenu(sf::Time deltaTime) {
 
-    float playerGrav = 270.f;
+}
 
-    sf::Vector2f movement(0.f, (-1 * playerJump) + playerGrav);
-
-    playerOnFloor = false;
-    playerOnRoof = false;
-
-    if (misMovingUp) {
-        // movement.y -= 470.f;
-    }
-    if (misMovingDown) {
-        // movement.y += 200.f;
-    }
-    if (misMovingLeft) {
-        movement.x -= 370.f;
-        if (registry.get<Draw>(playerID).facing) {
-            sf::Sprite sp = registry.get<Draw>(playerID).sprite;
-            sf::IntRect ir = sp.getTextureRect();
-            sp.setTextureRect(sf::IntRect(ir.width, 0, -ir.width, ir.height));
-            registry.get<Draw>(playerID).sprite = sp;
-            registry.get<Draw>(playerID).facing = false;
-        }
-    }
-    if (misMovingRight) {
-        movement.x += 370.f;
-        if (!registry.get<Draw>(playerID).facing) {
-            sf::Sprite sp = registry.get<Draw>(playerID).sprite;
-            sf::IntRect ir = sp.getTextureRect();
-            sp.setTextureRect(sf::IntRect(0, 0, -ir.width, ir.height));
-            registry.get<Draw>(playerID).sprite = sp;
-            registry.get<Draw>(playerID).facing = true;
-        }
-    }
-    const auto aiView = registry.view<Movement, AI, Draw>();
-    for (const entt::entity e : aiView) {
-        sf::Vector2f currentPos = aiView.get<Draw>(e).sprite.getPosition();
-        std::cout << "pos " << currentPos.x << std::endl;
-        std::vector<sf::Vector2f> path  = aiView.get<AI>(e).path;
-        // std::cout << "Pth: " << path.size() <<  std::endl;
-        if(path.size() > 0){
-            std::cout << "n2 " << path[1].x << std::endl;
-            if(currentPos.x > path[1].x){
-                aiView.get<AI>(e).facing = false;
-                aiView.get<Movement>(e).velocity.x = -enemyMoveSpeed;
-            }else if(currentPos.x < path[0].x){
-                aiView.get<AI>(e).facing = true;
-                aiView.get<Movement>(e).velocity.x = enemyMoveSpeed;
-            }else if(aiView.get<Movement>(e).velocity.x == 0){
-                aiView.get<AI>(e).facing = true;
-                aiView.get<Movement>(e).velocity.x = enemyMoveSpeed;
+void Game::updateLevel(sf::Time deltaTime) {
+     if (playerOnRoof) {
+            playerJump = -50;
+            if (playerOnFloor) {
+                playerJump = -1;
             }
         }
-    }
-
-
-
-    const auto gravView = registry.view<Movement, Physics>();
-    for (const entt::entity e : gravView) {
-        if (gravView.get<Physics>(e).hasGrav) {
-            if (gravView.get<Movement>(e).velocity.y <= gravity);
-            gravView.get<Movement>(e).velocity.y = gravity;
+        if (playerJump > -400) {
+            playerJump -= 40;
+        } else {
+            playerJump = -0;
         }
-    }
+        float playerGrav = 270.f;
+        sf::Vector2f movement(0.f, (-1 * playerJump) + playerGrav);
+        playerOnFloor = false;
+        playerOnRoof = false;
 
-    registry.get<Movement>(playerID).velocity = movement;
-    const auto view = registry.view<Draw, Movement>();
-    const auto view2 = registry.view<Draw, Physics>();
-    for (const entt::entity e : view) {
-        float xIdealCoordinate = 0;
-        float yIdealCoordinate = 0;
-        bool movex = true;
-        bool movey = true;
-        sf::Sprite spriX = view.get<Draw>(e).sprite;
-        sf::Sprite spriY = view.get<Draw>(e).sprite;
-        sf::Vector2f vel = view.get<Movement>(e).velocity * deltaTime.asSeconds();
-        sf::Vector2f velx = {vel.x, 0.f};
-        sf::Vector2f vely = {0.f, vel.y};
-        spriX.move(velx);
-        spriY.move(vely);
-        // spri.move(velx);
-
-        sf::FloatRect eXBounds = spriX.getGlobalBounds();
-        sf::FloatRect eYBounds = spriY.getGlobalBounds();
-
-        for (const entt::entity j : view2) {
-            sf::FloatRect jBounds = view2.get<Draw>(j).sprite.getGlobalBounds();
-            // //TODO find better way of checking if they are not the same object
-            if (j != e) {
-                if (jBounds.intersects(eXBounds)) {
-                    if (!(eXBounds.left <= jBounds.left + jBounds.width && !(jBounds.left <= eXBounds.left))) {
-                        // std::cout << "IntRight" << std::endl;
-                        xIdealCoordinate = jBounds.left + jBounds.width;
-                    } else {
-                        // std::cout << "IntLeft" << std::endl;
-                        xIdealCoordinate = jBounds.left - eXBounds.width;
-                    }
-                    velx = {0.f, 0.f};
+        if (misMovingLeft) {
+            movement.x -= 370.f;
+            if (registry.get<Draw>(playerID).facing) {
+                sf::Sprite sp = registry.get<Draw>(playerID).sprite;
+                sf::IntRect ir = sp.getTextureRect();
+                sp.setTextureRect(sf::IntRect(ir.width, 0, -ir.width, ir.height));
+                registry.get<Draw>(playerID).sprite = sp;
+                registry.get<Draw>(playerID).facing = false;
+            }
+        }
+        if (misMovingRight) {
+            movement.x += 370.f;
+            if (!registry.get<Draw>(playerID).facing) {
+                sf::Sprite sp = registry.get<Draw>(playerID).sprite;
+                sf::IntRect ir = sp.getTextureRect();
+                sp.setTextureRect(sf::IntRect(0, 0, -ir.width, ir.height));
+                registry.get<Draw>(playerID).sprite = sp;
+                registry.get<Draw>(playerID).facing = true;
+            }
+        }
+        const auto aiView = registry.view<Movement, AI, Draw>();
+        for (const entt::entity e : aiView) {
+            sf::Vector2f currentPos = aiView.get<Draw>(e).sprite.getPosition();
+            std::cout << "pos " << currentPos.x << std::endl;
+            std::vector<sf::Vector2f> path  = aiView.get<AI>(e).path;
+            // std::cout << "Pth: " << path.size() <<  std::endl;
+            if(path.size() > 0){
+                std::cout << "n2 " << path[1].x << std::endl;
+                if(currentPos.x > path[1].x){
+                    aiView.get<AI>(e).facing = false;
+                    aiView.get<Movement>(e).velocity.x = -enemyMoveSpeed;
+                }else if(currentPos.x < path[0].x){
+                    aiView.get<AI>(e).facing = true;
+                    aiView.get<Movement>(e).velocity.x = enemyMoveSpeed;
+                }else if(aiView.get<Movement>(e).velocity.x == 0){
+                    aiView.get<AI>(e).facing = true;
+                    aiView.get<Movement>(e).velocity.x = enemyMoveSpeed;
                 }
-                if (jBounds.intersects(eYBounds)) {
-                    if (!(eYBounds.top <= jBounds.top + jBounds.height && !(jBounds.top <= eYBounds.top))) {
-                        yIdealCoordinate = jBounds.top + jBounds.height;
-                    } else {
-                        yIdealCoordinate = jBounds.top - eYBounds.height;
-                        if (e == playerID) {
-                            playerOnFloor = true;
+            }
+        }
+
+
+
+        const auto gravView = registry.view<Movement, Physics>();
+        for (const entt::entity e : gravView) {
+            if (gravView.get<Physics>(e).hasGrav) {
+                if (gravView.get<Movement>(e).velocity.y <= gravity);
+                gravView.get<Movement>(e).velocity.y = gravity;
+            }
+        }
+
+        registry.get<Movement>(playerID).velocity = movement;
+        const auto view = registry.view<Draw, Movement>();
+        const auto view2 = registry.view<Draw, Physics>();
+        for (const entt::entity e : view) {
+            float xIdealCoordinate = 0;
+            float yIdealCoordinate = 0;
+            bool movex = true;
+            bool movey = true;
+            sf::Sprite spriX = view.get<Draw>(e).sprite;
+            sf::Sprite spriY = view.get<Draw>(e).sprite;
+            sf::Vector2f vel = view.get<Movement>(e).velocity * deltaTime.asSeconds();
+            sf::Vector2f velx = {vel.x, 0.f};
+            sf::Vector2f vely = {0.f, vel.y};
+            spriX.move(velx);
+            spriY.move(vely);
+            // spri.move(velx);
+
+            sf::FloatRect eXBounds = spriX.getGlobalBounds();
+            sf::FloatRect eYBounds = spriY.getGlobalBounds();
+
+            for (const entt::entity j : view2) {
+                sf::FloatRect jBounds = view2.get<Draw>(j).sprite.getGlobalBounds();
+                // //TODO find better way of checking if they are not the same object
+                if (j != e) {
+                    if (jBounds.intersects(eXBounds)) {
+                        if (!(eXBounds.left <= jBounds.left + jBounds.width && !(jBounds.left <= eXBounds.left))) {
+                            // std::cout << "IntRight" << std::endl;
+                            xIdealCoordinate = jBounds.left + jBounds.width;
+                        } else {
+                            // std::cout << "IntLeft" << std::endl;
+                            xIdealCoordinate = jBounds.left - eXBounds.width;
                         }
+                        velx = {0.f, 0.f};
                     }
-                    vely = {0.f, 0.f};
+                    if (jBounds.intersects(eYBounds)) {
+                        if (!(eYBounds.top <= jBounds.top + jBounds.height && !(jBounds.top <= eYBounds.top))) {
+                            yIdealCoordinate = jBounds.top + jBounds.height;
+                        } else {
+                            yIdealCoordinate = jBounds.top - eYBounds.height;
+                            if (e == playerID) {
+                                playerOnFloor = true;
+                            }
+                        }
+                        vely = {0.f, 0.f};
+                    }
                 }
             }
+            sf::Sprite sprit = view.get<Draw>(e).sprite;
+            sprit.move(velx + vely);
+            if (yIdealCoordinate != 0) {
+                sprit.setPosition(sprit.getPosition().x, yIdealCoordinate);
+            }
+            if (xIdealCoordinate != 0) {
+                sprit.setPosition(xIdealCoordinate, sprit.getPosition().y);
+            }
+            view.get<Draw>(e).sprite = sprit;
         }
-        sf::Sprite sprit = view.get<Draw>(e).sprite;
-        sprit.move(velx + vely);
-        if (yIdealCoordinate != 0) {
-            sprit.setPosition(sprit.getPosition().x, yIdealCoordinate);
-        }
-        if (xIdealCoordinate != 0) {
-            sprit.setPosition(xIdealCoordinate, sprit.getPosition().y);
-        }
-        view.get<Draw>(e).sprite = sprit;
+}
+
+void Game::update(sf::Time deltaTime) {
+    if(currentLevel.compare("menu")!=0){    
+       updateLevel(deltaTime);
+    }else{
+        updateMenu(deltaTime);
     }
 }

@@ -6,3 +6,4 @@
 #include "HealthComponent.h"
 #include "MovementComponent.h"
 #include "PhysicsComponent.h"
+#include "TextComponent.h"
