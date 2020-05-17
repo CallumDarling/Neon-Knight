@@ -186,10 +186,13 @@ entt::entity EntityFactory::createRectangle(entt::registry &registry, sf::Vector
     entt::entity e = registry.create();
     sf::RectangleShape rect;
     rect.setPosition(location);
-    rect.setSize(dimentions);
+    rect.setSize(dimensions);
     rect.setOutlineColor(color);
+    rect.setOutlineThickness(1);
     if(fill){
         rect.setFillColor(color);
+    }else{
+        rect.setFillColor(sf::Color::Transparent);
     }
     registry.emplace<DrawShape>(e, rect, true, location);
     return e;

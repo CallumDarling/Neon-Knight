@@ -8,6 +8,7 @@
 #include "LevelHandler.h"
 #include "Entity.h"
 #include "EntityFactory.h"
+#include <math.h>
 
 
 
@@ -36,6 +37,7 @@ class Game{
         void handlePlayerInput(sf::Keyboard::Key key, bool isPressed);
         void loadLevel(std::string level);
         void initMenu();
+        void handleMouseInput(sf::Mouse::Button button, bool isPressed);
         entt::entity makeMenuButton(sf::Vector2f pos, int length, int height, std::string text, bool primary);
         
 
@@ -63,6 +65,9 @@ class Game{
         sf::Clock menuClock;
         entt::entity logo;
         std::vector<entt::entity> imageList;
+        std::vector<entt::entity> rectList;
+        int numKey = 1;
+        bool mouseLClicked = false;
 
 };
 

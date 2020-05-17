@@ -64,10 +64,35 @@ void Game::processEvents() {
         case sf::Event::KeyReleased:
             handlePlayerInput(event.key.code, false);
             break;
+        case sf::Event::MouseButtonPressed:
+            mouseLClicked = true;
+            handleMouseInput(event.mouseButton.button, true);
+            break;
+        case sf::Event::MouseButtonReleased:
+            mouseLClicked = false;
+            handleMouseInput(event.mouseButton.button, false);
+            break;
+        case sf::Event::MouseMoved:
+            handleMouseInput(event.mouseButton.button, false);
+            break;
         case sf::Event::Closed:
             mWindow.close();
             break;
         }
+    }
+}
+
+void Game::handleMouseInput(sf::Mouse::Button button, bool isPressed){
+    EntityFactory entFac;
+    if(button == sf::Mouse::Left && (isPressed) || mouseLClicked){
+        sf::Vector2i m = sf::Mouse::getPosition();
+        sf::Vector2f rm = mWindow.mapPixelToCoords(m);
+        std::cout << rm.x << " : " << rm.y << std::endl;
+        entFac.createBlock(registry,textures,{floor(rm.x/20)*20,floor(rm.y/20)*20});
+        std::cout << "left" << std::endl;
+    }else if(button == sf::Mouse::Right){
+        std::cout << "right" << std::endl;
+
     }
 }
 
@@ -89,7 +114,26 @@ void Game::handlePlayerInput(sf::Keyboard::Key key, bool isPressed) {
         }
     }else if(key == sf::Keyboard::Enter){
         enterPressed = isPressed;
+    }else if(key == sf::Keyboard::Num1){
+        numKey = 1;
+    }else if(key == sf::Keyboard::Num2){
+        numKey = 2;
+    }else if(key == sf::Keyboard::Num3){
+        numKey = 3;
+    }else if(key == sf::Keyboard::Num4){
+        numKey = 4;
+    }else if(key == sf::Keyboard::Num5){
+        numKey = 5;
+    }else if(key == sf::Keyboard::Num6){
+        numKey = 6;
+    }else if(key == sf::Keyboard::Num7){
+        numKey = 7;
+    }else if(key == sf::Keyboard::Num8){
+        numKey = 8;
+    }else if(key == sf::Keyboard::Num9){
+        numKey = 9;
     }
+    // std::cout << numKey << std::endl;
 }
 
 
@@ -147,6 +191,7 @@ void Game::updateMenu(sf::Time deltaTime) {
 
 void Game::initWindow() {
     // mWindow.setView(worldView);
+    
     sf::Vector2u wSize = mWindow.getSize();
     sf::Vector2f vSize = worldView.getSize();
     float sizeX = 1, sizeY = 1;
@@ -198,7 +243,7 @@ void Game::run() {
             update(TimePerFrame);
         }
         // render();
-        mWindow.clear();
+        mWindow.clear(sf::Color::White);
         o.setPostion(ploc);
         o.draw(mWindow);
         // y.draw(mWindow);
@@ -220,13 +265,19 @@ void Game::run() {
             }
         }
         const auto view2 = registry.view<Text>();
-        // std::cout << view2.size() << std::end;
         if(!view2.empty()){
             for (const entt::entity e : view2) {
                 sf::Text text = view2.get<Text>(e).text;
                 mWindow.draw(text);
             }
-        //  mWindow.draw(t);
+        }
+
+        const auto view3 = registry.view<DrawShape>();
+        if(!view2.empty()){
+            for (const entt::entity e : view3) {
+                sf::RectangleShape re = view3.get<DrawShape>(e).rect;
+                mWindow.draw(re);
+            }
         }
 
         // for(auto x : imageList){
@@ -255,38 +306,38 @@ entt::entity Game::makeMenuButton(sf::Vector2f pos, int length, int height, std:
 }
 
 void Game::initDesigner(){
-    sf::Vector2f pos = {-325,-200};
+    sf::Vector2f pos = {-375,-200};
     //worldView.getCenter();
     // pos.y += (worldView.getSize().y/;
     EntityFactory entFac;
-    // for(int i=1;i<=9;i++){
-    //     entt::entity e = entFac.createImage(registry, {pos.x+25*i,pos.y},textures.get(Textures::Platform), false);
-    //     imageList.push_back(e);
-    // }
-    imageList.clear();
 
-    entt::entity e;
-    e =entFac.createImage(registry, pos,textures.get(Textures::Player),false);
-    imageList.push_back(e);
-    e =entFac.createImage(registry, {pos.x+50,pos.y},textures.get(Textures::Henchman),false);
-    imageList.push_back(e);
-    e =entFac.createImage(registry, {pos.x+150,pos.y},textures.get(Textures::Gunman),false);
-    imageList.push_back(e);
-    e =entFac.createImage(registry, {pos.x+250,pos.y},textures.get(Textures::Brute),false);
-    imageList.push_back(e);
-    e =entFac.createImage(registry, {pos.x+350,pos.y},textures.get(Textures::Block),false);
-    imageList.push_back(e);
-    e =entFac.createImage(registry, {pos.x+450,pos.y},textures.get(Textures::Platform),false);
-    imageList.push_back(e);
-    e =entFac.createImage(registry, {pos.x+550,pos.y},textures.get(Textures::Door),false);
-    imageList.push_back(e);
-    e =entFac.createImage(registry, {pos.x+650,pos.y},textures.get(Textures::Ladder),false);
-    imageList.push_back(e);
-    entFac.createRectangle(registry, );
+   
+    imageList.clear();
+    rectList.clear();
+    for(int i=1;i<=9;i++){
+        entt::entity e = entFac.createImage(registry, {pos.x+75*i,pos.y},textures.get(static_cast<Textures::ID>(i)), false);
+        entFac.createText(registry, fonts, {(pos.x+75*i)-6,pos.y+35},std::to_string(i),25);
+        imageList.push_back(e);
+        entt::entity r = entFac.createRectangle(registry, {(pos.x+75*i)-15,pos.y-10}, {65.f,70.f}, sf::Color::Red, false);
+        rectList.push_back(r);
+    }
+
+    
 }
 
 void Game::updateDesigner(sf::Time deltaTime){
-
+    entt::basic_view recView = registry.view<DrawShape>();
+    for(int i=0;i<9;i++){
+        sf::RectangleShape r = recView.get<DrawShape>(rectList[i]).rect;
+        if((i+1)==numKey){
+            r.setOutlineColor(sf::Color::Red);
+            r.setOutlineThickness(3);
+        }else{
+            r.setOutlineColor(sf::Color::Black);
+            r.setOutlineThickness(1);
+        }
+        recView.get<DrawShape>(rectList[i]).rect = r;
+    }
 }
 
 void Game::updateLevel(sf::Time deltaTime) {
