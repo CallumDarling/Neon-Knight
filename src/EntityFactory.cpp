@@ -1,10 +1,10 @@
 #include "headers/EntityFactory.h" 
  
 entt::entity EntityFactory::createPlayer(entt::registry &registry, 
-                                        ResourceHandler<sf::Texture,Textures::ID> &text){
-    sf::Vector2f loc;
-    loc.x = 400.0;
-    loc.y = 400.0;
+                                        ResourceHandler<sf::Texture,Textures::ID> &text,sf::Vector2f loc){
+    // sf::Vector2f loc;
+    // loc.x = 400.0;
+    // loc.y = 400.0;
     sf::Sprite sprit;
     sprit.setTexture(text.get(Textures::Player));
     sprit.setPosition(loc);
@@ -154,12 +154,13 @@ entt::entity EntityFactory::createBullet(entt::registry &registry, ResourceHandl
     return e;
 }
 
-entt::entity createText(entt::registry &registry, ResourceHandler<sf::Font, Fonts::ID> &fonts, sf::Vector2f location, std::string text, int size){
+entt::entity EntityFactory::createText(entt::registry &registry, ResourceHandler<sf::Font, Fonts::ID> &fonts, sf::Vector2f location, std::string text, int size){
     entt::entity e = registry.create();
     sf::Text tex;
     tex.setFont(fonts.get(Fonts::MenuFont));
     tex.setString(text);
     tex.setCharacterSize(size);
+    tex.setStyle(sf::Text::Bold);
     tex.setOrigin(tex.getGlobalBounds().width/2,tex.getGlobalBounds().height/2);
     tex.setPosition(location);
     tex.setOutlineColor(sf::Color::Black);
@@ -168,7 +169,15 @@ entt::entity createText(entt::registry &registry, ResourceHandler<sf::Font, Font
     return e;
 }
 
-entt::entity createImage(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location){
+entt::entity EntityFactory::createImage(entt::registry &registry, sf::Vector2f location, sf::Texture &texture, bool originCenter){
     entt::entity e = registry.create();
+    std::vector<std::string> cExc = {""};
+    sf::Sprite sprit;
+    sprit.setTexture(texture);
+    if(originCenter){
+        sprit.setOrigin(sprit.getGlobalBounds().width/2, sprit.getGlobalBounds().height/2);
+    }
+    sprit.setPosition(location);
+    registry.emplace<Draw>(e,texture,sprit,true,location,true);
     return e;
 }

@@ -11,9 +11,13 @@ void Game::loadLevel(std::string level){
     registry.clear();
     EntityFactory eFac;
     LevelHandler lvlH;
-    // if(level.compare("menu")!=0){
-    playerID = eFac.createPlayer(registry, textures);
-    // }
+    if(level.compare("menu")==0){
+        playerID = eFac.createPlayer(registry, textures,{400.f,400.f});
+    }else
+    {
+        playerID = eFac.createPlayer(registry, textures,{0.f,0.f});
+    }
+    
     
     currentLevel = level;
     lvlH.loadLevel("levels/"+level, textures, fonts, entList, registry);
@@ -34,11 +38,19 @@ bool Game::initTextures(std::vector<Entity> &eList) {
         textures.load(Textures::Door, "media/textures/door.png");
         textures.load(Textures::Bullet, "media/textures/bullet.png");
         textures.load(Textures::Logo, "media/textures/logo.png");
-        fonts.load(Fonts::MenuFont, "media/fonts/menufont.ttf");
+        textures.load(Textures::Gunman, "media/textures/gunman.png");
+        textures.load(Textures::Brute, "media/textures/brute.png");
+        fonts.load(Fonts::MenuFont, "media/fonts/menufont.woff");
     } catch (const std::exception &e) {
         return 0;
     }
     loadLevel("menu");
+    menuList.push_back(makeMenuButton({250.f,350.f}, 15,2,"PLAY",true));
+    menuList.push_back(makeMenuButton({250.f,425.f}, 15,2,"LEVEL DESIGN",false));
+    menuList.push_back(makeMenuButton({250.f,500.f}, 15,2,"EXIT",false));
+    EntityFactory entfac;
+    logo = entfac.createImage(registry,{400,275}, textures.get(Textures::Logo), true);
+    registry.get<Draw>(logo).sprite.scale(0.35,0.35);
     return 1;
 }
 
@@ -75,7 +87,62 @@ void Game::handlePlayerInput(sf::Keyboard::Key key, bool isPressed) {
             playerJump = 1050;
             playerOnFloor = false;
         }
+    }else if(key == sf::Keyboard::Enter){
+        enterPressed = isPressed;
     }
+}
+
+
+void Game::updateMenu(sf::Time deltaTime) {
+    if (menuClock.getElapsedTime().asSeconds()>0.2){
+        maxMenuState = menuList.size();
+        if(misMovingDown){
+            menuState++;
+            menuClock.restart();
+        }
+        if(misMovingUp){
+            menuState--;
+            menuClock.restart();
+        }
+        std::cout << menuState << std::endl;
+        if(menuState>=maxMenuState){
+            menuState=0;
+        }
+        if(menuState<0){
+            menuState = maxMenuState-1;
+        }
+    }
+    
+    for(int i=0; i<menuList.size();i++){
+        if(i==menuState){
+            registry.get<Text>(menuList[i]).text.setOutlineColor(sf::Color::Red);
+        }else{
+            registry.get<Text>(menuList[i]).text.setOutlineColor(sf::Color::Black);
+        }
+    }
+        if (enterPressed){
+        switch (menuState)
+        {
+        case 0:
+            currentLevel = "lvl1";
+            loadLevel("lvl1");
+            return;
+            break;
+        case 1:
+            // currentLevel = "designer";
+            loadLevel("designer");
+            initDesigner();
+            return;
+            break;
+        case 2:
+            mWindow.close();
+            break;
+        
+        default:
+            break;
+        }
+    }
+
 }
 
 void Game::initWindow() {
@@ -143,23 +210,79 @@ void Game::run() {
         mWindow.setView(worldView);
         const auto view = registry.view<Draw>();
         for (const entt::entity e : view) {
-            sf::Sprite spri = view.get<Draw>(e).sprite;
-            mWindow.draw(spri);
+            if(!(e==playerID && currentLevel.substr(0,3)!="lvl")){
+                sf::Sprite spri = view.get<Draw>(e).sprite;
+                mWindow.draw(spri);
+            }else{
+                // mWindow.draw(registry.get<Draw>(logo).sprite);
+            }
         }
         const auto view2 = registry.view<Text>();
-        if(view2.size()>0){
-            for (const entt::entity e : view) {
+        // std::cout << view2.size() << std::end;
+        if(!view2.empty()){
+            for (const entt::entity e : view2) {
                 sf::Text text = view2.get<Text>(e).text;
                 mWindow.draw(text);
             }
         //  mWindow.draw(t);
         }
 
+        // for(auto x : imageList){
+        //     mWindow.draw(registry.get<Draw>(x).sprite);
+        // }
+
+        
+
         mWindow.display();
     }
 }
 
-void Game::updateMenu(sf::Time deltaTime) {
+entt::entity Game::makeMenuButton(sf::Vector2f pos, int length, int height, std::string text, bool primary){
+    EntityFactory entFac;
+    for(int i=0;i<=height;i++){ 
+        for(int x=0;x<=length;x++){
+            entFac.createPlatform(registry, textures, {pos.x+(x*20),pos.y+(i*20)});
+        }
+    }
+    entt::entity e = entFac.createText(registry,fonts, {pos.x+(length*20)/2,pos.y+(height*20)/2}, text, 40);
+    if(primary){
+        registry.get<Text>(e).text.setOutlineColor(sf::Color::Red);
+    }
+    return e;
+    
+}
+
+void Game::initDesigner(){
+    sf::Vector2f pos = {-325,-200};
+    //worldView.getCenter();
+    // pos.y += (worldView.getSize().y/;
+    EntityFactory entFac;
+    // for(int i=1;i<=9;i++){
+    //     entt::entity e = entFac.createImage(registry, {pos.x+25*i,pos.y},textures.get(Textures::Platform), false);
+    //     imageList.push_back(e);
+    // }
+    imageList.clear();
+
+    entt::entity e;
+    e =entFac.createImage(registry, pos,textures.get(Textures::Player),false);
+    imageList.push_back(e);
+    e =entFac.createImage(registry, {pos.x+50,pos.y},textures.get(Textures::Henchman),false);
+    imageList.push_back(e);
+    e =entFac.createImage(registry, {pos.x+150,pos.y},textures.get(Textures::Gunman),false);
+    imageList.push_back(e);
+    e =entFac.createImage(registry, {pos.x+250,pos.y},textures.get(Textures::Brute),false);
+    imageList.push_back(e);
+    e =entFac.createImage(registry, {pos.x+350,pos.y},textures.get(Textures::Block),false);
+    imageList.push_back(e);
+    e =entFac.createImage(registry, {pos.x+450,pos.y},textures.get(Textures::Platform),false);
+    imageList.push_back(e);
+    e =entFac.createImage(registry, {pos.x+550,pos.y},textures.get(Textures::Door),false);
+    imageList.push_back(e);
+    e =entFac.createImage(registry, {pos.x+650,pos.y},textures.get(Textures::Ladder),false);
+    imageList.push_back(e);
+}
+
+void Game::updateDesigner(sf::Time deltaTime){
 
 }
 
@@ -291,9 +414,11 @@ void Game::updateLevel(sf::Time deltaTime) {
 }
 
 void Game::update(sf::Time deltaTime) {
-    if(currentLevel.compare("menu")!=0){    
-       updateLevel(deltaTime);
+    if(currentLevel.compare("menu")==0){    
+       updateMenu(deltaTime);
+    }else if(currentLevel.compare("designer")==0){
+        updateDesigner(deltaTime);
     }else{
-        updateMenu(deltaTime);
+        updateLevel(deltaTime);
     }
 }

@@ -10,7 +10,7 @@
 //TODO add reference to games sfml book
 
 namespace Textures{
-     enum ID { Landscape, Player, Henchman, Boss, Block, HealthBar, Ladder, Platform, Door, Bullet, Logo};
+     enum ID { Landscape, Player, Henchman, Boss, Gunman, Brute, Block, Ladder, Platform, Door, HealthBar, Bullet, Logo};
 }
 
 namespace Fonts{

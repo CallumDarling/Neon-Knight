@@ -12,12 +12,8 @@ int LevelHandler::loadLevel(std::string fileName,
 
     std::ifstream file(fileName);
     EntityFactory entFac;
-    if(fileName.compare("menu")==0){
-        // sf::Vector2f ploc = {0.f,0.f};
-        // Entity y(textures.get(Textures::Logo), ploc.x,ploc.y-130, false);
-        // y.setOrigin(y.getBoundingBox().width/2,y.getBoundingBox().height/2);
-        // y.scale(0.35f, 0.35f);
-        
+    if(fileName.compare("levels/menu")==0){
+        // entFac.createText(reg,fonts,{400.f,400.f},"Text", 40);
     }
     if(file){
         int stage = 0;
@@ -38,7 +34,7 @@ int LevelHandler::loadLevel(std::string fileName,
             }else if(stage == 0){
                 try{
                     entFac.createBlock(reg,textures, {std::stoi(strings[0])*20.f, std::stoi(strings[1])*20.f});
-                    entFac.createText(reg,fonts,{0.f,0.f},"Text", 40);
+                    
                 }catch(const std::exception& ex){
                     std::cout << "levelfail" << std::endl;
                 }

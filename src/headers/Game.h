@@ -19,6 +19,7 @@ class Game{
         bool misMovingDown = false;
         bool misMovingLeft = false;
         bool misMovingRight = false;
+        bool enterPressed = false;
 
          
     private:
@@ -29,10 +30,13 @@ class Game{
         void update(sf::Time deltaTime);
         void updateLevel(sf::Time deltaTime);
         void updateMenu(sf::Time deltaTime);
+        void initDesigner();
+        void updateDesigner(sf::Time deltaTime);
         void render();
         void handlePlayerInput(sf::Keyboard::Key key, bool isPressed);
         void loadLevel(std::string level);
         void initMenu();
+        entt::entity makeMenuButton(sf::Vector2f pos, int length, int height, std::string text, bool primary);
         
 
 
@@ -53,6 +57,12 @@ class Game{
         const sf::Time TimePerFrame = sf::seconds(1.f/60.f);
         entt::entity playerID;
         std::string currentLevel =  "menu";
+        std::vector<entt::entity> menuList;
+        int maxMenuState;
+        int menuState;
+        sf::Clock menuClock;
+        entt::entity logo;
+        std::vector<entt::entity> imageList;
 
 };
 

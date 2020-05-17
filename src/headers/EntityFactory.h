@@ -10,7 +10,7 @@
 
 class EntityFactory{
     public:
-        entt::entity createPlayer(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text);
+        entt::entity createPlayer(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text,sf::Vector2f loc);
         entt::entity createEnemy(entt::registry &registry);
         entt::entity createBrute(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location, std::vector<sf::Vector2f> path);
         entt::entity createHench(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location, std::vector<sf::Vector2f> path);
@@ -24,7 +24,7 @@ class EntityFactory{
         entt::entity createPlatform(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location);
         entt::entity createDoor(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location);
         entt::entity createBullet(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location);
-        entt::entity createImage(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location);
+        entt::entity createImage(entt::registry &registry, sf::Vector2f location, sf::Texture &texture, bool originCenter);
         entt::entity createText(entt::registry &registry, ResourceHandler<sf::Font, Fonts::ID> &fonts, sf::Vector2f location, std::string text, int size);
 };
 
