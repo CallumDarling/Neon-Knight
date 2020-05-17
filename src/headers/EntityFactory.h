@@ -26,7 +26,7 @@ class EntityFactory{
         entt::entity createBullet(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location);
         entt::entity createImage(entt::registry &registry, sf::Vector2f location, sf::Texture &texture, bool originCenter);
         entt::entity createText(entt::registry &registry, ResourceHandler<sf::Font, Fonts::ID> &fonts, sf::Vector2f location, std::string text, int size);
-        entt::entity createRectange(entt::registry &registry, sf::Vector2f location, sf::Vector2f dimentions, sf::Color color, bool fill);
+        entt::entity createRectangle(entt::registry &registry, sf::Vector2f location, sf::Vector2f dimensions, sf::Color color, bool fill);
 };
 
 #endif

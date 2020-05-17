@@ -282,7 +282,7 @@ void Game::initDesigner(){
     imageList.push_back(e);
     e =entFac.createImage(registry, {pos.x+650,pos.y},textures.get(Textures::Ladder),false);
     imageList.push_back(e);
-    sf::RectangleShape UIoutline;
+    entFac.createRectangle(registry, );
 }
 
 void Game::updateDesigner(sf::Time deltaTime){
