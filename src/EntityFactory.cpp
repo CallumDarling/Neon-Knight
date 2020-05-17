@@ -181,3 +181,15 @@ entt::entity EntityFactory::createImage(entt::registry &registry, sf::Vector2f l
     registry.emplace<Draw>(e,texture,sprit,true,location,true);
     return e;
 }
+
+entt::entity EntityFactory::createRectange(entt::registry &registry, sf::Vector2f location, sf::Vector2f dimentions, sf::Color color, bool fill){
+    entt::entity e = registry.create();
+    sf::RectangleShape rect;
+    rect.setPosition(location);
+    rect.setSize(dimentions);
+    rect.setOutlineColor(color);
+    if(fill){
+        rect.setFillColor(color);
+    }
+    return e;
+}

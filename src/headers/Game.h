@@ -59,7 +59,7 @@ class Game{
         std::string currentLevel =  "menu";
         std::vector<entt::entity> menuList;
         int maxMenuState;
-        int menuState;
+        int menuState = 0;
         sf::Clock menuClock;
         entt::entity logo;
         std::vector<entt::entity> imageList;

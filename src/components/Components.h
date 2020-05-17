@@ -7,3 +7,4 @@
 #include "MovementComponent.h"
 #include "PhysicsComponent.h"
 #include "TextComponent.h"
+#include "ShapeDrawComponent.h"

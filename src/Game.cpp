@@ -185,6 +185,7 @@ void Game::run() {
     Entity o(textures.get(Textures::Landscape), ploc.x,ploc.y, false);
     o.setOrigin(o.getBoundingBox().width/2,o.getBoundingBox().height/2);
     o.scale(0.5f, 0.5f);
+    
     sf::Clock clock;
     sf::Time timeSinceLastUpdate = sf::Time::Zero;
     while (mWindow.isOpen()) {
@@ -198,6 +199,7 @@ void Game::run() {
         }
         // render();
         mWindow.clear();
+        o.setPostion(ploc);
         o.draw(mWindow);
         // y.draw(mWindow);
         // mWindow.draw(t);
@@ -280,6 +282,7 @@ void Game::initDesigner(){
     imageList.push_back(e);
     e =entFac.createImage(registry, {pos.x+650,pos.y},textures.get(Textures::Ladder),false);
     imageList.push_back(e);
+    sf::RectangleShape UIoutline;
 }
 
 void Game::updateDesigner(sf::Time deltaTime){
