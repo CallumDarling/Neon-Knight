@@ -7,6 +7,7 @@ struct AI{
     std::vector<sf::Vector2f> path;
     int vision;
     bool canSeePlayer;
+    bool facing = true;
 };
 
 #endif

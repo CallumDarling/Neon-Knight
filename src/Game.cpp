@@ -7,6 +7,16 @@ Game::Game() : worldView(sf::FloatRect(32.f, 32.f, 768.f, 432.f)),
     // mWindow.setFramerateLimit(60);
 }
 
+void Game::loadLevel(std::string level){
+    registry.clear();
+    EntityFactory eFac;
+    LevelHandler lvlH;
+    if(level.compare("lvl2")!=0){
+        playerID = eFac.createPlayer(registry, textures);
+    }
+    lvlH.loadLevel("levels/"+level, textures, entList, registry);
+}
+
 bool Game::initTextures(std::vector<Entity> &eList) {
     try {
         textures.load(Textures::Player, "media/textures/att2.png");
@@ -22,10 +32,7 @@ bool Game::initTextures(std::vector<Entity> &eList) {
     } catch (const std::exception &e) {
         return 0;
     }
-    Entity e(textures.get(Textures::Player), 200.f, 200.f, true);
-    eList.push_back(e);
-    LevelHandler lvlH;
-    lvlH.loadLevel("levels/lvl1", textures, entList, registry);
+    loadLevel("lvl2");
     return 1;
 }
 
@@ -77,7 +84,6 @@ void Game::initWindow() {
     float posX = 0, posY = 0;
     float wRat = (float)wSize.x / (float)wSize.y;
     float vRat = vSize.x / vSize.y;
-
     std::cout << wSize.x << "w" << wSize.y << std::endl;
     std::cout << vSize.x << "v" << vSize.y << std::endl;
     // bool barsTop = true;
@@ -88,45 +94,23 @@ void Game::initWindow() {
         //bars at the topfalsel;
         sizeY = wRat / vRat;
         posY = (1 - sizeY) / 2.f;
-
     } else {
         std::cout << "barSide" << std::endl;
         sizeX = vRat / wRat;
         posX = (1 - sizeX) / 2.f;
     }
     worldView.setViewport(sf::FloatRect(posX, posY, sizeX, sizeY));
-    // worldView.setCenter(entList[0].getPosition());
     mWindow.setView(worldView);
-    // std::cout << "wS: "<<size.x << "x" << size.y << std::endl;
 }
 
 void Game::initECS() {
-    EntityFactory eFac;
-    playerID = eFac.createPlayer(registry, textures);
-    // eFac.createBrute(registry, textures, {450.f, 400.f}, {});
-    // eFac.createGun(registry, textures, {500.f, 400.f}, 0);
-    // eFac.createHench(registry, textures, {550.f, 400.f}, {});
-    // eFac.createBoss(registry, textures, {600.f, 400.f}, {});
-    // for (int x = 0; x < 1000; x++) {
-    //     eFac.createBlock(registry, textures, {(500.f + (x * 29)), 400.f});
-    // }
 
-    // eFac.createBlock(registry, textures, {650.f, 400.f});
-    // eFac.createPlatform(registry, textures, {700.f, 400.f});
-    // eFac.createDoor(registry, textures, {750.f, 400.f});
-    // eFac.createUI(registry, textures, {800.f, 200.f}, 0);
-    // eFac.createLadder(registry, textures, {850.f, 400.f});
-    // std::cout << "Boof?" << std::endl;
-    // std::cout << "B: " << registry.size() << std::endl;
 }
 
 void Game::run() {
     initWindow();
     initTextures(entList);
     initECS();
-    entList[0].setOrigin(entList[0].getBoundingBox().width / 2,
-                         entList[0].getBoundingBox().height / 2);
-
     Entity o(textures.get(Textures::Landscape), -600.f, -200.f, false);
     o.scale(0.5f, 0.5f);
 
@@ -141,11 +125,15 @@ void Game::run() {
             processEvents();
             update(TimePerFrame);
         }
-
         // render();
         mWindow.clear();
         o.draw(mWindow);
-        worldView.setCenter(registry.get<Draw>(playerID).sprite.getPosition());
+        //todo, should always have player just maybe dont always draw them lmao 
+        if(registry.has<Draw>(playerID)){
+            worldView.setCenter(registry.get<Draw>(playerID).sprite.getPosition());
+        }else{
+            worldView.setCenter({0.f,0.f});
+        }
         mWindow.setView(worldView);
         const auto view = registry.view<Draw>();
         for (const entt::entity e : view) {
@@ -202,12 +190,33 @@ void Game::update(sf::Time deltaTime) {
             registry.get<Draw>(playerID).facing = true;
         }
     }
+    const auto aiView = registry.view<Movement, AI, Draw>();
+    for (const entt::entity e : aiView) {
+        sf::Vector2f currentPos = aiView.get<Draw>(e).sprite.getPosition();
+        std::cout << "pos " << currentPos.x << std::endl;
+        std::vector<sf::Vector2f> path  = aiView.get<AI>(e).path;
+        // std::cout << "Pth: " << path.size() <<  std::endl;
+        if(path.size() > 0){
+            std::cout << "n2 " << path[1].x << std::endl;
+            if(currentPos.x > path[1].x){
+                aiView.get<AI>(e).facing = false;
+                aiView.get<Movement>(e).velocity.x = -enemyMoveSpeed;
+            }else if(currentPos.x < path[0].x){
+                aiView.get<AI>(e).facing = true;
+                aiView.get<Movement>(e).velocity.x = enemyMoveSpeed;
+            }else if(aiView.get<Movement>(e).velocity.x == 0){
+                aiView.get<AI>(e).facing = true;
+                aiView.get<Movement>(e).velocity.x = enemyMoveSpeed;
+            }
+        }
+    }
+
+
 
     const auto gravView = registry.view<Movement, Physics>();
     for (const entt::entity e : gravView) {
         if (gravView.get<Physics>(e).hasGrav) {
-            if (gravView.get<Movement>(e).velocity.y <= gravity)
-                ;
+            if (gravView.get<Movement>(e).velocity.y <= gravity);
             gravView.get<Movement>(e).velocity.y = gravity;
         }
     }

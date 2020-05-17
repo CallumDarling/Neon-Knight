@@ -3,6 +3,8 @@
 
 const float gravity = 270;
 
+const int enemyMoveSpeed = 150;
+
 const int bruteAttack = 20;
 const int bruteRange = 150;
 const int bruteVision = 500;
