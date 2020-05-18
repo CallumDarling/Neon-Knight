@@ -1,5 +1,7 @@
 #include "headers/EntityFactory.h" 
  
+
+//TODO create virtual function encompassing all these creations
 entt::entity EntityFactory::createPlayer(entt::registry &registry, 
                                         ResourceHandler<sf::Texture,Textures::ID> &text,sf::Vector2f loc){
     // sf::Vector2f loc;

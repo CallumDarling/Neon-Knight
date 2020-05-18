@@ -99,6 +99,7 @@ void Game::addBlockToEditor(sf::Vector2f coords){
     std::string sCoords = std::to_string(coords.x/20)+","+std::to_string(coords.y/20);
     EntityFactory entFac;
     if(numKey==1 && playerPlaced){
+        //TODO v and while im here add tutorial text
         std::cout << "AHHHH HH" << std::endl;
         return;
     }
