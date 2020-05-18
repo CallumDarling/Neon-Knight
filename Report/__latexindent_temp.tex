@@ -1,0 +1,89 @@
+\documentclass{article}
+
+\usepackage[margin=1.5in]{geometry}
+
+
+\begin{document}
+
+\title{Games Design Report}
+\author{Callum Darling}
+\date{May, 2020}
+\maketitle
+\parskip 0.2in
+
+\section{Introduction}
+
+L
+
+\section{Changes from plan}\label{Changes}
+
+In the original designs for the game I had envisioned an Entity Component System driven design.
+The core of the design and the final product are still very similar although there have been a number of smaller changes to the structure of components and Entities.
+
+The largest change has been to one of the design patterns. I will elaborate further on this in Section \ref{Patterns}. 
+Having read up more on the singleton pattern I decided
+that the context I had planned to use it in was not appropriate for its actual intent. While a useful pattern it should be used sparingly. 
+I replaced this pattern with the sequencing pattern Game Loop.
+This was due to the fact that I was already implementing a game loop and I didn't feel any of the other design patterns fit well with the overall design. 
+
+When implementing the game it became clear that more entities and components were required than were accounted for in the initial plans. 
+
+The designs had 8 components, the final product has 10, these are due to oversights related to the media library being used.
+The way that objects are drawn to the screen in SFML is sufficiently different between some kinds of objects that is was prudent to seperate this functionality into different components.
+Aside from this the planned components covered all needed eventualities.
+
+The designs had 11 entities, the final product has 14, these similarly were created to make interfacing with SFML easier.
+For example the original designs had not accounted for the ability to draw shapes (rectangles, circles, etc.) directly on the screen without using a sprite with a texture.
+To account for this a new entity was created.
+The distinction between Entity and Enemy also proved to not be useful in this context.
+ While the enemies are still built from a different base to the other entities,
+ there was no reason to keep the distinction between the types of object as this can be expressed through components within the entities.
+
+Almost all of the character designs and user interfaces have changed from the initial design, as more complete and polished versions have been produced.
+
+\section{Design Patterns}\label{Patterns}
+
+The three patterns that I chose were the architectural pattern Entity Component System, the design pattern Factory and the sequencing pattern Game Loop. 
+
+\subsection{Replacement of Singleton with Game Loop}
+
+As mentioned in section \ref{Changes} I was initially planning on using the singleton design instead of game loop. 
+There are two classes the deal with files in the design, ResourceHandler and LevelHandler, 
+initially I believed that due to this file access I did not want multiple instances of these classes existing at once, so I thought that it would be appropriate to use a singleton pattern.
+Having made this choice I began researching implementations of this pattern to try and find a good way to use it in my code.
+While researching I came across many warnings against the overuse of this pattern and examples of its use in areas that it was not really required. 
+Looking at this and also situations that it is more appropriate to use this pattern I realised that it may not be appropriate for this project.
+ResourceHandler and LevelHandler are implemented in such a way that there is never more than once instance of either of them operating at once and there is no way for the same file to be simultaneously accessed.
+This proves that the singleton pattern would have been unnecessary.
+
+\subsection{Entity Component System}
+
+I used a C++ library called EnTT to implement ECS.
+The Components can be found in the  src/components.
+Each component is a simple file containing a struct containing variables for the data that the component will encompass.
+
+Entities initialised and stored in a registry (the registry for this project can be found in game.h & game.cpp).
+The entity class is simply a reference that can be used with the registry to access components that have been emplaced into the entity itself.
+The entities are initialised in the EntityFactory (EntityFactory.h & EntityFactory.cpp), e.g. they are created and have components emplaced into them.
+
+
+I chose to use the Entity Component System (ECS) architectural pattern for several reasons.
+In past projects completed using a traditional inheritance based object oriented approach I had run into a trouble with large inheritance trees. 
+I knew that I was going to be using entities of some kind in the game whichever approach is took so it seemed reasonable to use the system that was oriented towards this approach.
+ECS systems have a reputation for being resource efficient and fast to execute, I thought this would be interesting to look into.
+
+\subsection{Factory Pattern}
+
+balh
+
+\subsection{Game Loop}
+
+blah
+
+\section{Games Concepts}
+\section{Security Requirements}
+\section{Reflections}
+\section{Test Strategy}
+
+\end{document}}
+
