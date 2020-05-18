@@ -68,6 +68,7 @@ class Game{
         int maxMenuState;
         int menuState = 0;
         sf::Clock menuClock;
+        sf::Clock collisionClock;
         entt::entity logo;
         std::vector<entt::entity> imageList;
         std::vector<entt::entity> rectList;

@@ -29,7 +29,7 @@ entt::entity EntityFactory::createEnemy(entt::registry &registry){
     std::vector<std::string> cExc = {""};
     //creates entity and adds components
     entt::entity e = registry.create();
-    registry.emplace<Physics>(e,true,1.f,true,cExc);
+    registry.emplace<Physics>(e,false,1.f,true,cExc);
     registry.emplace<Movement>(e, loc);
     return e;
 }

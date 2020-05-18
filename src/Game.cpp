@@ -4,7 +4,7 @@ Game::Game() : worldView(sf::FloatRect(32.f, 32.f, 768.f, 432.f)),
                mWindow(sf::VideoMode(1600, 900), "SFML Application", sf::Style::Fullscreen) {
     mWindow.setKeyRepeatEnabled(true);
     mWindow.setVerticalSyncEnabled(true);
-    // mWindow.setFramerateLimit(60);
+    mWindow.setFramerateLimit(60);
 }
 
 void Game::loadLevel(std::string level){
@@ -13,7 +13,7 @@ void Game::loadLevel(std::string level){
     LevelHandler lvlH;
     if(level.compare("menu")==0){
         playerID = eFac.createPlayer(registry, textures,{400.f,400.f});
-            menuList.push_back(makeMenuButton({250.f,350.f}, 15,2,"PLAY",true));
+        menuList.push_back(makeMenuButton({250.f,350.f}, 15,2,"PLAY",true));
         menuList.push_back(makeMenuButton({250.f,425.f}, 15,2,"LEVEL DESIGN",false));
         menuList.push_back(makeMenuButton({250.f,500.f}, 15,2,"EXIT",false));
         EntityFactory entfac;
@@ -21,12 +21,15 @@ void Game::loadLevel(std::string level){
         registry.get<Draw>(logo).sprite.scale(0.35,0.35);
     }else
     {
-        playerID = eFac.createPlayer(registry, textures,{0.f,0.f});
+        // playerID = eFac.createPlayer(registry, textures,{0.f,0.f});
     }
     
-    
     currentLevel = level;
-    lvlH.loadLevel("levels/"+level, textures, fonts, entList, registry);
+    entt::entity e = lvlH.loadLevel("levels/"+level, textures, fonts, entList, registry);
+    if(registry.valid(e)){
+        // registry.replace(playerID, e);
+        playerID = e;
+    }
 }
 
 
@@ -93,7 +96,7 @@ void Game::processEvents() {
 
 
 void Game::addBlockToEditor(sf::Vector2f coords){
-    std::string sCoords = std::to_string(coords.x)+","+std::to_string(coords.y);
+    std::string sCoords = std::to_string(coords.x/20)+","+std::to_string(coords.y/20);
     EntityFactory entFac;
     if(numKey==1 && playerPlaced){
         std::cout << "AHHHH HH" << std::endl;
@@ -110,7 +113,7 @@ void Game::addBlockToEditor(sf::Vector2f coords){
 }
 
 void Game::removeBlockFromEditor(sf::Vector2f coords){
-    std::string sCoords = std::to_string(coords.x)+","+std::to_string(coords.y);
+    std::string sCoords = std::to_string(coords.x/20)+","+std::to_string(coords.y/20);
     EntityFactory entFac;
     if(designMap.find(sCoords)!=designMap.end()){
         if(designMap[sCoords]==1){
@@ -150,7 +153,9 @@ void Game::handlePlayerInput(sf::Keyboard::Key key, bool isPressed) {
         misMovingRight = isPressed;
     } else if (key == sf::Keyboard::SemiColon) {
         loadLevel("lvl1");
-    } else if (key == sf::Keyboard::Space) {
+    } else if (key == sf::Keyboard::L) {
+        loadLevel("lvl3");
+    }else if (key == sf::Keyboard::Space) {
         if (playerOnFloor) {
             playerJump = 1050;
             playerOnFloor = false;
@@ -159,7 +164,7 @@ void Game::handlePlayerInput(sf::Keyboard::Key key, bool isPressed) {
         loadLevel("menu");
     }else if(key == sf::Keyboard::P){
         LevelHandler lvlH;
-        lvlH.saveLevel("Bogron", designMap);
+        lvlH.saveLevel("lvl3", designMap);
         
     }else if(key == sf::Keyboard::Enter){
         enterPressed = isPressed;
@@ -275,6 +280,7 @@ void Game::run() {
     initECS();
     sf::Vector2f ploc = registry.get<Draw>(playerID).sprite.getPosition();
     // Entity o(textures.get(Textures::Landscape), -600.f, -200.f, false);
+    //todo make this ecs entity instead
     Entity o(textures.get(Textures::Landscape), ploc.x,ploc.y, false);
     o.setOrigin(o.getBoundingBox().width/2,o.getBoundingBox().height/2);
     o.scale(0.5f, 0.5f);
@@ -479,17 +485,19 @@ void Game::updateLevel(sf::Time deltaTime) {
 
 
 
-        const auto gravView = registry.view<Movement, Physics>();
-        for (const entt::entity e : gravView) {
-            if (gravView.get<Physics>(e).hasGrav) {
-                if (gravView.get<Movement>(e).velocity.y <= gravity);
-                gravView.get<Movement>(e).velocity.y = gravity;
-            }
-        }
+        // const auto gravView = registry.view<Movement, Physics>();
+        // for (const entt::entity e : gravView) {
+        //     if (gravView.get<Physics>(e).hasGrav) {
+        //         if (gravView.get<Movement>(e).velocity.y <= gravity);
+        //         gravView.get<Movement>(e).velocity.y = gravity;
+        //     }
+        // }
 
         registry.get<Movement>(playerID).velocity = movement;
         const auto view = registry.view<Draw, Movement>();
         const auto view2 = registry.view<Draw, Physics>();
+        std::cout << "V1: " << view.size() << std::endl;
+        std::cout << "V2: " << view2.size() << std::endl;
         for (const entt::entity e : view) {
             float xIdealCoordinate = 0;
             float yIdealCoordinate = 0;
@@ -506,31 +514,34 @@ void Game::updateLevel(sf::Time deltaTime) {
 
             sf::FloatRect eXBounds = spriX.getGlobalBounds();
             sf::FloatRect eYBounds = spriY.getGlobalBounds();
-
-            for (const entt::entity j : view2) {
-                sf::FloatRect jBounds = view2.get<Draw>(j).sprite.getGlobalBounds();
-                // //TODO find better way of checking if they are not the same object
-                if (j != e) {
-                    if (jBounds.intersects(eXBounds)) {
-                        if (!(eXBounds.left <= jBounds.left + jBounds.width && !(jBounds.left <= eXBounds.left))) {
-                            // std::cout << "IntRight" << std::endl;
-                            xIdealCoordinate = jBounds.left + jBounds.width;
-                        } else {
-                            // std::cout << "IntLeft" << std::endl;
-                            xIdealCoordinate = jBounds.left - eXBounds.width;
-                        }
-                        velx = {0.f, 0.f};
-                    }
-                    if (jBounds.intersects(eYBounds)) {
-                        if (!(eYBounds.top <= jBounds.top + jBounds.height && !(jBounds.top <= eYBounds.top))) {
-                            yIdealCoordinate = jBounds.top + jBounds.height;
-                        } else {
-                            yIdealCoordinate = jBounds.top - eYBounds.height;
-                            if (e == playerID) {
-                                playerOnFloor = true;
+            // if(collisionClock.getElapsedTime().asSeconds()>0.1){
+            //     collisionClock.restart();
+            if(e == playerID){
+                for (const entt::entity j : view2) {
+                    sf::FloatRect jBounds = view2.get<Draw>(j).sprite.getGlobalBounds();
+                    // //TODO make it so player dies when touching enemy
+                    if (j != e) {
+                        if (jBounds.intersects(eXBounds)) {
+                            if (!(eXBounds.left <= jBounds.left + jBounds.width && !(jBounds.left <= eXBounds.left))) {
+                                // std::cout << "IntRight" << std::endl;
+                                xIdealCoordinate = jBounds.left + jBounds.width;
+                            } else {
+                                // std::cout << "IntLeft" << std::endl;
+                                xIdealCoordinate = jBounds.left - eXBounds.width;
                             }
+                            velx = {0.f, 0.f};
                         }
-                        vely = {0.f, 0.f};
+                        if (jBounds.intersects(eYBounds)) {
+                            if (!(eYBounds.top <= jBounds.top + jBounds.height && !(jBounds.top <= eYBounds.top))) {
+                                yIdealCoordinate = jBounds.top + jBounds.height;
+                            } else {
+                                yIdealCoordinate = jBounds.top - eYBounds.height;
+                                if (e == playerID) {
+                                    playerOnFloor = true;
+                                }
+                            }
+                            vely = {0.f, 0.f};
+                        }
                     }
                 }
             }
@@ -544,6 +555,7 @@ void Game::updateLevel(sf::Time deltaTime) {
             }
             view.get<Draw>(e).sprite = sprit;
         }
+        
 }
 
 void Game::update(sf::Time deltaTime) {

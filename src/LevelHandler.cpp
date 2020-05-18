@@ -6,12 +6,31 @@ LevelHandler::LevelHandler(){
 
 int LevelHandler::saveLevel(std::string filename, std::map<std::string, int> designMap){
     std::ofstream file("levels/"+filename);
-    std::vector<std::string> types = {"","","","","","","","",""};
+    std::vector<std::string> types = {"","","","","","","","","",""};
     for (auto const& x : designMap){
         std::cout << "append" << std::endl;
-        types[x.second].append(x.first+"\n");
+        switch (x.second)
+        {
+        case 2:
+            types[x.second].append(x.first+","+x.first+","+x.first+"\n");
+            break;
+        case 3:
+            types[x.second].append(x.first+","+x.first+","+x.first+"\n");
+            break;
+        case 4:
+            types[x.second].append(x.first+",0"+"\n");
+            break;
+        case 5:
+            types[x.second].append(x.first+","+x.first+","+x.first+"\n");
+            break;
+        default:
+            types[x.second].append(x.first+"\n");
+            break;
+        }
+        
     }
     if(file){
+        // file << "###";
          for(auto const& y : types){
             file << y << "###" << "\n";
             std::cout << y << "###" << "\n";
@@ -25,7 +44,7 @@ int LevelHandler::saveLevel(std::string filename, std::map<std::string, int> des
 }
 
 
-int LevelHandler::loadLevel(std::string fileName,
+entt::entity LevelHandler::loadLevel(std::string fileName,
                             ResourceHandler<sf::Texture, Textures::ID>& textures,
                             ResourceHandler<sf::Font, Fonts::ID>& fonts,
                             std::vector<Entity>& entList,
@@ -36,9 +55,10 @@ int LevelHandler::loadLevel(std::string fileName,
     if(fileName.compare("levels/menu")==0){
         // entFac.createText(reg,fonts,{400.f,400.f},"Text", 40);
     }
+    entt::entity newPlayer;
     if(file){
         int stage = 0;
-       for( std::string line; std::getline( file, line ); ){
+        for( std::string line; std::getline( file, line ); ){
            
            std::vector<std::string> strings;
             // std::cout << stage << line << std::endl;
@@ -49,17 +69,24 @@ int LevelHandler::loadLevel(std::string fileName,
                 strings.push_back(substr);
                 std::cout <<  substr << std::endl;
             }
-
+            
             if( line.substr(0,3) == "###"){
                 stage++;
-            }else if(stage == 0){
+            }else if(stage == 1){
+                try{
+                    newPlayer = entFac.createPlayer(reg,textures, {std::stoi(strings[0])*20.f, std::stoi(strings[1])*20.f});
+                    
+                }catch(const std::exception& ex){
+                    std::cout << "levelfail" << std::endl;
+                }
+            }else if(stage == 6){
                 try{
                     entFac.createBlock(reg,textures, {std::stoi(strings[0])*20.f, std::stoi(strings[1])*20.f});
                     
                 }catch(const std::exception& ex){
                     std::cout << "levelfail" << std::endl;
                 }
-            }else if(stage == 1){
+            }else if(stage == 3){
                  try{
                     entFac.createBoss(reg,textures, {std::stoi(strings[0])*20.f, std::stoi(strings[1])*20.f}, 
                     {{std::stof(strings[2])*20.f,std::stof(strings[3])*20.f},{std::stof(strings[4])*20.f,std::stof(strings[5])*20.f}});
@@ -76,13 +103,12 @@ int LevelHandler::loadLevel(std::string fileName,
                     
                 }
 
-            }else if(stage == 3){
+            }else if(stage == 5){
                 try{
                     entFac.createBrute(reg,textures, {std::stoi(strings[0])*20.f, std::stoi(strings[1])*20.f}, 
                     {{std::stof(strings[2])*20.f,std::stof(strings[3])*20.f},{std::stof(strings[4])*20.f,std::stof(strings[5])*20.f}});
                 }catch(const std::exception& ex){
                     std::cout << "levelfail" << std::endl;
-                    
                 }
             }else if(stage == 4){
                 try{
@@ -91,14 +117,14 @@ int LevelHandler::loadLevel(std::string fileName,
                     std::cout << "levelfail" << std::endl;
                     
                 }
-            }else if(stage == 5){
+            }else if(stage == 8){
                 try{
                     entFac.createPlatform(reg,textures, {std::stoi(strings[0])*20.f, std::stoi(strings[1])*20.f});
                 }catch(const std::exception& ex){
                     std::cout << "levelfail" << std::endl;
                     
                 }
-            }else if(stage == 6){
+            }else if(stage == 7){
                 try{
                     // Entity e(textures.get(Textures::Henchman), std::stoi(strings[0])*20.f, std::stoi(strings[1])*20.f, true);
                     // entList.push_back(e);
@@ -107,7 +133,7 @@ int LevelHandler::loadLevel(std::string fileName,
                     std::cout << "levelfail" << std::endl;
                     
                 }
-            }else if(stage == 7){
+            }else if(stage == 9){
                 try{
                     // Entity e(textures.get(Textures::Henchman), std::stoi(strings[0])*20.f, std::stoi(strings[1])*20.f, true);
                     // entList.push_back(e);
@@ -119,9 +145,9 @@ int LevelHandler::loadLevel(std::string fileName,
             }
         }     
 
-        return 1;
+        return newPlayer;
     }else{
-        return 0;
+        return newPlayer;
     }
 
 }
