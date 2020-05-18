@@ -9,6 +9,7 @@
 #include "Entity.h"
 #include "EntityFactory.h"
 #include <math.h>
+#include <map>
 
 
 
@@ -38,7 +39,11 @@ class Game{
         void loadLevel(std::string level);
         void initMenu();
         void handleMouseInput(sf::Mouse::Button button, bool isPressed);
+        void addBlockToEditor(sf::Vector2f coords);
+        void removeBlockFromEditor(sf::Vector2f coords);
+        void updateDesignerHUD();
         entt::entity makeMenuButton(sf::Vector2f pos, int length, int height, std::string text, bool primary);
+        // bool saveLevelToFile(std::string filename);
         
 
 
@@ -66,8 +71,13 @@ class Game{
         entt::entity logo;
         std::vector<entt::entity> imageList;
         std::vector<entt::entity> rectList;
+        std::vector<entt::entity> textList;
         int numKey = 1;
         bool mouseLClicked = false;
+        bool mouseRClicked = false;
+        std::map<std::string, int> designMap;
+        std::map<std::string, entt::entity> designEntityMap;
+        bool playerPlaced;
 
 };
 

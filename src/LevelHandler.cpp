@@ -4,6 +4,27 @@ LevelHandler::LevelHandler(){
     //
 }
 
+int LevelHandler::saveLevel(std::string filename, std::map<std::string, int> designMap){
+    std::ofstream file("levels/"+filename);
+    std::vector<std::string> types = {"","","","","","","","",""};
+    for (auto const& x : designMap){
+        std::cout << "append" << std::endl;
+        types[x.second].append(x.first+"\n");
+    }
+    if(file){
+         for(auto const& y : types){
+            file << y << "###" << "\n";
+            std::cout << y << "###" << "\n";
+        }
+    }else
+    {
+        std::cout << "couldnt access file for writing" << std::endl;
+        return 0;
+    }
+    return 1;
+}
+
+
 int LevelHandler::loadLevel(std::string fileName,
                             ResourceHandler<sf::Texture, Textures::ID>& textures,
                             ResourceHandler<sf::Font, Fonts::ID>& fonts,

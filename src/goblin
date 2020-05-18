@@ -1,0 +1,1 @@
+g++ -std=c++17 -fsanitize=address -lsfml-graphics -lsfml-window -lsfml-system  -o Neon-Knight main.cpp Game.cpp Entity.cpp Enemy.cpp LevelHandler.cpp EntityFactory.cpp 

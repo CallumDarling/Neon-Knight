@@ -13,6 +13,12 @@ void Game::loadLevel(std::string level){
     LevelHandler lvlH;
     if(level.compare("menu")==0){
         playerID = eFac.createPlayer(registry, textures,{400.f,400.f});
+            menuList.push_back(makeMenuButton({250.f,350.f}, 15,2,"PLAY",true));
+        menuList.push_back(makeMenuButton({250.f,425.f}, 15,2,"LEVEL DESIGN",false));
+        menuList.push_back(makeMenuButton({250.f,500.f}, 15,2,"EXIT",false));
+        EntityFactory entfac;
+        logo = entfac.createImage(registry,{400,275}, textures.get(Textures::Logo), true);
+        registry.get<Draw>(logo).sprite.scale(0.35,0.35);
     }else
     {
         playerID = eFac.createPlayer(registry, textures,{0.f,0.f});
@@ -45,12 +51,6 @@ bool Game::initTextures(std::vector<Entity> &eList) {
         return 0;
     }
     loadLevel("menu");
-    menuList.push_back(makeMenuButton({250.f,350.f}, 15,2,"PLAY",true));
-    menuList.push_back(makeMenuButton({250.f,425.f}, 15,2,"LEVEL DESIGN",false));
-    menuList.push_back(makeMenuButton({250.f,500.f}, 15,2,"EXIT",false));
-    EntityFactory entfac;
-    logo = entfac.createImage(registry,{400,275}, textures.get(Textures::Logo), true);
-    registry.get<Draw>(logo).sprite.scale(0.35,0.35);
     return 1;
 }
 
@@ -65,11 +65,20 @@ void Game::processEvents() {
             handlePlayerInput(event.key.code, false);
             break;
         case sf::Event::MouseButtonPressed:
-            mouseLClicked = true;
+            if(event.mouseButton.button==sf::Mouse::Button::Left){
+                mouseLClicked = true;
+            }else{
+                mouseRClicked = true;
+            }
+            
             handleMouseInput(event.mouseButton.button, true);
             break;
         case sf::Event::MouseButtonReleased:
-            mouseLClicked = false;
+            if(event.mouseButton.button==sf::Mouse::Button::Left){
+                mouseLClicked = false;
+            }else{
+                mouseRClicked = false;
+            }
             handleMouseInput(event.mouseButton.button, false);
             break;
         case sf::Event::MouseMoved:
@@ -82,17 +91,51 @@ void Game::processEvents() {
     }
 }
 
+
+void Game::addBlockToEditor(sf::Vector2f coords){
+    std::string sCoords = std::to_string(coords.x)+","+std::to_string(coords.y);
+    EntityFactory entFac;
+    if(numKey==1 && playerPlaced){
+        std::cout << "AHHHH HH" << std::endl;
+        return;
+    }
+    if(designMap.find(sCoords)==designMap.end()){
+        entt::entity e = entFac.createImage(registry, coords, textures.get(static_cast<Textures::ID>(numKey)), false);
+        if(numKey == 1){
+            playerPlaced = true; 
+        }
+        designMap.insert({sCoords,numKey});
+        designEntityMap.insert({sCoords,e});
+    }
+}
+
+void Game::removeBlockFromEditor(sf::Vector2f coords){
+    std::string sCoords = std::to_string(coords.x)+","+std::to_string(coords.y);
+    EntityFactory entFac;
+    if(designMap.find(sCoords)!=designMap.end()){
+        if(designMap[sCoords]==1){
+            playerPlaced=false;
+        }
+        designMap.erase(sCoords);
+        registry.remove_all(designEntityMap[sCoords]);
+        designEntityMap.erase(sCoords);
+    }
+}
+
 void Game::handleMouseInput(sf::Mouse::Button button, bool isPressed){
     EntityFactory entFac;
     if(button == sf::Mouse::Left && (isPressed) || mouseLClicked){
         sf::Vector2i m = sf::Mouse::getPosition();
-        sf::Vector2f rm = mWindow.mapPixelToCoords(m);
+        sf::Vector2f rm = mWindow.mapPixelToCoords(m,worldView);
         std::cout << rm.x << " : " << rm.y << std::endl;
-        entFac.createBlock(registry,textures,{floor(rm.x/20)*20,floor(rm.y/20)*20});
+        addBlockToEditor({floor(rm.x/20)*20,floor(rm.y/20)*20});
         std::cout << "left" << std::endl;
-    }else if(button == sf::Mouse::Right){
+    }else if(button == sf::Mouse::Right && (isPressed) || mouseRClicked){
         std::cout << "right" << std::endl;
-
+        sf::Vector2i m = sf::Mouse::getPosition();
+        sf::Vector2f rm = mWindow.mapPixelToCoords(m,worldView);
+        std::cout << rm.x << " : " << rm.y << std::endl;
+        removeBlockFromEditor({floor(rm.x/20)*20,floor(rm.y/20)*20});
     }
 }
 
@@ -112,6 +155,12 @@ void Game::handlePlayerInput(sf::Keyboard::Key key, bool isPressed) {
             playerJump = 1050;
             playerOnFloor = false;
         }
+    }else if(key == sf::Keyboard::Escape){
+        loadLevel("menu");
+    }else if(key == sf::Keyboard::P){
+        LevelHandler lvlH;
+        lvlH.saveLevel("Bogron", designMap);
+        
     }else if(key == sf::Keyboard::Enter){
         enterPressed = isPressed;
     }else if(key == sf::Keyboard::Num1){
@@ -191,7 +240,6 @@ void Game::updateMenu(sf::Time deltaTime) {
 
 void Game::initWindow() {
     // mWindow.setView(worldView);
-    
     sf::Vector2u wSize = mWindow.getSize();
     sf::Vector2f vSize = worldView.getSize();
     float sizeX = 1, sizeY = 1;
@@ -244,15 +292,15 @@ void Game::run() {
         }
         // render();
         mWindow.clear(sf::Color::White);
-        o.setPostion(ploc);
+        o.setPostion(worldView.getCenter());
         o.draw(mWindow);
         // y.draw(mWindow);
         // mWindow.draw(t);
         //todo, should always have player just maybe dont always draw them lmao 
-        if(registry.has<Draw>(playerID)){
+        if(registry.has<Draw>(playerID) && currentLevel!="designer"){
             worldView.setCenter(registry.get<Draw>(playerID).sprite.getPosition());
         }else{
-            worldView.setCenter({0.f,0.f});
+            // worldView.setCenter({0.f,0.f});
         }
         mWindow.setView(worldView);
         const auto view = registry.view<Draw>();
@@ -306,8 +354,8 @@ entt::entity Game::makeMenuButton(sf::Vector2f pos, int length, int height, std:
 }
 
 void Game::initDesigner(){
-    sf::Vector2f pos = {-375,-200};
-    //worldView.getCenter();
+    sf::Vector2f pos = worldView.getCenter();;
+    //
     // pos.y += (worldView.getSize().y/;
     EntityFactory entFac;
 
@@ -316,16 +364,27 @@ void Game::initDesigner(){
     rectList.clear();
     for(int i=1;i<=9;i++){
         entt::entity e = entFac.createImage(registry, {pos.x+75*i,pos.y},textures.get(static_cast<Textures::ID>(i)), false);
-        entFac.createText(registry, fonts, {(pos.x+75*i)-6,pos.y+35},std::to_string(i),25);
         imageList.push_back(e);
+        entt::entity t = entFac.createText(registry, fonts, {(pos.x+75*i)-6,pos.y+35},std::to_string(i),25);
+        textList.push_back(t);
         entt::entity r = entFac.createRectangle(registry, {(pos.x+75*i)-15,pos.y-10}, {65.f,70.f}, sf::Color::Red, false);
         rectList.push_back(r);
     }
-
-    
 }
 
-void Game::updateDesigner(sf::Time deltaTime){
+void Game::updateDesignerHUD(){
+    entt::basic_view recView = registry.view<DrawShape>();
+    sf::Vector2f pos = worldView.getCenter();
+    pos.x -= worldView.getSize().x/2.1;
+    pos.y -= worldView.getSize().y/2.1;
+    for(int i=0;i<9;i++){
+        registry.get<Draw>(imageList[i]).sprite.setPosition({pos.x+75*i,pos.y});
+        registry.get<Text>(textList[i]).text.setPosition({(pos.x+75*i)-6,pos.y+35});
+        registry.get<DrawShape>(rectList[i]).rect.setPosition({(pos.x+75*i)-15,pos.y-10});
+    }
+}
+
+void Game::updateDesigner(sf::Time deltaTime){//memory leak isn't coming from this function at least
     entt::basic_view recView = registry.view<DrawShape>();
     for(int i=0;i<9;i++){
         sf::RectangleShape r = recView.get<DrawShape>(rectList[i]).rect;
@@ -338,6 +397,26 @@ void Game::updateDesigner(sf::Time deltaTime){
         }
         recView.get<DrawShape>(rectList[i]).rect = r;
     }
+    int viewVelocity = 200;
+    sf::Vector2f viewV = {0.f,0.f};
+    
+    if(misMovingUp){
+        viewV.y -= viewVelocity;
+    }
+    if(misMovingDown){
+        viewV.y += viewVelocity;
+    }
+    if(misMovingLeft){
+        viewV.x -= viewVelocity;
+    }
+    if(misMovingRight){
+        viewV.x += viewVelocity;
+    }
+    worldView = mWindow.getView();
+    worldView.move(viewV*deltaTime.asSeconds());
+    mWindow.setView(worldView);
+    updateDesignerHUD();
+
 }
 
 void Game::updateLevel(sf::Time deltaTime) {

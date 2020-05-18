@@ -19,6 +19,7 @@ class LevelHandler{
                             ResourceHandler<sf::Font, Fonts::ID>& fonts,
                             std::vector<Entity>& entList,
                             entt::registry& reg);
+        int saveLevel(std::string fileName, std::map<std::string, int> designMap);
     private:
         int i;
 
