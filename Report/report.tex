@@ -61,8 +61,8 @@ This proves that the singleton pattern would have been unnecessary.
 \subsection{Entity Component System}
 
 I used a C++ library called EnTT to implement ECS.
-The Components can be found in the  src/components.
-Each component is a simple file containing a struct containing variables for the data that the component will encompass.
+
+The Components can be found in the src/components. Each component is a simple file containing a struct containing variables for the data that the component will encompass.
 
 Entities initialised and stored in a registry (the registry for this project can be found in game.h and game.cpp).
 The entity class is simply a reference that can be used with the registry to access components that have been emplaced into the entity itself.
@@ -153,7 +153,7 @@ However, I will touch on some methods / precautions that could have been taken i
 \subsection{Other}
 
 If a hostile party wished to interrupt the game while it was running there are several surfaces that they can use to attack the foremost of those being the levels.
-The level files are loaded into the game and used then casted to int, causing the game to crash by putting unexpected input into one of those files would be trivial.
+The level files are loaded into the game and used then cast to int, causing the game to crash by putting unexpected input into one of those files would be trivial.
 
 They could also attack the resources, (textures, sounds, etc.)
 
@@ -214,7 +214,7 @@ Both users I tested with described the overall experience as enjoyable, I did no
 One of the users said they enjoyed the platforming most while the other said they enjoyed the combat.
 Both users said they disliked the lack of instruction on controls, mechanics, etc.
 In response to this I added some information on controls to the start of the first level.
-One user said they were surprised by the difference between the levels, the other said they didnt find much surprising, I took no action in response to this.
+One user said they were surprised by the difference between the levels, the other said they didn't find much surprising, I took no action in response to this.
 neither user said anything frustrated them, I took no action.
 Both users had some specific small comments on the interface design which I took on board.
 Both users were satisfied with the level design.

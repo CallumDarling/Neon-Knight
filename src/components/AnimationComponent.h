@@ -4,9 +4,13 @@
 #include <SFML/Graphics.hpp>
 
 struct Animation{
-    std::vector<std::string> textureList;
+    std::vector<int> textureList;
     float idleTime;
     float transitionTime;
+    sf::Clock animClock;
+    sf::Clock attackClock;
+    bool canAttack = true;
+    int currentTexture = 0;
 };
 
 #endif

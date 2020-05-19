@@ -2,7 +2,7 @@ CXX = g++
 CXXFLAGS = -Wall -Werror -Wextra -pedantic -std=gnu++17 -g -fsanitize=address
 LDFLAGS =  -fsanitize=address -lsfml-graphics -lsfml-window -lsfml-system 
 
-SRC = main.cpp Game.cpp Entity.cpp Enemy.cpp LevelHandler.cpp EntityFactory.cpp
+SRC = main.cpp Game.cpp Entity.cpp LevelHandler.cpp EntityFactory.cpp
 OBJ = $(SRC:.cc=.o)
 EXEC = Neon-Knight
 

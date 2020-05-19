@@ -75,7 +75,8 @@ entt::entity LevelHandler::loadLevel(std::string fileName,
             }else if(stage == 1){
                 try{
                     newPlayer = entFac.createPlayer(reg,textures, {std::stoi(strings[0])*20.f, std::stoi(strings[1])*20.f});
-                    
+                    entFac.createPlayerSword(reg,textures, {(std::stoi(strings[0])*20.f)+26, (std::stoi(strings[1])*20.f)+18});
+
                 }catch(const std::exception& ex){
                     std::cout << "levelfail" << std::endl;
                 }

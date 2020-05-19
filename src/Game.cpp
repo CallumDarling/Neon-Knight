@@ -9,15 +9,18 @@ Game::Game() : worldView(sf::FloatRect(32.f, 32.f, 768.f, 432.f)),
 
 void Game::loadLevel(std::string level){
     registry.clear();
+    bossHealth = 50;
     EntityFactory eFac;
     LevelHandler lvlH;
     if(level.compare("menu")==0){
-        playerID = eFac.createPlayer(registry, textures,{400.f,400.f});
+        // std::cout << "compare menu" << std::endl;
+        // playerID = eFac.createPlayer(registry, textures,{400.f,400.f});
+        menuSection = 0;
+        menuList.clear();
         menuList.push_back(makeMenuButton({250.f,350.f}, 15,2,"PLAY",true));
         menuList.push_back(makeMenuButton({250.f,425.f}, 15,2,"LEVEL DESIGN",false));
         menuList.push_back(makeMenuButton({250.f,500.f}, 15,2,"EXIT",false));
-        EntityFactory entfac;
-        logo = entfac.createImage(registry,{400,275}, textures.get(Textures::Logo), true);
+        logo = eFac.createImage(registry,{400,275}, textures.get(Textures::Logo), true);
         registry.get<Draw>(logo).sprite.scale(0.35,0.35);
     }else
     {
@@ -26,9 +29,22 @@ void Game::loadLevel(std::string level){
     
     currentLevel = level;
     entt::entity e = lvlH.loadLevel("levels/"+level, textures, fonts, entList, registry);
+    // std::cout << "level loaded" << std::endl;
     if(registry.valid(e)){
+        // std::cout << "e valid" << std::endl;
         // registry.replace(playerID, e);
         playerID = e;
+    }
+
+    if(!registry.valid(playerSword)){
+        const auto swordView = registry.view<Draw>();
+        for (const entt::entity s : swordView) {
+            if(swordView.get<Draw>(s).label == "sword"){
+                swordView.get<Draw>(s).visible = false;
+                playerSword = s;
+                // std::cout << "sword loaded" << std::endl;
+            }
+        }
     }
 }
 
@@ -38,7 +54,7 @@ bool Game::initTextures(std::vector<Entity> &eList) {
     try {
         textures.load(Textures::Player, "media/textures/att2.png");
         textures.load(Textures::Henchman, "media/textures/hench1.png");
-        textures.load(Textures::Boss, "media/textures/boss1.png");
+        textures.load(Textures::Boss, "media/textures/Boss1.png");
         textures.load(Textures::Block, "media/textures/basicblock.png");
         textures.load(Textures::Landscape, "media/textures/bg.jpg");
         textures.load(Textures::HealthBar, "media/textures/healthbar.png");
@@ -47,12 +63,19 @@ bool Game::initTextures(std::vector<Entity> &eList) {
         textures.load(Textures::Door, "media/textures/door.png");
         textures.load(Textures::Bullet, "media/textures/bullet.png");
         textures.load(Textures::Logo, "media/textures/logo.png");
-        textures.load(Textures::Gunman, "media/textures/gunman.png");
-        textures.load(Textures::Brute, "media/textures/brute.png");
+        textures.load(Textures::Gunman, "media/textures/Gunman1.png");
+        textures.load(Textures::Brute, "media/textures/Brute1.png");
+        textures.load(Textures::PlayerW, "media/textures/nkwalk.png");
+        textures.load(Textures::HenchW, "media/textures/henchw.png");
+        textures.load(Textures::Sword, "media/textures/sword.png");
+        textures.load(Textures::BruteW, "media/textures/BruteW.png");
+        textures.load(Textures::BossW, "media/textures/BossW.png");
+        textures.load(Textures::PlayerA, "media/textures/PlayerA.png");
         fonts.load(Fonts::MenuFont, "media/fonts/menufont.woff");
     } catch (const std::exception &e) {
         return 0;
     }
+    loadLevel("menu");
     loadLevel("menu");
     return 1;
 }
@@ -100,7 +123,7 @@ void Game::addBlockToEditor(sf::Vector2f coords){
     EntityFactory entFac;
     if(numKey==1 && playerPlaced){
         //TODO v and while im here add tutorial text
-        std::cout << "AHHHH HH" << std::endl;
+        // std::cout << "AHHHH HH" << std::endl;
         return;
     }
     if(designMap.find(sCoords)==designMap.end()){
@@ -131,14 +154,14 @@ void Game::handleMouseInput(sf::Mouse::Button button, bool isPressed){
     if(button == sf::Mouse::Left && (isPressed) || mouseLClicked){
         sf::Vector2i m = sf::Mouse::getPosition();
         sf::Vector2f rm = mWindow.mapPixelToCoords(m,worldView);
-        std::cout << rm.x << " : " << rm.y << std::endl;
+        // std::cout << rm.x << " : " << rm.y << std::endl;
         addBlockToEditor({floor(rm.x/20)*20,floor(rm.y/20)*20});
-        std::cout << "left" << std::endl;
+        // std::cout << "left" << std::endl;
     }else if(button == sf::Mouse::Right && (isPressed) || mouseRClicked){
-        std::cout << "right" << std::endl;
+        // std::cout << "right" << std::endl;
         sf::Vector2i m = sf::Mouse::getPosition();
         sf::Vector2f rm = mWindow.mapPixelToCoords(m,worldView);
-        std::cout << rm.x << " : " << rm.y << std::endl;
+        // std::cout << rm.x << " : " << rm.y << std::endl;
         removeBlockFromEditor({floor(rm.x/20)*20,floor(rm.y/20)*20});
     }
 }
@@ -165,8 +188,9 @@ void Game::handlePlayerInput(sf::Keyboard::Key key, bool isPressed) {
         loadLevel("menu");
     }else if(key == sf::Keyboard::P){
         LevelHandler lvlH;
-        lvlH.saveLevel("lvl3", designMap);
-        
+        lvlH.saveLevel("lvl3", designMap);  
+    }else if(key == sf::Keyboard::X){
+        mAttacking = isPressed;
     }else if(key == sf::Keyboard::Enter){
         enterPressed = isPressed;
     }else if(key == sf::Keyboard::Num1){
@@ -191,10 +215,26 @@ void Game::handlePlayerInput(sf::Keyboard::Key key, bool isPressed) {
     // std::cout << numKey << std::endl;
 }
 
+void Game::changeToLevelSelect(){
+    menuSection = 1;
+    EntityFactory entFac;
+    menuList.clear();
+    registry.clear();
+    playerID = entFac.createPlayer(registry,textures, {0,0});
+    playerSword = entFac.createPlayerSword(registry,textures, {0,0});
+
+    menuList.push_back(makeMenuButton({250.f,250.f}, 15,2,"LEVEL 1",true));
+    menuList.push_back(makeMenuButton({250.f,325.f}, 15,2,"LEVEL 2",false));
+    menuList.push_back(makeMenuButton({250.f,400.f}, 15,2,"LEVEL 3",false));
+    menuList.push_back(makeMenuButton({250.f,475.f}, 15,2,"CUSTOM LEVEL",false));
+    menuList.push_back(makeMenuButton({250.f,550.f}, 15,2,"BACK",false));
+}
+
 
 void Game::updateMenu(sf::Time deltaTime) {
     if (menuClock.getElapsedTime().asSeconds()>0.2){
         maxMenuState = menuList.size();
+        // std::cout << "menSize" << maxMenuState << std::endl;
         if(misMovingDown){
             menuState++;
             menuClock.restart();
@@ -203,7 +243,7 @@ void Game::updateMenu(sf::Time deltaTime) {
             menuState--;
             menuClock.restart();
         }
-        std::cout << menuState << std::endl;
+        // std::cout << menuState << std::endl;
         if(menuState>=maxMenuState){
             menuState=0;
         }
@@ -219,29 +259,61 @@ void Game::updateMenu(sf::Time deltaTime) {
             registry.get<Text>(menuList[i]).text.setOutlineColor(sf::Color::Black);
         }
     }
-        if (enterPressed){
-        switch (menuState)
-        {
-        case 0:
-            currentLevel = "lvl1";
-            loadLevel("lvl1");
-            return;
-            break;
-        case 1:
-            // currentLevel = "designer";
-            loadLevel("designer");
-            initDesigner();
-            return;
-            break;
-        case 2:
-            mWindow.close();
-            break;
-        
-        default:
-            break;
+    if (enterPressed){
+        if(menuSection == 0){
+            switch (menuState){
+            case 0:
+                // currentLevel = "lvl1";
+                // loadLevel("lvl1");
+                changeToLevelSelect();
+                return;
+                break;
+            case 1:
+                // currentLevel = "designer";
+                loadLevel("designer");
+                initDesigner();
+                return;
+                break;
+            case 2:
+                mWindow.close();
+                break;
+            
+            default:
+                break;
+            }
+        }else if(menuSection == 1){
+            switch (menuState){
+            case 0:
+                currentLevel = "lvl1";
+                loadLevel("lvl1");
+                return;
+                break;
+            case 1:
+                currentLevel = "lvl2";
+                loadLevel("lvl2");
+                return;
+                break;
+            case 2:
+                currentLevel = "lvl3";
+                loadLevel("lvl3");
+                return;
+                break;
+            case 3:
+                currentLevel = "lvlCustom";
+                loadLevel("lvlCustom");
+                return;
+                break;
+            case 4:
+                currentLevel = "menu";
+                loadLevel("menu");
+                return;
+                break;
+            
+            default:
+                break;
+            }
         }
     }
-
 }
 
 void Game::initWindow() {
@@ -280,6 +352,7 @@ void Game::run() {
     initTextures(entList);
     initECS();
     sf::Vector2f ploc = registry.get<Draw>(playerID).sprite.getPosition();
+    // std::cout << ploc.x/20 << " : " << ploc.y/20 << std::endl;
     // Entity o(textures.get(Textures::Landscape), -600.f, -200.f, false);
     //todo make this ecs entity instead
     Entity o(textures.get(Textures::Landscape), ploc.x,ploc.y, false);
@@ -304,17 +377,71 @@ void Game::run() {
         // y.draw(mWindow);
         // mWindow.draw(t);
         //todo, should always have player just maybe dont always draw them lmao 
-        if(registry.has<Draw>(playerID) && currentLevel!="designer"){
+
+        sf::Vector2f plo = registry.get<Draw>(playerID).sprite.getPosition();
+        if(plo.y>1500){
+            playerDeath();
+        }
+        // std::cout << plo.x/20 << " : " << plo.y/20 << std::endl;
+
+        if(currentLevel!="menu"){
             worldView.setCenter(registry.get<Draw>(playerID).sprite.getPosition());
         }else{
-            // worldView.setCenter({0.f,0.f});
+            worldView.setCenter({400.f,400.f});
         }
         mWindow.setView(worldView);
+        
+        
+        const auto animView = registry.view<Animation, Draw, Movement>();
+        for (const entt::entity a : animView) {
+            if(animView.get<Animation>(a).animClock.getElapsedTime().asMilliseconds()>animView.get<Animation>(a).idleTime*10){
+                animView.get<Animation>(a).animClock.restart();
+                std::vector<int> textureList = animView.get<Animation>(a).textureList;
+                sf::Sprite sp = animView.get<Draw>(a).sprite;
+                sf::Vector2f vel = animView.get<Movement>(a).velocity;
+                if(animView.get<Animation>(a).currentTexture==0  && vel.y>=0 && vel.x!=0){
+                    sp.setTexture(textures.get(static_cast<Textures::ID>(textureList[1])));
+                    animView.get<Animation>(a).currentTexture=1;
+                }else if(animView.get<Animation>(a).currentTexture==1 && vel.y>=0 && vel.x!=0){
+                    sp.setTexture(textures.get(static_cast<Textures::ID>(textureList[0])));
+                    animView.get<Animation>(a).currentTexture=0;
+                }else if(animView.get<Animation>(a).currentTexture==2 && animView.get<Animation>(a).attackClock.getElapsedTime().asSeconds()>0.5){
+                    animView.get<Animation>(a).canAttack = true;
+                    registry.get<Animation>(playerID).attackClock.restart();
+                    sp.setTexture(textures.get(static_cast<Textures::ID>(textureList[0])));
+                    animView.get<Animation>(a).currentTexture=0;
+                    if(a == playerID){
+                        registry.get<Draw>(playerSword).visible=false;
+                    }
+                }
+            animView.get<Draw>(a).sprite = sp;
+            }
+        }
+
+        
+
         const auto view = registry.view<Draw>();
+        sf::Vector2f pPos = view.get<Draw>(playerID).sprite.getPosition();
+        if(view.get<Draw>(playerSword).facing){
+            view.get<Draw>(playerSword).sprite.setPosition(pPos.x+26,pPos.y+8);
+        }else
+        {
+            view.get<Draw>(playerSword).sprite.setPosition(pPos.x-23,pPos.y+8);
+        }
+        
+        // sSprite.setPosition();
+        // registry.get<Draw>(playerSword).sprite = sSprite;
+        
+       
+        
+        
         for (const entt::entity e : view) {
             if(!(e==playerID && currentLevel.substr(0,3)!="lvl")){
+                if(view.get<Draw>(e).visible){
+            
                 sf::Sprite spri = view.get<Draw>(e).sprite;
                 mWindow.draw(spri);
+                }
             }else{
                 // mWindow.draw(registry.get<Draw>(logo).sprite);
             }
@@ -445,60 +572,126 @@ void Game::updateLevel(sf::Time deltaTime) {
 
         if (misMovingLeft) {
             movement.x -= 370.f;
-            if (registry.get<Draw>(playerID).facing) {
-                sf::Sprite sp = registry.get<Draw>(playerID).sprite;
-                sf::IntRect ir = sp.getTextureRect();
-                sp.setTextureRect(sf::IntRect(ir.width, 0, -ir.width, ir.height));
-                registry.get<Draw>(playerID).sprite = sp;
-                registry.get<Draw>(playerID).facing = false;
+            entt::entity plandsw [2] = {playerID,playerSword};
+            for(auto e : plandsw){
+                if (registry.get<Draw>(e).facing) {
+                    sf::Sprite sp = registry.get<Draw>(e).sprite;
+                    sf::IntRect ir = sp.getTextureRect();
+                    sp.setTextureRect(sf::IntRect(ir.width, 0, -ir.width, ir.height));
+                    registry.get<Draw>(e).sprite = sp;
+                    registry.get<Draw>(e).facing = false;
+                }
             }
         }
         if (misMovingRight) {
             movement.x += 370.f;
-            if (!registry.get<Draw>(playerID).facing) {
-                sf::Sprite sp = registry.get<Draw>(playerID).sprite;
-                sf::IntRect ir = sp.getTextureRect();
-                sp.setTextureRect(sf::IntRect(0, 0, -ir.width, ir.height));
-                registry.get<Draw>(playerID).sprite = sp;
-                registry.get<Draw>(playerID).facing = true;
-            }
-        }
-        const auto aiView = registry.view<Movement, AI, Draw>();
-        for (const entt::entity e : aiView) {
-            sf::Vector2f currentPos = aiView.get<Draw>(e).sprite.getPosition();
-            std::cout << "pos " << currentPos.x << std::endl;
-            std::vector<sf::Vector2f> path  = aiView.get<AI>(e).path;
-            // std::cout << "Pth: " << path.size() <<  std::endl;
-            if(path.size() > 0){
-                std::cout << "n2 " << path[1].x << std::endl;
-                if(currentPos.x > path[1].x){
-                    aiView.get<AI>(e).facing = false;
-                    aiView.get<Movement>(e).velocity.x = -enemyMoveSpeed;
-                }else if(currentPos.x < path[0].x){
-                    aiView.get<AI>(e).facing = true;
-                    aiView.get<Movement>(e).velocity.x = enemyMoveSpeed;
-                }else if(aiView.get<Movement>(e).velocity.x == 0){
-                    aiView.get<AI>(e).facing = true;
-                    aiView.get<Movement>(e).velocity.x = enemyMoveSpeed;
+             entt::entity plandsw [2] = {playerID,playerSword};
+                for(auto e : plandsw){
+                if (!registry.get<Draw>(e).facing) {
+                    sf::Sprite sp = registry.get<Draw>(e).sprite;
+                    sf::IntRect ir = sp.getTextureRect();
+                    sp.setTextureRect(sf::IntRect(0, 0, -ir.width, ir.height));
+                    registry.get<Draw>(e).sprite = sp;
+                    registry.get<Draw>(e).facing = true;
                 }
             }
         }
 
+        if (mAttacking && registry.get<Animation>(playerID).canAttack && registry.get<Animation>(playerID).attackClock.getElapsedTime().asSeconds()>0.55){
+            registry.get<Animation>(playerID).canAttack = false;
+            registry.get<Animation>(playerID).attackClock.restart();
+            std::vector<int> textureList = registry.get<Animation>(playerID).textureList;
+            sf::Sprite sp = registry.get<Draw>(playerID).sprite;
+            sp.setTexture(textures.get(static_cast<Textures::ID>(textureList[2])));
+            registry.get<Draw>(playerID).sprite = sp;
+            registry.get<Animation>(playerID).currentTexture = 2;
+            registry.get<Draw>(playerSword).visible=true;
+        }
 
+        const auto aiView = registry.view<Movement, AI, Draw>();
+        for (const entt::entity e : aiView) {
 
-        // const auto gravView = registry.view<Movement, Physics>();
-        // for (const entt::entity e : gravView) {
-        //     if (gravView.get<Physics>(e).hasGrav) {
-        //         if (gravView.get<Movement>(e).velocity.y <= gravity);
-        //         gravView.get<Movement>(e).velocity.y = gravity;
-        //     }
-        // }
+            sf::Vector2f currentPos = aiView.get<Draw>(e).sprite.getPosition();
+            // std::cout << "pos " << currentPos.x << std::endl;
+            std::vector<sf::Vector2f> path  = aiView.get<AI>(e).path;
+            // std::cout << "Pth: " << path.size() <<  std::endl;
+            if(path.size() > 0){
+                sf::Sprite sp = aiView.get<Draw>(e).sprite;
+                sf::IntRect ir = sp.getTextureRect();
+                if(currentPos.x > path[1].x){
+                    aiView.get<Movement>(e).velocity.x = -enemyMoveSpeed;
+                    if(aiView.get<AI>(e).facing){
+                        aiView.get<AI>(e).facing = false;
+                        
+                        sp.setTextureRect(sf::IntRect(ir.width, 0, -ir.width, ir.height));
+                    }
+                }else if(currentPos.x < path[0].x){
+                    
+                    aiView.get<Movement>(e).velocity.x = enemyMoveSpeed;
+                    if(!aiView.get<AI>(e).facing){
+                        aiView.get<AI>(e).facing = true;
+                        sp.setTextureRect(sf::IntRect(0, 0, -ir.width, ir.height));
+                    }
+                }else if(aiView.get<Movement>(e).velocity.x == 0){
+                    if(!aiView.get<AI>(e).facing){
+                        aiView.get<AI>(e).facing = true;
+                        sp.setTextureRect(sf::IntRect(0, 0, -ir.width, ir.height));
+                    }
+                    aiView.get<Movement>(e).velocity.x = enemyMoveSpeed;
+                    
+                }
+                aiView.get<Draw>(e).sprite = sp;
+            }
+        }
 
+        const auto shootView = registry.view<AttackRanged, Animation, Draw>();
+        EntityFactory eF;
+        for (const entt::entity sh : shootView) {
+            if(shootView.get<Animation>(sh).attackClock.getElapsedTime().asSeconds()>3 && sh!=playerID){
+                shootView.get<Animation>(sh).attackClock.restart();
+                sf::Vector2f pos = shootView.get<Draw>(sh).sprite.getPosition();
+                pos.y += 17;
+                eF.createBullet(registry,textures,pos, -150);
+
+            }
+        }
+
+        const auto bulletView = registry.view<Draw>();
+        for (const entt::entity bu : bulletView) {
+            if (bulletView.get<Draw>(bu).label.compare("bullet")==0){
+                // std::cout << "BU " << bulletView.get<Draw>(bu).aliveTime.getElapsedTime().asSeconds() << std::endl;
+                if(bulletView.get<Draw>(bu).aliveTime.getElapsedTime().asSeconds()>3){
+                    registry.remove_all(bu);
+                }
+                
+            }
+        }
+
+        
+
+        const auto killView = registry.view<Draw, Physics>();
+        if(killView.get<Draw>(playerSword).visible){
+            for (const entt::entity j : killView) {
+                sf::FloatRect jBounds = killView.get<Draw>(j).sprite.getGlobalBounds();
+                sf::FloatRect swordBounds = killView.get<Draw>(playerSword).sprite.getGlobalBounds();
+                if(jBounds.intersects(swordBounds) && (killView.get<Draw>(j).label=="enemy" || killView.get<Draw>(j).label=="bullet")){
+                    // view2.get<Draw>(j).visible = false;
+                    registry.remove_all(j);
+                }else if(jBounds.intersects(swordBounds) && killView.get<Draw>(j).label=="boss"){
+                    bossHealth--;
+                    std::cout << bossHealth << std::endl;
+                    if(bossHealth<=0){
+                        playerWin();
+                    }
+                }
+            }
+        }
+            
         registry.get<Movement>(playerID).velocity = movement;
         const auto view = registry.view<Draw, Movement>();
         const auto view2 = registry.view<Draw, Physics>();
-        std::cout << "V1: " << view.size() << std::endl;
-        std::cout << "V2: " << view2.size() << std::endl;
+        // std::cout << "V1: " << view.size() << std::endl;
+        // std::cout << "V2: " << view2.size() << std::endl;
         for (const entt::entity e : view) {
             float xIdealCoordinate = 0;
             float yIdealCoordinate = 0;
@@ -506,6 +699,7 @@ void Game::updateLevel(sf::Time deltaTime) {
             bool movey = true;
             sf::Sprite spriX = view.get<Draw>(e).sprite;
             sf::Sprite spriY = view.get<Draw>(e).sprite;
+            
             sf::Vector2f vel = view.get<Movement>(e).velocity * deltaTime.asSeconds();
             sf::Vector2f velx = {vel.x, 0.f};
             sf::Vector2f vely = {0.f, vel.y};
@@ -519,29 +713,47 @@ void Game::updateLevel(sf::Time deltaTime) {
             //     collisionClock.restart();
             if(e == playerID){
                 for (const entt::entity j : view2) {
+                    std::string jLabel = view2.get<Draw>(j).label;
                     sf::FloatRect jBounds = view2.get<Draw>(j).sprite.getGlobalBounds();
                     // //TODO make it so player dies when touching enemy
-                    if (j != e) {
-                        if (jBounds.intersects(eXBounds)) {
-                            if (!(eXBounds.left <= jBounds.left + jBounds.width && !(jBounds.left <= eXBounds.left))) {
-                                // std::cout << "IntRight" << std::endl;
-                                xIdealCoordinate = jBounds.left + jBounds.width;
-                            } else {
-                                // std::cout << "IntLeft" << std::endl;
-                                xIdealCoordinate = jBounds.left - eXBounds.width;
+
+
+                    if (j != e &&  view2.get<Physics>(j).hasCollision) {
+                        if(jLabel == "bullet" || jLabel== "enemy" || jLabel == "boss"){
+                            if(jBounds.intersects(view.get<Draw>(e).sprite.getGlobalBounds())){
+                                playerDeath();
+                                break;
                             }
-                            velx = {0.f, 0.f};
-                        }
-                        if (jBounds.intersects(eYBounds)) {
-                            if (!(eYBounds.top <= jBounds.top + jBounds.height && !(jBounds.top <= eYBounds.top))) {
-                                yIdealCoordinate = jBounds.top + jBounds.height;
-                            } else {
-                                yIdealCoordinate = jBounds.top - eYBounds.height;
-                                if (e == playerID) {
-                                    playerOnFloor = true;
+                        }else {
+                            if (jBounds.intersects(eXBounds)) {
+                                // if(jLabel == "bullet" || jLabel== "enemy" ){
+                                //     playerDeath();
+                                //     break;
+                                // }else{
+                                if (!(eXBounds.left <= jBounds.left + jBounds.width && !(jBounds.left <= eXBounds.left))) {
+                                    // std::cout << "IntRight" << std::endl;
+                                    xIdealCoordinate = jBounds.left + jBounds.width;
+                                } else {
+                                    // std::cout << "IntLeft" << std::endl;
+                                    xIdealCoordinate = jBounds.left - eXBounds.width;
                                 }
+                                velx = {0.f, 0.f};
                             }
-                            vely = {0.f, 0.f};
+                            if (jBounds.intersects(eYBounds)) {
+                                // if(jLabel == "bullet" || jLabel== "enemy" ){
+                                //     playerDeath();
+                                //     break;
+                                // }else{
+                                if (!(eYBounds.top <= jBounds.top + jBounds.height && !(jBounds.top <= eYBounds.top))) {
+                                    yIdealCoordinate = jBounds.top + jBounds.height;
+                                } else {
+                                    yIdealCoordinate = jBounds.top - eYBounds.height;
+                                    if (e == playerID) {
+                                        playerOnFloor = true;
+                                    }
+                                }
+                                vely = {0.f, 0.f};
+                            }
                         }
                     }
                 }
@@ -555,8 +767,8 @@ void Game::updateLevel(sf::Time deltaTime) {
                 sprit.setPosition(xIdealCoordinate, sprit.getPosition().y);
             }
             view.get<Draw>(e).sprite = sprit;
-        }
         
+    }     
 }
 
 void Game::update(sf::Time deltaTime) {
@@ -568,3 +780,23 @@ void Game::update(sf::Time deltaTime) {
         updateLevel(deltaTime);
     }
 }
+
+void Game::playerDeath(){
+    EntityFactory ef;
+    entt::entity e = ef.createText(registry,fonts,registry.get<Draw>(playerID).sprite.getPosition(), "YOU DIED", 60);
+    mWindow.draw(registry.get<Text>(e).text);
+    registry.get<Physics>(playerID).hasCollision = false;
+    // if(!deathLoading){
+        // deathLoading = true;
+        loadLevel(currentLevel);
+}
+
+void Game::playerWin(){
+    EntityFactory ef;
+    entt::entity e = ef.createText(registry,fonts,registry.get<Draw>(playerID).sprite.getPosition(), "LEVEL COMPLETE", 60);
+    mWindow.draw(registry.get<Text>(e).text);
+    registry.get<Physics>(playerID).hasCollision = false;
+
+        loadLevel("menu");
+}
+

@@ -44,6 +44,10 @@ class Game{
         void updateDesignerHUD();
         entt::entity makeMenuButton(sf::Vector2f pos, int length, int height, std::string text, bool primary);
         // bool saveLevelToFile(std::string filename);
+        void playerDeath();
+        void playerWin();
+        void changeToLevelSelect();
+        int menuSection = 0;
         
 
 
@@ -63,6 +67,7 @@ class Game{
         ResourceHandler<sf::Font, Fonts::ID> fonts;
         const sf::Time TimePerFrame = sf::seconds(1.f/60.f);
         entt::entity playerID;
+        entt::entity playerSword;
         std::string currentLevel =  "menu";
         std::vector<entt::entity> menuList;
         int maxMenuState;
@@ -79,6 +84,9 @@ class Game{
         std::map<std::string, int> designMap;
         std::map<std::string, entt::entity> designEntityMap;
         bool playerPlaced;
+        bool mAttacking = false;
+        bool deathLoading = false;
+        int bossHealth;
 
 };
 
