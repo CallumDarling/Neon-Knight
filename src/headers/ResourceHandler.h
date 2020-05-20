@@ -19,6 +19,11 @@ namespace Fonts{
 }
 
 
+// Class to store resources, taken from the book
+// SFML Game Development
+// Jan Haller, Henrik Vogelius Hansson, Et al
+// https://www.packtpub.com/game-development/sfml-game-development
+
 template <typename Resource, typename Identifier>
 class ResourceHandler
 {

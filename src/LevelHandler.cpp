@@ -4,14 +4,19 @@ LevelHandler::LevelHandler(){
     //
 }
 
+
+//this function take a map with the string coordinates of entities and their ID and converts it into a format which can be saved into a file and loaded
 int LevelHandler::saveLevel(std::string filename, std::map<std::string, int> designMap){
     std::ofstream file("levels/"+filename);
+    //createa a blank string for each type of entity that is going to be stored
+    // iterate through the map appending entities to the appropriate string 
     std::vector<std::string> types = {"","","","","","","","","",""};
     for (auto const& x : designMap){
         std::cout << "append" << std::endl;
         std::stringstream ss(x.first);
         std::vector<std::string> v; 
   
+        //as some entities need to be stored with paths to walk we need to convert the strings back into float coordinates
         while (ss.good()) { 
             std::string substr; 
             getline(ss, substr, ','); 
@@ -21,6 +26,7 @@ int LevelHandler::saveLevel(std::string filename, std::map<std::string, int> des
         std::string adjustedF = std::to_string(coords.x+5)+","+std::to_string(coords.y);
         std::string adjustedB = std::to_string(coords.x-5)+","+std::to_string(coords.y);;
 
+        //appending the coordinates to the appropriate string
         switch (x.second)
         {
         case 2:
@@ -41,12 +47,16 @@ int LevelHandler::saveLevel(std::string filename, std::map<std::string, int> des
         }
         
     }
+    //if there is no player entity in the map create one
     if(file){
         // file << "###";
         if(types[1]==""){
+
             types[1]="20,15\n";
 
         }
+        // loop through the array of strings outputing each set off coordinates into a line in the file
+        // different entities are seperated by a line beginning with ###
          for(auto const& y : types){
             file << y << "###" << "\n";
             std::cout << y << "###" << "\n";
@@ -59,7 +69,7 @@ int LevelHandler::saveLevel(std::string filename, std::map<std::string, int> des
     return 1;
 }
 
-
+// takes in a level file and initialises all the entities stored there
 entt::entity LevelHandler::loadLevel(std::string fileName,
                             ResourceHandler<sf::Texture, Textures::ID>& textures,
                             ResourceHandler<sf::Font, Fonts::ID>& fonts,
@@ -73,6 +83,7 @@ entt::entity LevelHandler::loadLevel(std::string fileName,
     }
     entt::entity newPlayer;
     if(file){
+        //access the file and split it by line
         int stage = 0;
         for( std::string line; std::getline( file, line ); ){
            
@@ -85,11 +96,13 @@ entt::entity LevelHandler::loadLevel(std::string fileName,
                 strings.push_back(substr);
                 std::cout <<  substr << std::endl;
             }
-            
+            //every time you hit the ### delimeter, iterate a stage so the type of entity being created changes
+            //which entity is being created is self evident from the function names.
             if( line.substr(0,3) == "###"){
                 stage++;
             }else if(stage == 1){
                 try{
+                    //create the player and their sword
                     newPlayer = entFac.createPlayer(reg,textures, {std::stoi(strings[0])*20.f, std::stoi(strings[1])*20.f});
                     entFac.createPlayerSword(reg,textures, {(std::stoi(strings[0])*20.f)+26, (std::stoi(strings[1])*20.f)+18});
 
