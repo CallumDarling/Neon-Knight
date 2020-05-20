@@ -8,8 +8,10 @@ Game::Game() : worldView(sf::FloatRect(32.f, 32.f, 768.f, 432.f)),
 }
 
 void Game::loadLevel(std::string level){
+    kill = false;
+    win = false;
     registry.clear();
-    bossHealth = 50;
+    bossHealth = 15;
     EntityFactory eFac;
     LevelHandler lvlH;
     if(level.compare("menu")==0){
@@ -22,10 +24,16 @@ void Game::loadLevel(std::string level){
         menuList.push_back(makeMenuButton({250.f,500.f}, 15,2,"EXIT",false));
         logo = eFac.createImage(registry,{400,275}, textures.get(Textures::Logo), true);
         registry.get<Draw>(logo).sprite.scale(0.35,0.35);
-    }else
-    {
-        // playerID = eFac.createPlayer(registry, textures,{0.f,0.f});
+    }else if(level.compare("lvl1")==0){
+        eFac.createRectangle(registry, {250,750},{400,100},sf::Color::Black,true);
+        eFac.createText(registry,fonts, {260.f,760.f}, "Use the arrow keys to move left and right.", 15, false);
+        eFac.createText(registry,fonts, {260.f,780.f}, "\'Space\' to jump.", 15, false);
+        eFac.createText(registry,fonts, {260.f,800.f}, "\'X\' to attack.", 15, false);
+        eFac.createText(registry,fonts, {260.f,820.f}, "Don't be afraid to swing at projectiles!", 15, false);
+    }else if(level.compare("lvlDeath")==0){
+
     }
+
     
     currentLevel = level;
     entt::entity e = lvlH.loadLevel("levels/"+level, textures, fonts, entList, registry);
@@ -56,7 +64,7 @@ bool Game::initTextures(std::vector<Entity> &eList) {
         textures.load(Textures::Henchman, "media/textures/hench1.png");
         textures.load(Textures::Boss, "media/textures/Boss1.png");
         textures.load(Textures::Block, "media/textures/basicblock.png");
-        textures.load(Textures::Landscape, "media/textures/bg.jpg");
+        textures.load(Textures::Landscape, "media/textures/vaporwave1.png");
         textures.load(Textures::HealthBar, "media/textures/healthbar.png");
         textures.load(Textures::Ladder, "media/textures/ladder.png");
         textures.load(Textures::Platform, "media/textures/platform.png");
@@ -151,18 +159,20 @@ void Game::removeBlockFromEditor(sf::Vector2f coords){
 
 void Game::handleMouseInput(sf::Mouse::Button button, bool isPressed){
     EntityFactory entFac;
-    if(button == sf::Mouse::Left && (isPressed) || mouseLClicked){
-        sf::Vector2i m = sf::Mouse::getPosition();
-        sf::Vector2f rm = mWindow.mapPixelToCoords(m,worldView);
-        // std::cout << rm.x << " : " << rm.y << std::endl;
-        addBlockToEditor({floor(rm.x/20)*20,floor(rm.y/20)*20});
-        // std::cout << "left" << std::endl;
-    }else if(button == sf::Mouse::Right && (isPressed) || mouseRClicked){
-        // std::cout << "right" << std::endl;
-        sf::Vector2i m = sf::Mouse::getPosition();
-        sf::Vector2f rm = mWindow.mapPixelToCoords(m,worldView);
-        // std::cout << rm.x << " : " << rm.y << std::endl;
-        removeBlockFromEditor({floor(rm.x/20)*20,floor(rm.y/20)*20});
+    if(currentLevel=="designer"){
+        if(button == sf::Mouse::Left && (isPressed) || mouseLClicked){
+            sf::Vector2i m = sf::Mouse::getPosition();
+            sf::Vector2f rm = mWindow.mapPixelToCoords(m,worldView);
+            // std::cout << rm.x << " : " << rm.y << std::endl;
+            addBlockToEditor({floor(rm.x/20)*20,floor(rm.y/20)*20});
+            // std::cout << "left" << std::endl;
+        }else if(button == sf::Mouse::Right && (isPressed) || mouseRClicked){
+            // std::cout << "right" << std::endl;
+            sf::Vector2i m = sf::Mouse::getPosition();
+            sf::Vector2f rm = mWindow.mapPixelToCoords(m,worldView);
+            // std::cout << rm.x << " : " << rm.y << std::endl;
+            removeBlockFromEditor({floor(rm.x/20)*20,floor(rm.y/20)*20});
+        }
     }
 }
 
@@ -188,7 +198,7 @@ void Game::handlePlayerInput(sf::Keyboard::Key key, bool isPressed) {
         loadLevel("menu");
     }else if(key == sf::Keyboard::P){
         LevelHandler lvlH;
-        lvlH.saveLevel("lvl3", designMap);  
+        lvlH.saveLevel("lvlCustom", designMap);  
     }else if(key == sf::Keyboard::X){
         mAttacking = isPressed;
     }else if(key == sf::Keyboard::Enter){
@@ -228,6 +238,7 @@ void Game::changeToLevelSelect(){
     menuList.push_back(makeMenuButton({250.f,400.f}, 15,2,"LEVEL 3",false));
     menuList.push_back(makeMenuButton({250.f,475.f}, 15,2,"CUSTOM LEVEL",false));
     menuList.push_back(makeMenuButton({250.f,550.f}, 15,2,"BACK",false));
+    menuClock.restart();
 }
 
 
@@ -259,58 +270,61 @@ void Game::updateMenu(sf::Time deltaTime) {
             registry.get<Text>(menuList[i]).text.setOutlineColor(sf::Color::Black);
         }
     }
-    if (enterPressed){
-        if(menuSection == 0){
-            switch (menuState){
-            case 0:
-                // currentLevel = "lvl1";
-                // loadLevel("lvl1");
-                changeToLevelSelect();
-                return;
-                break;
-            case 1:
-                // currentLevel = "designer";
-                loadLevel("designer");
-                initDesigner();
-                return;
-                break;
-            case 2:
-                mWindow.close();
-                break;
-            
-            default:
-                break;
-            }
-        }else if(menuSection == 1){
-            switch (menuState){
-            case 0:
-                currentLevel = "lvl1";
-                loadLevel("lvl1");
-                return;
-                break;
-            case 1:
-                currentLevel = "lvl2";
-                loadLevel("lvl2");
-                return;
-                break;
-            case 2:
-                currentLevel = "lvl3";
-                loadLevel("lvl3");
-                return;
-                break;
-            case 3:
-                currentLevel = "lvlCustom";
-                loadLevel("lvlCustom");
-                return;
-                break;
-            case 4:
-                currentLevel = "menu";
-                loadLevel("menu");
-                return;
-                break;
-            
-            default:
-                break;
+    if (menuClock.getElapsedTime().asSeconds()>0.2){
+        if (enterPressed){
+            menuClock.restart();
+            if(menuSection == 0){
+                switch (menuState){
+                case 0:
+                    // currentLevel = "lvl1";
+                    // loadLevel("lvl1");
+                    changeToLevelSelect();
+                    return;
+                    break;
+                case 1:
+                    currentLevel = "designer";
+                    loadLevel("designer");
+                    initDesigner();
+                    return;
+                    break;
+                case 2:
+                    mWindow.close();
+                    break;
+                
+                default:
+                    break;
+                }
+            }else if(menuSection == 1){
+                switch (menuState){
+                case 0:
+                    currentLevel = "lvl1";
+                    loadLevel("lvl1");
+                    return;
+                    break;
+                case 1:
+                    currentLevel = "lvl2";
+                    loadLevel("lvl2");
+                    return;
+                    break;
+                case 2:
+                    currentLevel = "lvl3";
+                    loadLevel("lvl3");
+                    return;
+                    break;
+                case 3:
+                    currentLevel = "lvlCustom";
+                    loadLevel("lvlCustom");
+                    return;
+                    break;
+                case 4:
+                    currentLevel = "menu";
+                    loadLevel("menu");
+                    return;
+                    break;
+                
+                default:
+                    break;
+                }
             }
         }
     }
@@ -347,10 +361,23 @@ void Game::initECS() {
 
 }
 
+bool Game::initMusic(){
+    if (music.openFromFile("media/Music/bigmusic.ogg")){
+        music.setLoop(true);
+        music.play();
+        return true;
+    }
+    return false;
+}
+
 void Game::run() {
     initWindow();
     initTextures(entList);
     initECS();
+    initMusic();
+
+//     return -1; // error
+// music.play();
     sf::Vector2f ploc = registry.get<Draw>(playerID).sprite.getPosition();
     // std::cout << ploc.x/20 << " : " << ploc.y/20 << std::endl;
     // Entity o(textures.get(Textures::Landscape), -600.f, -200.f, false);
@@ -384,9 +411,9 @@ void Game::run() {
         }
         // std::cout << plo.x/20 << " : " << plo.y/20 << std::endl;
 
-        if(currentLevel!="menu"){
+        if(currentLevel!="menu" && currentLevel!="designer"){
             worldView.setCenter(registry.get<Draw>(playerID).sprite.getPosition());
-        }else{
+        }else if(currentLevel!="designer"){
             worldView.setCenter({400.f,400.f});
         }
         mWindow.setView(worldView);
@@ -446,6 +473,15 @@ void Game::run() {
                 // mWindow.draw(registry.get<Draw>(logo).sprite);
             }
         }
+
+        const auto view3 = registry.view<DrawShape>();
+        if(!view3.empty()){
+            for (const entt::entity e : view3) {
+                sf::RectangleShape re = view3.get<DrawShape>(e).rect;
+                mWindow.draw(re);
+            }
+        }
+
         const auto view2 = registry.view<Text>();
         if(!view2.empty()){
             for (const entt::entity e : view2) {
@@ -454,13 +490,7 @@ void Game::run() {
             }
         }
 
-        const auto view3 = registry.view<DrawShape>();
-        if(!view2.empty()){
-            for (const entt::entity e : view3) {
-                sf::RectangleShape re = view3.get<DrawShape>(e).rect;
-                mWindow.draw(re);
-            }
-        }
+
 
         // for(auto x : imageList){
         //     mWindow.draw(registry.get<Draw>(x).sprite);
@@ -479,7 +509,7 @@ entt::entity Game::makeMenuButton(sf::Vector2f pos, int length, int height, std:
             entFac.createPlatform(registry, textures, {pos.x+(x*20),pos.y+(i*20)});
         }
     }
-    entt::entity e = entFac.createText(registry,fonts, {pos.x+(length*20)/2,pos.y+(height*20)/2}, text, 40);
+    entt::entity e = entFac.createText(registry,fonts, {pos.x+(length*20)/2,pos.y+(height*20)/2}, text, 40, true);
     if(primary){
         registry.get<Text>(e).text.setOutlineColor(sf::Color::Red);
     }
@@ -489,21 +519,28 @@ entt::entity Game::makeMenuButton(sf::Vector2f pos, int length, int height, std:
 
 void Game::initDesigner(){
     sf::Vector2f pos = worldView.getCenter();;
-    //
+    playerPlaced = false;
+    designMap.clear();
+    designEntityMap.clear();
     // pos.y += (worldView.getSize().y/;
     EntityFactory entFac;
 
-   
+    textList.clear();
     imageList.clear();
     rectList.clear();
     for(int i=1;i<=9;i++){
         entt::entity e = entFac.createImage(registry, {pos.x+75*i,pos.y},textures.get(static_cast<Textures::ID>(i)), false);
         imageList.push_back(e);
-        entt::entity t = entFac.createText(registry, fonts, {(pos.x+75*i)-6,pos.y+35},std::to_string(i),25);
+        entt::entity t = entFac.createText(registry, fonts, {(pos.x+75*i)-6,pos.y+35},std::to_string(i),25, true);
         textList.push_back(t);
         entt::entity r = entFac.createRectangle(registry, {(pos.x+75*i)-15,pos.y-10}, {65.f,70.f}, sf::Color::Red, false);
         rectList.push_back(r);
     }
+    rectList.push_back(entFac.createRectangle(registry, {(pos.x+750),pos.y-10}, {480.f,60.f}, sf::Color::Black, true));
+    textList.push_back(entFac.createText(registry, fonts, {(pos.x+750)-6,pos.y+35},"Press P to save your creation to a file",15, false));
+    textList.push_back(entFac.createText(registry, fonts, {(pos.x+750)-6,pos.y+55},"Left click to place entities, right click to remove them",15, false));
+    textList.push_back(entFac.createText(registry, fonts, {(pos.x+750)-6,pos.y+75},"Switch between entities using the number keys",15, false));
+    textList.push_back(entFac.createText(registry, fonts, {(pos.x+750)-6,pos.y+95},"Use the arrow keys to navigate the level",15, false));
 }
 
 void Game::updateDesignerHUD(){
@@ -516,6 +553,11 @@ void Game::updateDesignerHUD(){
         registry.get<Text>(textList[i]).text.setPosition({(pos.x+75*i)-6,pos.y+35});
         registry.get<DrawShape>(rectList[i]).rect.setPosition({(pos.x+75*i)-15,pos.y-10});
     }
+    registry.get<DrawShape>(rectList[9]).rect.setPosition({(pos.x+285),pos.y+370});
+    registry.get<Text>(textList[9]).text.setPosition({(pos.x+300),pos.y+375-4});
+    registry.get<Text>(textList[10]).text.setPosition({(pos.x+300),pos.y+385-3});
+    registry.get<Text>(textList[11]).text.setPosition({(pos.x+300),pos.y+395-2});
+    registry.get<Text>(textList[12]).text.setPosition({(pos.x+300),pos.y+405-1});
 }
 
 void Game::updateDesigner(sf::Time deltaTime){//memory leak isn't coming from this function at least
@@ -652,6 +694,10 @@ void Game::updateLevel(sf::Time deltaTime) {
                 sf::Vector2f pos = shootView.get<Draw>(sh).sprite.getPosition();
                 pos.y += 17;
                 eF.createBullet(registry,textures,pos, -150);
+                if(shootView.get<Draw>(sh).label=="boss"){
+                    eF.createBullet(registry,textures,pos, 150);
+                }
+
 
             }
         }
@@ -682,6 +728,7 @@ void Game::updateLevel(sf::Time deltaTime) {
                     std::cout << bossHealth << std::endl;
                     if(bossHealth<=0){
                         playerWin();
+                        registry.remove_all(j);
                     }
                 }
             }
@@ -771,11 +818,29 @@ void Game::updateLevel(sf::Time deltaTime) {
     }     
 }
 
+void Game::updateDeath(sf::Time deltaTime){
+    std::cout << "udeath" << std::endl;
+}
+
 void Game::update(sf::Time deltaTime) {
+    if(kill){
+        // currentLevel = "death";
+        sleep(sf::seconds(1));
+        nextStep = currentLevel;
+        loadLevel(currentLevel);
+        kill = false;
+    }
+    if(win){
+        sleep(sf::seconds(1));
+        loadLevel("menu");
+        win = false; 
+    }
     if(currentLevel.compare("menu")==0){    
        updateMenu(deltaTime);
     }else if(currentLevel.compare("designer")==0){
         updateDesigner(deltaTime);
+    }else if(currentLevel.compare("death")==0){
+        updateDeath(deltaTime);
     }else{
         updateLevel(deltaTime);
     }
@@ -783,20 +848,26 @@ void Game::update(sf::Time deltaTime) {
 
 void Game::playerDeath(){
     EntityFactory ef;
-    entt::entity e = ef.createText(registry,fonts,registry.get<Draw>(playerID).sprite.getPosition(), "YOU DIED", 60);
+    entt::entity e = ef.createText(registry,fonts,registry.get<Draw>(playerID).sprite.getPosition(), "YOU DIED", 60,true);
     mWindow.draw(registry.get<Text>(e).text);
     registry.get<Physics>(playerID).hasCollision = false;
+    kill = true;
     // if(!deathLoading){
         // deathLoading = true;
-        loadLevel(currentLevel);
+        // currentLevel = "death";
+        // nextStep = currentLevel;
+        // loadLevel("lvlDeath");
 }
 
 void Game::playerWin(){
     EntityFactory ef;
-    entt::entity e = ef.createText(registry,fonts,registry.get<Draw>(playerID).sprite.getPosition(), "LEVEL COMPLETE", 60);
+    entt::entity e = ef.createText(registry,fonts,registry.get<Draw>(playerID).sprite.getPosition(), "LEVEL COMPLETE", 60, true);
     mWindow.draw(registry.get<Text>(e).text);
     registry.get<Physics>(playerID).hasCollision = false;
+    win = true;
+        // currentLevel = "win";
+        // nextStep = "menu";
+        // loadLevel("win");
 
-        loadLevel("menu");
 }
 

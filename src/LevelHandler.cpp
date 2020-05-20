@@ -9,19 +9,31 @@ int LevelHandler::saveLevel(std::string filename, std::map<std::string, int> des
     std::vector<std::string> types = {"","","","","","","","","",""};
     for (auto const& x : designMap){
         std::cout << "append" << std::endl;
+        std::stringstream ss(x.first);
+        std::vector<std::string> v; 
+  
+        while (ss.good()) { 
+            std::string substr; 
+            getline(ss, substr, ','); 
+            v.push_back(substr); 
+        } 
+        sf::Vector2f coords = sf::Vector2f(std::stof(v[0]),std::stof(v[1]));
+        std::string adjustedF = std::to_string(coords.x+5)+","+std::to_string(coords.y);
+        std::string adjustedB = std::to_string(coords.x-5)+","+std::to_string(coords.y);;
+
         switch (x.second)
         {
         case 2:
-            types[x.second].append(x.first+","+x.first+","+x.first+"\n");
+            types[x.second].append(x.first+","+adjustedB+","+adjustedF+"\n");
             break;
         case 3:
-            types[x.second].append(x.first+","+x.first+","+x.first+"\n");
+            types[x.second].append(x.first+","+adjustedB+","+adjustedF+"\n");
             break;
         case 4:
             types[x.second].append(x.first+",0"+"\n");
             break;
         case 5:
-            types[x.second].append(x.first+","+x.first+","+x.first+"\n");
+            types[x.second].append(x.first+","+adjustedB+","+adjustedF+"\n");
             break;
         default:
             types[x.second].append(x.first+"\n");
@@ -31,6 +43,10 @@ int LevelHandler::saveLevel(std::string filename, std::map<std::string, int> des
     }
     if(file){
         // file << "###";
+        if(types[1]==""){
+            types[1]="20,15\n";
+
+        }
          for(auto const& y : types){
             file << y << "###" << "\n";
             std::cout << y << "###" << "\n";

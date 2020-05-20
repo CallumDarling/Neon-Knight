@@ -56,6 +56,7 @@ entt::entity EntityFactory::createBrute(entt::registry &registry, ResourceHandle
 entt::entity EntityFactory::createHench(entt::registry &registry, ResourceHandler<sf::Texture, Textures::ID> &text, sf::Vector2f location, std::vector<sf::Vector2f> path){
     entt::entity e = createEnemy(registry);
     sf::Sprite sprit;
+    location.y+=16;
     sprit.setTexture(text.get(Textures::Henchman));
     sprit.setPosition(location);
     std::vector<std::string> cExc = {""};
@@ -72,6 +73,8 @@ entt::entity EntityFactory::createGun(entt::registry &registry, ResourceHandler<
     sf::Sprite sprit;
     sprit.setTexture(text.get(Textures::Gunman));
     sprit.setPosition(location);
+    sf::IntRect ir = sprit.getTextureRect();
+    sprit.setTextureRect(sf::IntRect(ir.width, 0, -ir.width, ir.height));
     std::vector<std::string> cExc = {""};
     std::vector<int> animTextures = {4,4};
     std::vector<sf::Vector2f> cO = {};
@@ -86,6 +89,7 @@ entt::entity EntityFactory::createBoss(entt::registry &registry, ResourceHandler
     entt::entity e = createEnemy(registry);
     sf::Sprite sprit;
     sprit.setTexture(text.get(Textures::Boss));
+    location.y+=12;
     sprit.setPosition(location);
     std::vector<std::string> cExc = {""};
     std::vector<int> animTextures = {3,17};
@@ -182,14 +186,16 @@ entt::entity EntityFactory::createPlayerSword(entt::registry &registry, Resource
 }
 
 
-entt::entity EntityFactory::createText(entt::registry &registry, ResourceHandler<sf::Font, Fonts::ID> &fonts, sf::Vector2f location, std::string text, int size){
+entt::entity EntityFactory::createText(entt::registry &registry, ResourceHandler<sf::Font, Fonts::ID> &fonts, sf::Vector2f location, std::string text, int size, bool fromCenter){
     entt::entity e = registry.create();
     sf::Text tex;
     tex.setFont(fonts.get(Fonts::MenuFont));
     tex.setString(text);
     tex.setCharacterSize(size);
     tex.setStyle(sf::Text::Bold);
-    tex.setOrigin(tex.getGlobalBounds().width/2,tex.getGlobalBounds().height/2);
+    if(fromCenter){
+        tex.setOrigin(tex.getGlobalBounds().width/2,tex.getGlobalBounds().height/2);
+    }
     tex.setPosition(location);
     tex.setOutlineColor(sf::Color::Black);
     tex.setOutlineThickness(2);

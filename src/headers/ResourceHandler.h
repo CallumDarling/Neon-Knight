@@ -18,6 +18,7 @@ namespace Fonts{
 	enum ID {MenuFont};
 }
 
+
 template <typename Resource, typename Identifier>
 class ResourceHandler
 {

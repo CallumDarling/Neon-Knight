@@ -2,6 +2,7 @@
 #define GAME
 
 // #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include <cstdlib>
 #include <cassert>
 #include <iostream>
@@ -34,6 +35,7 @@ class Game{
         void updateMenu(sf::Time deltaTime);
         void initDesigner();
         void updateDesigner(sf::Time deltaTime);
+        void updateDeath(sf::Time deltaTime);
         void render();
         void handlePlayerInput(sf::Keyboard::Key key, bool isPressed);
         void loadLevel(std::string level);
@@ -47,6 +49,7 @@ class Game{
         void playerDeath();
         void playerWin();
         void changeToLevelSelect();
+        bool initMusic();
         int menuSection = 0;
         
 
@@ -65,6 +68,7 @@ class Game{
         entt::registry registry;
         ResourceHandler<sf::Texture, Textures::ID> textures;
         ResourceHandler<sf::Font, Fonts::ID> fonts;
+        // ResourceHandler<sf::Music, Music::ID> music;
         const sf::Time TimePerFrame = sf::seconds(1.f/60.f);
         entt::entity playerID;
         entt::entity playerSword;
@@ -87,6 +91,10 @@ class Game{
         bool mAttacking = false;
         bool deathLoading = false;
         int bossHealth;
+        std::string nextStep;
+        bool kill= false;
+        bool win = false;
+        sf::Music music;
 
 };
 
