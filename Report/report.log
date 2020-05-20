@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.5.8)  19 MAY 2020 00:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Arch Linux) (preloaded format=pdflatex 2020.5.8)  20 MAY 2020 07:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -117,17 +117,22 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 175.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 175.
- [4] [5] [6] (/home/callum/Projects/Neon-Knight/Report/report.aux) ) 
+ [4] [5]
+Overfull \hbox (39.8678pt too wide) in paragraph at lines 228--229
+[]\OT1/cmr/m/n/10 https://docs.microsoft.com/en-us/windows/win32/dxtecharts/best-security-practices-in-game-development 
+ []
+
+[6] (/home/callum/Projects/Neon-Knight/Report/report.aux) ) 
 Here is how much of TeX's memory you used:
- 800 strings out of 492167
- 10996 string characters out of 6131559
+ 801 strings out of 492167
+ 11014 string characters out of 6131559
  82257 words of memory out of 5000000
- 5214 multiletter control sequences out of 15000+600000
+ 5215 multiletter control sequences out of 15000+600000
  7895 words of font info for 28 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  25i,6n,34p,265b,189s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on /home/callum/Projects/Neon-Knight/Report/report.pdf (6 pages, 107529 bytes).
+Output written on /home/callum/Projects/Neon-Knight/Report/report.pdf (6 pages, 109091 bytes).
 PDF statistics:
  55 PDF objects out of 1000 (max. 8388607)
  38 compressed objects within 1 object stream
